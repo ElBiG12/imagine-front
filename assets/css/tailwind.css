@@ -1,0 +1,13 @@
+/**
+* For custom css implementation
+*/
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+@import "tailwindcss/screens";
+
+/** 
+* Custom
+*/
+/* @import "./fonts/_font-face"; */
+@import "./utilities/layouts";

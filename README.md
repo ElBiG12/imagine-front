@@ -19,9 +19,15 @@ $ yarn generate
 
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
 
-## UI/UX Desing
+## UI/UX Design
 
 Figma link to the design, [Imagine Cinema Design](https://www.figma.com/file/sZE40f9Nf1ghzbIjXmgh9J/Imagine-Cinma?node-id=552%3A270)
+
+## Fonts and icon
+
+**Roboto**
+**Roboto Condensed**
+**Ionicons** icons [Iconicons Website](https://ionicons.com/)
 
 ## Tailwind 
 

@@ -1,0 +1,11 @@
+/* @import "tailwindcss/base"; */
+
+.ic-container {
+    @apply flex w-full mt-12 px-4 mb-24;
+
+    @screen lg {
+        .main-header {
+            @apply w-10/12 mx-auto px-0;
+        }
+    }
+}
