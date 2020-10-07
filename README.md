@@ -26,10 +26,13 @@ Figma link to the design, [Imagine Cinema Design](https://www.figma.com/file/sZE
 ## Fonts and icon
 
 **Roboto**
+
 **Roboto Condensed**
+
 **Ionicons** icons [Iconicons Website](https://ionicons.com/)
 
 ## Tailwind 
 
 For TailwindCss core concept and explanation [TailwindCss docs](https://tailwindcss.com).
+
 For the module @nuxt/TailwindCss documentation [TailwindCss docs](https://tailwindcss.nuxtjs.org).
