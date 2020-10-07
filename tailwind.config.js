@@ -16,7 +16,17 @@ module.exports = {
       display: ['Roboto Condensed', 'sans-serif'],
       body: ['Roboto', 'sans-serif'],
     },
-    extend: {},
+    colors: {
+      secondary: 'var(--color-secondary)',
+      dark: 'var(--color-dark)',
+      light: 'var(--color-light)',
+      'light-grey': 'var(--color-light-grey)',
+    },
+    extend: {
+      gridTemplateRows: {
+         'main-layout': '200px 1fr auto',
+      }
+    },
   },
   variants: {},
   plugins: [],

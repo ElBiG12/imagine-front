@@ -1,10 +1,10 @@
 <template>
-  <div>
+  <div class="ic-container bg-dark">
     <div class="flex justify-center">
       <Logo />
     </div>
     <div class="flex justify-center">
-      <h1 class="title">
+      <h1 class="title text-secondary">
         here begin the journey
       </h1>
     </div>
@@ -16,7 +16,4 @@ export default {}
 </script>
 
 <style>
-.container {
-  @apply min-h-screen flex flex-col justify-center items-center text-center mx-auto;
-}
 </style>

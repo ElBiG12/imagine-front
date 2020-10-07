@@ -1,14 +1,17 @@
 <template>
-  <div class="wrapper">
-    <Header />
+  <div class="ic-main-layout">
+    <IcHeader />
     <Nuxt />
+    <IcFooter />
   </div>
 </template>
 <script>
-import Header from '@/components/partials/header'
+import IcHeader from '@/components/partials/IcHeader'
+import IcFooter from '@/components/partials/IcFooter'
 export default {
   components: {
-    Header
+    IcHeader,
+    IcFooter
   }
 }
 </script>

@@ -1,3 +1,4 @@
+@import "./variables";
 /**
 * For custom css implementation
 */
@@ -9,5 +10,4 @@
 /** 
 * Custom
 */
-/* @import "./fonts/_font-face"; */
 @import "./utilities/layouts";

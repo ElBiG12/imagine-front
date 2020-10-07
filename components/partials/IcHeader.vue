@@ -6,7 +6,7 @@
       class="imagine-cinema-logo"
     >
     <client-only placeholder="Loading...">
-      <div class="menu space-x-12">
+      <div class="menu space-x-6 md:space-x-12">
         <ion-icon name="time-outline" class="menu-icon" />
         <ion-icon name="search-outline" class="menu-icon" />
         <ion-icon name="menu-outline" class="menu-icon" />
