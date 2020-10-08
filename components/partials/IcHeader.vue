@@ -1,10 +1,13 @@
 <template>
   <nav class="main-header">
-    <img
+    <nuxt-link
+      tag="img"
+      to="/"
       src="/Logo-Imagine-Orange.png"
       alt="Imagine Cinema Logo"
-      class="imagine-cinema-logo"
+      class="imagine-cinema-logo cursor-pointer"
     >
+    </nuxt-link>
     <client-only placeholder="Loading...">
       <div class="menu space-x-6 md:space-x-12">
         <ion-icon name="time-outline" class="menu-icon" />

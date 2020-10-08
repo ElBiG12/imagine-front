@@ -11,3 +11,16 @@
 * Custom
 */
 @import "./utilities/layouts";
+@import "./utilities/buttons";
+@import "./utilities/inputs";
+
+/**
+* Others
+*/
+code {
+  font-family: Consolas,"courier new";
+  color: crimson;
+  background-color: #f1f1f1;
+  padding-left: 2px;
+  padding-right: 2px;
+}

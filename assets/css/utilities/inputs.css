@@ -1,0 +1,32 @@
+@layer utilities {
+  input {
+    @apply rounded-none border-b border-alt-light-grey border-solid outline-none;
+    @apply text-sm leading-3 font-sans;
+    @apply transition-colors duration-200;
+    @apply pb-5 px-1 pt-1;
+  }
+
+  input::placeholder {
+    @apply font-light;
+  }
+
+  input:hover,
+  input:focus {
+    @apply border-secondary;
+  }
+
+  .ic-checkbox {
+      @apply flex items-center gap-x-4;
+  }
+
+  .ic-checkbox input[type='checkbox'],
+  .ic-checkbox input[type='radio'] {
+    @apply border border-black border-solid;
+    border-radius: 1px;
+    width: 18px;
+    height: 18px;
+  }
+  .ic-checkbox label {
+    @apply leading-3;
+  }
+}
