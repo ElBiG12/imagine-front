@@ -44,21 +44,21 @@ For the module @nuxt/TailwindCss documentation [TailwindCss docs](https://tailwi
 #### Fonts class helpers
 
 ```
-.text-xs: .75rem => 12
-.text-sm: .875rem => 14
-.text-base: 1rem => 16
-.text-lg: 1.125rem => 18
-.text-xl: 1.25rem => 20
-.text-2xl: 1.5rem => 24
-.text-3xl: 1.75rem => 28
-.text-4xl: 2.25rem => 36
-.text-5xl: 2.375rem => 38
-.text-6xl: 3rem => 48
-.text-7xl: 3.625rem => 58
-.text-8-1xl: 4 => 64
-.text-8xl: 4.25rem => 68
-.text-9xl: 4.5rem => 72
-.text-10xl: 4.875rem => 78
-.text-11xl: 6rem => 96
-.text-12xl: 8.125rem => 130 "Main Menu Title"
+.text-xs: .75rem => 12px
+.text-sm: .875rem => 14px
+.text-base: 1rem => 16px
+.text-lg: 1.125rem => 18px
+.text-xl: 1.25rem => 20px
+.text-2xl: 1.5rem => 24px
+.text-3xl: 1.75rem => 28px
+.text-4xl: 2.25rem => 36px
+.text-5xl: 2.375rem => 38px
+.text-6xl: 3rem => 48px
+.text-7xl: 3.625rem => 58px
+.text-8-1xl: 4 => 64px
+.text-8xl: 4.25rem => 68px
+.text-9xl: 4.5rem => 72px
+.text-10xl: 4.875rem => 78px
+.text-11xl: 6rem => 96px
+.text-12xl: 8.125rem => 130px "Main Menu Title"
 ```
