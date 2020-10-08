@@ -1,7 +1,7 @@
 @layer utilities {
   .btn {
     @apply rounded-none border border-black border-solid;
-    @apply text-sm leading-3 font-sans font-bold;
+    @apply text-sm leading-normal font-sans font-bold;
     @apply transition-colors duration-200;
     padding: 0.625rem 2.125rem;
   }
@@ -11,7 +11,7 @@
   }
 
   .btn:hover {
-    @apply bg-light-grey bg-opacity-25;
+    @apply bg-light-grey bg-opacity-25 border-secondary;
   }
 
   .btn-alt:hover {

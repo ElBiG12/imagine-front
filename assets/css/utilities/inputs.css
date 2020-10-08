@@ -1,6 +1,6 @@
 @layer utilities {
   input {
-    @apply rounded-none border-b border-alt-light-grey border-solid outline-none;
+    @apply rounded-none border-b border-alt-light-grey border-solid outline-none bg-transparent;
     @apply text-sm leading-3 font-sans;
     @apply transition-colors duration-200;
     @apply pb-5 px-1 pt-1;

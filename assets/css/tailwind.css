@@ -15,6 +15,13 @@
 @import "./utilities/inputs";
 
 /**
+* Custom style
+*/
+body {
+    @apply bg-extra-light;
+}
+
+/**
 * Others
 */
 code {

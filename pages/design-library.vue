@@ -6,22 +6,25 @@
         <hr />
       </div>
       <div class="flex p-2 flex-row gap-y-2 gap-x-2 bg-secondary">
-        <p class="font-bold"> secondary </p>
+        <p class="font-bold">secondary</p>
       </div>
       <div class="flex p-2 text-white flex-row gap-y-2 gap-x-2 bg-dark">
-        <p class="font-bold"> dark </p>
+        <p class="font-bold">dark</p>
+      </div>
+      <div class="flex p-2 text-white flex-row gap-y-2 gap-x-2 bg-dark-grey">
+        <p class="font-bold">dark-grey</p>
       </div>
       <div class="flex p-2 flex-row gap-y-2 gap-x-2 bg-light">
-        <p class="font-bold"> light </p>
+        <p class="font-bold">light</p>
       </div>
       <div class="flex p-2 flex-row gap-y-2 gap-x-2 bg-light-grey">
-        <p class="font-bold"> light-grey </p>
+        <p class="font-bold">light-grey</p>
       </div>
       <div class="flex p-2 flex-row gap-y-2 gap-x-2 bg-alt-light-grey">
-        <p class="font-bold"> alt-light-grey </p>
+        <p class="font-bold">alt-light-grey</p>
       </div>
       <div class="flex p-2 flex-row gap-y-2 gap-x-2 bg-danger">
-        <p class="font-bold"> danger </p>
+        <p class="font-bold">danger</p>
       </div>
     </div>
     <div class="flex flex-col gap-y-8">

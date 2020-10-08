@@ -42,7 +42,9 @@ module.exports = {
       colors: {
         secondary: 'var(--color-secondary)',
         dark: 'var(--color-dark)',
+        'dark-grey': 'var(--color-dark-grey)',
         light: 'var(--color-light)',
+        'extra-light': 'var(--color-extra-light)',
         danger: 'var(--color-danger)',
         'light-grey': 'var(--color-light-grey)',
         'alt-light-grey': 'var(--color-alt-light-grey)',
