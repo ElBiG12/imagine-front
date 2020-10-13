@@ -1,0 +1,18 @@
+@layer utilities {
+    .link {
+        @apply inline-flex items-center;
+        @apply text-2xl font-medium cursor-pointer no-underline;
+    }
+
+    .link .link-icon {
+        @apply ml-10 text-lg;
+    }
+
+    .link-primary {
+        @apply text-secondary;
+    }
+
+    .link-primary .link-icon {
+        @apply text-danger;
+    }
+}

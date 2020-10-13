@@ -13,6 +13,7 @@
 @import "./utilities/layouts";
 @import "./utilities/buttons";
 @import "./utilities/inputs";
+@import "./utilities/link";
 
 /**
 * Custom style

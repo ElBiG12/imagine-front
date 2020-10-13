@@ -136,9 +136,9 @@
       </div>
       <div class="flex flex-row gap-y-2 gap-x-2">
         <input
+          id="default"
           type="text"
           name="default"
-          id="default"
           placeholder="Enter your name"
         />
       </div>

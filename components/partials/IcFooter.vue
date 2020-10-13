@@ -32,9 +32,9 @@
         <div class="grid grid-cols-5 gap-y-8 gap-x-8">
           <div class="col-span-5 md:col-span-3 flex items-end">
             <input
+              id="default"
               type="text"
               name="default"
-              id="default"
               class="w-full"
               placeholder="Enter your name"
             />
