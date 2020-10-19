@@ -1,15 +1,20 @@
 @layer utilities {
-    .ic-main-layout {
-        @apply grid grid-rows-main-layout min-h-screen w-full overscroll-x-none;
-    }
+  .ic-main-layout {
+    @apply grid grid-rows-main-layout min-h-screen w-full overscroll-x-none;
+  }
 
-    .ic-container, .ic-container-fluid {
-        @apply w-full px-4;
-    }
+  .ic-container,
+  .ic-container-fluid {
+    @apply w-full px-4;
+  }
 
-    @screen lg {
-        .ic-container {
-            @apply w-10/12 mx-auto px-0;
-        }
+  @screen lg {
+    .ic-container {
+      @apply w-10/12 mx-auto px-0;
     }
+  }
+
+  .push-from-header {
+    margin-top: 200px;
+  }
 }

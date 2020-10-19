@@ -37,7 +37,7 @@ module.exports = {
     },
     extend: {
       gridTemplateRows: {
-        'main-layout': '200px 1fr auto',
+        'main-layout': '1fr auto',
       },
       colors: {
         secondary: 'var(--color-secondary)',

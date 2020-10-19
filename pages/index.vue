@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="push-from-header">
     <div class="ic-container bg-dark">
       <HomeCarousel />
     </div>
