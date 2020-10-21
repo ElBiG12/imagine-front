@@ -8,19 +8,26 @@
         alt="Imagine Cinema Logo"
         class="imagine-cinema-logo cursor-pointer"
       />
-      <client-only placeholder="Loading...">
-        <div class="menu space-x-6 md:space-x-12">
-          <ion-icon name="time-outline" class="menu-icon" />
-          <ion-icon name="search-outline" class="menu-icon" />
-          <ion-icon name="menu-outline" class="menu-icon" />
-        </div>
-      </client-only>
+      <div v-if="closeMode">
+        <button @click="$router.back()" class="btn btn-alt">Fermer</button>
+      </div>
+      <div v-else class="menu space-x-6 md:space-x-12">
+        <nuxt-link tag="ion-icon" to="/search" name="search-outline" class="menu-icon" />
+        <ion-icon name="menu-outline" class="menu-icon" />
+      </div>
     </div>
   </nav>
 </template>
 
 <script>
-export default {}
+export default {
+  props: {
+    closeMode: {
+      type: Boolean,
+      default: false
+    }
+  }
+}
 </script>
 
 <style lang="postcss">

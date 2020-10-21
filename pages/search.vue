@@ -1,0 +1,47 @@
+<template>
+  <div class="search-page">
+    <div class="ic-container my-8 flex flex-row gap-6">
+      <div class="flex-1">
+        <input
+          id="default"
+          type="text"
+          name="default"
+          placeholder="Entrez votre requette de recherche"
+          class="w-full"
+        />
+      </div>
+      <div class="">
+        <button class="btn">Search</button>
+      </div>
+    </div>
+    <div class="ic-container">
+      <h3 class="my-16">Résultats</h3>
+    </div>
+    <div class="ic-container">
+      <div class="result-container">
+        <ThumbCard v-for="item in 9" :key="item" />
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+import ThumbCard from '@/components/card/ThumbCard'
+export default {
+  layout: 'search',
+  components: {
+    ThumbCard
+  }
+}
+</script>
+
+<style lang="postcss">
+.search-page {
+  margin-top: 200px;
+  @apply pb-24 min-h-screen;
+}
+
+.result-container {
+  @apply grid grid-cols-3 gap-8;
+}
+</style>
