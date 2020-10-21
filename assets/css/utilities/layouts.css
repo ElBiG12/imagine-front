@@ -5,7 +5,7 @@
 
   .ic-container,
   .ic-container-fluid {
-    @apply w-full px-4;
+    @apply w-full;
   }
 
   @screen lg {
