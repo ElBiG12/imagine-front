@@ -88,7 +88,7 @@
 <script>
 import ThumbCard from '@/components/card/ThumbCard'
 export default {
-  layout: 'search',
+  layout: 'nofooter',
   components: {
     ThumbCard
   }
