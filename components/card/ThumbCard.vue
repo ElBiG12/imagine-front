@@ -36,7 +36,7 @@ export default {
 }
 
 .thumb-card .title {
-  @apply text-lg leading-none my-4;
+  @apply text-lg leading-none mb-3 mt-4;
 }
 
 .thumb-card .subtitle {
@@ -48,7 +48,7 @@ export default {
 
 @screen sm {
   .thumb-card .title {
-    @apply text-lg leading-none my-4;
+    @apply text-lg leading-none mb-3 mt-4;
   }
 
   .thumb-card .subtitle {
@@ -58,7 +58,7 @@ export default {
 
 @screen md {
   .thumb-card .title {
-    @apply text-lg leading-none my-4;
+    @apply text-lg leading-none mb-3 mt-4;
   }
 
   .thumb-card .subtitle {

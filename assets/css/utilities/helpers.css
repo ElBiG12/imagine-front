@@ -1,0 +1,9 @@
+@layer utilities {
+  .pages-head-title {
+    @apply text-7xl font-bold leading-normal font-display;
+  }
+
+  .pages-head-subtitle {
+    @apply text-5xl font-light leading-normal my-12;
+  }
+}

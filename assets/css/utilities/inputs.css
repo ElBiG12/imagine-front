@@ -27,6 +27,6 @@
     height: 18px;
   }
   .ic-checkbox label {
-    @apply leading-3;
+    @apply leading-snug;
   }
 }
