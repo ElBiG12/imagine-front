@@ -44,6 +44,10 @@
       </div>
     </div>
 
+    <div class="ic-container my-24">
+      <WorkshopDoc />
+    </div>
+
     <div class="next-case-section">
       <img src="/img/case-study-2.jpg" alt="case study" srcset="" />
       <div class="content">
@@ -61,8 +65,12 @@
 </template>
 
 <script>
+import WorkshopDoc from '@/components/card/WorkshopDoc'
 export default {
-  layout: 'nofooter'
+  layout: 'nofooter',
+  components: {
+    WorkshopDoc
+  }
 }
 </script>
 
@@ -141,7 +149,7 @@ export default {
 }
 
 .next-case-section .content .case-loader {
-  @apply block w-full h-0 mr-auto;
-  border: 2px solid #FFFFFF;
+  @apply block w-full h-0 mr-auto bg-white;
+  border: 2px solid #ffffff;
 }
 </style>
