@@ -3,19 +3,20 @@
     @apply grid grid-rows-main-layout min-h-screen w-full overscroll-x-none;
   }
 
-    .ic-container, .ic-container-fluid {
-        @apply w-full;
-        padding-left : 6vmax;
-        padding-right : 6vmax;
-    }
+  .ic-container,
+  .ic-container-fluid {
+    @apply w-full;
+    padding-left: 6vmax;
+    padding-right: 6vmax;
+  }
 
-    @screen lg {
-        .ic-container {
-            @apply w-full ;
-            padding-left : 6vmax;
-            padding-right : 6vmax;
-        }
+  @screen lg {
+    .ic-container {
+      @apply w-full;
+      padding-left: 6vmax;
+      padding-right: 6vmax;
     }
+  }
 
   .push-from-header {
     margin-top: 200px;

@@ -1,5 +1,5 @@
 <template>
-  <div class="overflow-auto">
+  <div class="overflow-auto grid push-from-header">
     <section class="ic-container section">
       <div class="big-title">
         <h1>Imagine un projet de Cinéma et Mémoire.</h1>
@@ -313,7 +313,7 @@ export default {
   object-fit: cover;
   object-position: center center;
 }
-.mb-container{
+.mb-container {
   width: 100%;
   height: 45vh;
   position: relative;
@@ -322,7 +322,7 @@ export default {
   justify-content: flex-end;
   background-color: burlywood;
 }
-.mb-picture{
+.mb-picture {
   width: 100%;
   height: 100%;
   position: absolute;
