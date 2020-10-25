@@ -4,12 +4,16 @@
     }
 
     .ic-container, .ic-container-fluid {
-        @apply w-full px-4;
+        @apply w-full;
+        padding-left : 6vmax;
+        padding-right : 6vmax;
     }
 
     @screen lg {
         .ic-container {
-            @apply w-10/12 mx-auto px-0;
+            @apply w-full ;
+            padding-left : 6vmax;
+            padding-right : 6vmax;
         }
     }
 }
