@@ -1,6 +1,6 @@
 <template>
   <nav class="absolute-header">
-    <div class="main-header">
+    <div class="main-header ic-container">
       <nuxt-link
         tag="img"
         to="/"
@@ -32,19 +32,13 @@ export default {
 
 <style lang="postcss">
 .main-header {
-  @apply flex justify-between w-full mt-12 px-4 mb-24;
+  @apply flex justify-between mt-12 mb-24;
   height: 60px !important;
 }
 
 .absolute-header {
-  @apply absolute w-full z-50;
+  @apply absolute w-full flex justify-center z-50;
   height: 200px;
-}
-
-@screen lg {
-  .main-header {
-    @apply w-10/12 mx-auto px-0;
-  }
 }
 
 .imagine-cinema-logo {
