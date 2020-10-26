@@ -3,14 +3,23 @@
     @apply grid grid-rows-main-layout min-h-screen w-full overscroll-x-none;
   }
 
-  .ic-container,
+  .ic-container {
+    @apply w-full;
+    padding-left: 6vmax;
+    padding-right: 6vmax;
+  }
+
   .ic-container-fluid {
     @apply w-full;
+    padding-left: 0;
+    padding-right: 0;
   }
 
   @screen lg {
     .ic-container {
-      @apply w-10/12 mx-auto px-0;
+      @apply w-full;
+      padding-left: 6vmax;
+      padding-right: 6vmax;
     }
   }
 
