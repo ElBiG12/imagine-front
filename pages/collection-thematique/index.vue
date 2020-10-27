@@ -1,6 +1,6 @@
 <template>
   <div class="push-from-header">
-    <div class="head-title-block">
+    <div class="head-title-block ic-container">
       <h1 class="pages-head-title">
         Nous créons des
         <span class="text-secondary">Collection thématique </span> percutantes
@@ -12,7 +12,9 @@
         right questiosn and engage in various important discutions.
       </p>
     </div>
-    <div class="ic-container flex flex-col">
+    <div class="ic-container flex flex-col gap-y-16">
+      <PostCard />
+      <PostCard reversed/>
       <PostCard />
     </div>
   </div>
@@ -29,7 +31,7 @@ export default {
 
 <style lang="postcss" scoped>
 .head-title-block {
-  @apply w-full mx-auto flex flex-col;
+  @apply flex flex-col;
 }
 
 @screen lg {
