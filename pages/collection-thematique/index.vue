@@ -1,16 +1,18 @@
 <template>
   <div class="push-from-header">
-    <div class="head-title-block ic-container">
-      <h1 class="pages-head-title">
-        Nous créons des
-        <span class="text-secondary">Collection thématique </span> percutantes
-        qui se démarquent...
-      </h1>
+    <div class="ic-container">
+      <div class="head-title-block">
+        <h1 class="pages-head-title">
+          Nous créons des
+          <span class="text-secondary">Collection thématique </span> percutantes
+          qui se démarquent...
+        </h1>
 
-      <p class="pages-head-subtitle">
-        Cinema imagine creates impactful Documentaries that help viewers ask the
-        right questiosn and engage in various important discutions.
-      </p>
+        <p class="pages-head-subtitle">
+          Cinema imagine creates impactful Documentaries that help viewers ask the
+          right questiosn and engage in various important discutions.
+        </p>
+      </div>
     </div>
     <div class="ic-container flex flex-col gap-y-16">
       <PostCard />
@@ -31,7 +33,7 @@ export default {
 
 <style lang="postcss" scoped>
 .head-title-block {
-  @apply flex flex-col;
+  @apply w-full flex flex-col mx-auto;
 }
 
 @screen lg {

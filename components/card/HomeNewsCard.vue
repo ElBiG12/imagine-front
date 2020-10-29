@@ -1,5 +1,5 @@
 <template>
-  <a href="" class="news-card">
+  <a href="" class="news-card" :class="{tall: tall}">
     <div v-if="isReadMore" class="readmore-img-wrapper">
       <img src="/img/home-news-readmore.png" alt="" />
     </div>
@@ -13,7 +13,7 @@
     </span>
     <span v-else>
       <h2 class="title">A sound form you can see, not just hear.</h2>
-      <p class="subtitle">A sound form you can see, not just hear.</p>
+      <p class="subtitle" v-if="!tall">A sound form you can see, not just hear.</p>
     </span>
   </a>
 </template>
@@ -22,6 +22,10 @@
 export default {
   props: {
     isReadMore: {
+      default: false,
+      type: Boolean
+    },
+    tall: {
       default: false,
       type: Boolean
     }
@@ -42,6 +46,12 @@ export default {
   @apply mb-4;
 }
 
+.tall .img-wrapper {
+  position: relative;
+  padding-top: calc(632 / 418 * 100%);
+  @apply mb-4;
+}
+
 .readmore-img-wrapper {
   position: relative;
   padding-top: calc(267 / 418 * 100%);
@@ -49,11 +59,11 @@ export default {
 }
 
 .img-wrapper img {
-  @apply absolute bottom-0 left-0 w-full h-auto;
+  @apply absolute bottom-0 left-0 min-w-full w-auto min-h-full object-cover;
 }
 
 .readmore-img-wrapper img {
-  @apply absolute top-0 left-0 w-auto h-full;
+  @apply absolute top-0 left-0 min-w-full w-auto min-h-full object-cover;
 }
 
 .news-card .title {
@@ -76,7 +86,7 @@ export default {
 
 @screen md {
   .news-card {
-    @apply w-1/2;
+    /* @apply w-1/2; */
   }
 
   .news-card .title {
@@ -90,7 +100,7 @@ export default {
 
 @screen lg {
   .news-card {
-    @apply w-1/3;
+    /* @apply w-1/3; */
   }
 }
 </style>

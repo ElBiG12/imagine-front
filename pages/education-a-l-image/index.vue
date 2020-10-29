@@ -1,15 +1,17 @@
 <template>
   <div class="push-from-header">
-    <div class="head-title-block">
-      <h1 class="pages-head-title">
-        <span class="text-secondary">L’education a l’image </span> percutants
-        qui se démarquent...
-      </h1>
+    <div class="ic-container">
+      <div class="head-title-block">
+        <h1 class="pages-head-title">
+          <span class="text-secondary">L’education a l’image </span> percutants
+          qui se démarquent...
+        </h1>
 
-      <p class="pages-head-subtitle">
-        Cinema imagine creates impactful Documentaries that help viewers ask the
-        right questiosn and engage in various important discutions.
-      </p>
+        <p class="pages-head-subtitle">
+          Cinema imagine creates impactful Documentaries that help viewers ask the
+          right questiosn and engage in various important discutions.
+        </p>
+      </div>
     </div>
     <div class="ic-container videos-block mt-40">
       <h5 class="videos-title">Les ciné club</h5>
