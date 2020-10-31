@@ -182,7 +182,105 @@
       </div>
     </div>
     <div class="poster-cn">
-      <div class="ic-container p-20 grid grid-cols-1">
+      <div class="grid grid-cols-1 place-items-center">
+        <div class="simply-scroll simply-scroll-container">
+          <ul id="scroller" class="simply-scroll-list">
+            <li>
+              <img
+                src="http://logicbox.net/jquery/simplyscroll/assets/20080514_JYW68XPT_tb.jpg"
+              />
+            </li>
+            <li>
+              <img
+                src="http://logicbox.net/jquery/simplyscroll/assets/20080608_38CG51J2_tb.jpg"
+              />
+            </li>
+            <li>
+              <img
+                src="http://logicbox.net/jquery/simplyscroll/assets/20080513_4D3SD1BQ_tb.jpg"
+              />
+            </li>
+            <li>
+              <img
+                src="http://logicbox.net/jquery/simplyscroll/assets/20080513_4D3SD1BQ_tb.jpg"
+              />
+            </li>
+            <li>
+              <img
+                src="http://logicbox.net/jquery/simplyscroll/assets/20080513_4D3SD1BQ_tb.jpg"
+              />
+            </li>
+            <li>
+              <img
+                src="http://logicbox.net/jquery/simplyscroll/assets/20080513_4D3SD1BQ_tb.jpg"
+              />
+            </li>
+            <li>
+              <img
+                src="http://logicbox.net/jquery/simplyscroll/assets/20080513_4D3SD1BQ_tb.jpg"
+              />
+            </li>
+            <li>
+              <img
+                src="http://logicbox.net/jquery/simplyscroll/assets/20080513_4D3SD1BQ_tb.jpg"
+              />
+            </li>
+            <li>
+              <img
+                src="http://logicbox.net/jquery/simplyscroll/assets/20080513_4D3SD1BQ_tb.jpg"
+              />
+            </li>
+          </ul>
+        </div>
+         <div class="simply-scroll simply-scroll-container">
+          <ul id="scroller2" class="simply-scroll-list">
+            <li>
+              <img
+                src="http://logicbox.net/jquery/simplyscroll/assets/20080514_JYW68XPT_tb.jpg"
+              />
+            </li>
+            <li>
+              <img
+                src="http://logicbox.net/jquery/simplyscroll/assets/20080608_38CG51J2_tb.jpg"
+              />
+            </li>
+            <li>
+              <img
+                src="http://logicbox.net/jquery/simplyscroll/assets/20080513_4D3SD1BQ_tb.jpg"
+              />
+            </li>
+            <li>
+              <img
+                src="http://logicbox.net/jquery/simplyscroll/assets/20080513_4D3SD1BQ_tb.jpg"
+              />
+            </li>
+            <li>
+              <img
+                src="http://logicbox.net/jquery/simplyscroll/assets/20080513_4D3SD1BQ_tb.jpg"
+              />
+            </li>
+            <li>
+              <img
+                src="http://logicbox.net/jquery/simplyscroll/assets/20080513_4D3SD1BQ_tb.jpg"
+              />
+            </li>
+            <li>
+              <img
+                src="http://logicbox.net/jquery/simplyscroll/assets/20080513_4D3SD1BQ_tb.jpg"
+              />
+            </li>
+            <li>
+              <img
+                src="http://logicbox.net/jquery/simplyscroll/assets/20080513_4D3SD1BQ_tb.jpg"
+              />
+            </li>
+            <li>
+              <img
+                src="http://logicbox.net/jquery/simplyscroll/assets/20080513_4D3SD1BQ_tb.jpg"
+              />
+            </li>
+          </ul>
+        </div>
         <span class="">
           <h1 class="text-5xl font-light font-display text-white">
             Want to work together ?
@@ -196,13 +294,108 @@
   </div>
 </template>
 <script>
-export default {}
+import $ from 'jquery'
+if (typeof window !== 'undefined') {
+  require('jquery-simplyscroll')
+}
+export default {
+  mounted () {
+    $('#scroller').simplyScroll({
+      auto: true,
+      autoMode: 'loop',
+      customClass: 'simply-scroll',
+      direction: 'backward',
+      frameRate: 60,
+      initialOffset: 0,
+      manualMode: 'end',
+      orientation: 'horizontal',
+      pauseButton: false,
+      pauseOnHover: false,
+      pauseOnTouch: false,
+      speed: 4,
+      startOnLoad: false
+    })
+    $('#scroller2').simplyScroll({
+      auto: true,
+      autoMode: 'loop',
+      customClass: 'simply-scroll',
+      direction: 'forwards',
+      frameRate: 60,
+      initialOffset: 0,
+      manualMode: 'end',
+      orientation: 'horizontal',
+      pauseButton: false,
+      pauseOnHover: false,
+      pauseOnTouch: false,
+      speed: 8,
+      startOnLoad: false
+    })
+  }
+}
 </script>
-<style scoped>
+<style >
 .poster-cn {
+  position: relative;
+  overflow: hidden;
   margin-top: 30vh;
   width: 100%;
-  height: 100vh;
   background-color: #0a0e0d;
+}
+/* Container DIV - automatically generated */
+.simply-scroll-container {
+  position: relative;
+}
+
+/* Clip DIV - automatically generated */
+.simply-scroll-clip {
+  position: relative;
+  overflow: hidden;
+}
+
+/* UL/OL/DIV - the element that simplyScroll is inited on
+Class name automatically added to element */
+.simply-scroll-list {
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.simply-scroll-list li {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.simply-scroll-list li img {
+  border: none;
+  display: block;
+  position: relative;
+  border: none;
+  display: block;
+  width: 328px;
+  height: 470px;
+}
+
+/* Custom class modifications - adds to / overrides above
+.simply-scroll is default base class */
+
+/* Container DIV */
+.simply-scroll {
+  width: 100%;
+  margin-bottom: 1em;
+}
+
+/* Clip DIV */
+.simply-scroll .simply-scroll-clip {
+  width: 100%;
+}
+
+/* Explicitly set height/width of each list item */
+.simply-scroll .simply-scroll-list li {
+  float: left; /* Horizontal scroll only */
+  width: 328px;
+  height: 470px;
+  padding: 20px;
 }
 </style>

@@ -68,16 +68,80 @@
     </div>
 
     <div class="ic-container-fluid grid grid-row-2 mt-64">
-      <div class="ic-container flex flex-row justify-between mb-12 items-center">
+      <div
+        class="ic-container flex flex-row justify-between mb-12 items-center"
+      >
         <h1 class="text-3xl font-bold font-display">Films Documentaires</h1>
         <a href="#" class="link link-primary">
           Voir tous les films
           <ion-icon name="chevron-forward-outline" class="link-icon" />
         </a>
       </div>
-      <div class="flex flex-row w-full relative gap-12">
-          <HomeDocCard />
-          <HomeDocCard />
+    </div>
+    <div class="poster-cn">
+      <div class="grid grid-cols-1 place-items-center">
+        <div class="simply-scroll simply-scroll-container">
+          <ul id="scroller" class="simply-scroll-list grid grid-flow-col gap-10">
+            <li>
+              <DocCard />
+            </li>
+            <li>
+                <DocCard />
+            </li>
+            <li>
+                <DocCard />
+            </li>
+            <li>
+                <DocCard />
+            </li>
+            <li>
+               <DocCard />
+            </li>
+            <li>
+               <DocCard />
+            </li>
+            <li>
+               <DocCard />
+            </li>
+            <li>
+               <DocCard />
+            </li>
+            <li>
+                <DocCard />
+            </li>
+          </ul>
+        </div>
+        <div class="simply-scroll simply-scroll-container">
+          <ul id="scroller2" class="simply-scroll-list grid grid-flow-col gap-10">
+            <li>
+                <DocCard />
+            </li>
+            <li>
+                <DocCard />
+            </li>
+            <li>
+                <DocCard />
+            </li>
+            <li>
+                <DocCard />
+            </li>
+            <li>
+                <DocCard />
+            </li>
+            <li>
+                <DocCard />
+            </li>
+            <li>
+               <DocCard />
+            </li>
+            <li>
+               <DocCard />
+            </li>
+            <li>
+                <DocCard />
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
@@ -86,16 +150,97 @@
 <script>
 import HomeCarousel from '@/components/sliders/carousel'
 import HomeNewsCard from '@/components/card/HomeNewsCard'
-import HomeDocCard from '@/components/card/HomeDocCard'
+import DocCard from '@/components/card/DocCard'
+import $ from 'jquery'
+
+if (typeof window !== 'undefined') {
+  require('jquery-simplyscroll')
+}
 
 export default {
   components: {
     HomeCarousel,
     HomeNewsCard,
-    HomeDocCard
+    DocCard
+  },
+  mounted () {
+    $('#scroller').simplyScroll({
+      auto: true,
+      autoMode: 'loop',
+      customClass: 'simply-scroll',
+      direction: 'backward',
+      frameRate: 60,
+      initialOffset: 0,
+      manualMode: 'end',
+      orientation: 'horizontal',
+      pauseButton: false,
+      pauseOnHover: false,
+      pauseOnTouch: false,
+      speed: 4,
+      startOnLoad: false
+    })
+    $('#scroller2').simplyScroll({
+      auto: true,
+      autoMode: 'loop',
+      customClass: 'simply-scroll',
+      direction: 'forwards',
+      frameRate: 60,
+      initialOffset: 0,
+      manualMode: 'end',
+      orientation: 'horizontal',
+      pauseButton: false,
+      pauseOnHover: false,
+      pauseOnTouch: false,
+      speed: 8,
+      startOnLoad: false
+    })
   }
 }
 </script>
 
 <style>
+.poster-cn {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+/* Container DIV - automatically generated */
+.simply-scroll-container {
+  position: relative;
+}
+
+/* Clip DIV - automatically generated */
+.simply-scroll-clip {
+  position: relative;
+  overflow: hidden;
+}
+
+/* UL/OL/DIV - the element that simplyScroll is inited on
+Class name automatically added to element */
+.simply-scroll-list {
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+/* Custom class modifications - adds to / overrides above
+.simply-scroll is default base class */
+
+/* Container DIV */
+.simply-scroll {
+  width: 100%;
+  margin-bottom: 1em;
+}
+
+/* Clip DIV */
+.simply-scroll .simply-scroll-clip {
+  width: 100%;
+}
+
+/* Explicitly set height/width of each list item */
+.simply-scroll .simply-scroll-list li {
+  float: left; /* Horizontal scroll only */
+  width: 435px;
+  height: 260px;
+}
 </style>
