@@ -12,7 +12,7 @@
             alt="altstuff"
           />
         </div>
-        <div class="play-button"></div>
+        <PlayButton />
       </div>
     </section>
     <section class="ic-container section">
@@ -284,9 +284,12 @@
 </template>
 <script>
 import MemberCard from '@/components/card/MemberCard'
+import PlayButton from '@/components/utilities/PlayButton'
+
 export default {
   components: {
-    MemberCard
+    MemberCard,
+    PlayButton
   }
 }
 </script>

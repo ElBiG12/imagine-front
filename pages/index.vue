@@ -81,64 +81,70 @@
     <div class="poster-cn">
       <div class="grid grid-cols-1 place-items-center">
         <div class="simply-scroll simply-scroll-container">
-          <ul id="scroller" class="simply-scroll-list grid grid-flow-col gap-10">
+          <ul
+            id="scroller"
+            class="simply-scroll-list grid grid-flow-col gap-10"
+          >
             <li>
               <DocCard />
             </li>
             <li>
-                <DocCard />
+              <DocCard />
             </li>
             <li>
-                <DocCard />
+              <DocCard />
             </li>
             <li>
-                <DocCard />
+              <DocCard />
             </li>
             <li>
-               <DocCard />
+              <DocCard />
             </li>
             <li>
-               <DocCard />
+              <DocCard />
             </li>
             <li>
-               <DocCard />
+              <DocCard />
             </li>
             <li>
-               <DocCard />
+              <DocCard />
             </li>
             <li>
-                <DocCard />
+              <DocCard />
             </li>
           </ul>
         </div>
         <div class="simply-scroll simply-scroll-container">
-          <ul id="scroller2" class="simply-scroll-list grid grid-flow-col gap-10">
+          <ul
+            id="scroller2"
+            class="simply-scroll-list grid grid-flow-col gap-10"
+          >
             <li>
-                <DocCard />
+              <DocCard />
             </li>
             <li>
-                <DocCard />
+              <DocCard />
             </li>
             <li>
-                <DocCard />
+              <DocCard />
             </li>
             <li>
-                <DocCard />
+              <DocCard />
             </li>
             <li>
-                <DocCard />
+              <DocCard />
             </li>
             <li>
-                <DocCard />
+              <DocCard />
             </li>
             <li>
-               <DocCard />
+              <DocCard />
             </li>
             <li>
-               <DocCard />
+              <DocCard />
             </li>
             <li>
-                <DocCard />
+              <DocCard />
             </li>
           </ul>
         </div>
