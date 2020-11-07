@@ -1,18 +1,34 @@
 <template>
-  <div class="card-container">
+  <nuxt-link :to="'/cases/' + index" class="card-container">
     <img
       class="doc-picture z-0"
-      src="https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
+      :src="item.img"
       alt=""
     />
     <span class="text-white p-10 z-10">
-      <h2 class="text-2xl font-bold">A movie made by Imagine </h2>
-      <p class="font-light">This is the descreption for the imagine & memoire movies</p>
+      <h2
+        class="text-2xl font-bold"
+        v-text="item.title"
+      ></h2>
+      <p class="font-light" v-text="item.short_desc"></p>
     </span>
-  </div>
+  </nuxt-link>
 </template>
 <script>
-export default {}
+export default {
+  props: {
+    index: {
+      type: String
+    },
+    item: {
+      type: Object,
+      required: true
+    }
+  },
+  mounted () {
+    console.log(this.index)
+  }
+}
 </script>
 <style scoped>
 .card-container {
@@ -23,6 +39,7 @@ export default {}
   flex-direction: column;
   justify-content: flex-end;
   background-color: burlywood;
+  cursor: pointer;
 }
 .doc-picture {
   width: 100%;

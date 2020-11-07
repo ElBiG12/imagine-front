@@ -6,6 +6,7 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 @import "tailwindcss/screens";
+@import "locomotive-scroll/dist/locomotive-scroll.css";
 
 /** 
 * Custom
@@ -15,6 +16,11 @@
 @import "./utilities/buttons";
 @import "./utilities/inputs";
 @import "./utilities/link";
+
+/** 
+* Animations
+*/
+@import "./animation/page-transitions";
 
 /**
 * Custom style

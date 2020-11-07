@@ -10,7 +10,7 @@ export default {}
 
 <style lang="postcss" scoped>
 .play-button {
-  position: absolute;
+  position: relative;
   width: 150px;
   height: 150px;
   background: rgba(255, 255, 255, 0.5);

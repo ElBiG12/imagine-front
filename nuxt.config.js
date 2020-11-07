@@ -20,8 +20,19 @@ export default {
     '~/assets/css/tailwind.css'
   ],
 
+  // layoutTransition: {
+  //   name: "page"
+  // },
+
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
+    {
+      src: '~/plugins/v-shared-element.client.js'
+    },
+    {
+      src: '~/plugins/locomotiveScroll.js',
+      mode: 'client'
+    }
   ],
 
   // Defaults options

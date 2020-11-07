@@ -85,32 +85,8 @@
             id="scroller"
             class="simply-scroll-list grid grid-flow-col gap-10"
           >
-            <li>
-              <DocCard />
-            </li>
-            <li>
-              <DocCard />
-            </li>
-            <li>
-              <DocCard />
-            </li>
-            <li>
-              <DocCard />
-            </li>
-            <li>
-              <DocCard />
-            </li>
-            <li>
-              <DocCard />
-            </li>
-            <li>
-              <DocCard />
-            </li>
-            <li>
-              <DocCard />
-            </li>
-            <li>
-              <DocCard />
+            <li v-for="(doc, i) in 9" :key="i">
+              <DocCard :index="'toplane_' + i" :item="top"/>
             </li>
           </ul>
         </div>
@@ -119,32 +95,8 @@
             id="scroller2"
             class="simply-scroll-list grid grid-flow-col gap-10"
           >
-            <li>
-              <DocCard />
-            </li>
-            <li>
-              <DocCard />
-            </li>
-            <li>
-              <DocCard />
-            </li>
-            <li>
-              <DocCard />
-            </li>
-            <li>
-              <DocCard />
-            </li>
-            <li>
-              <DocCard />
-            </li>
-            <li>
-              <DocCard />
-            </li>
-            <li>
-              <DocCard />
-            </li>
-            <li>
-              <DocCard />
+            <li v-for="(doc2, i2) in 9" :key="i2">
+              <DocCard :index="'bottomlane_' + i2" :item="bottom"/>
             </li>
           </ul>
         </div>
@@ -168,6 +120,24 @@ export default {
     HomeCarousel,
     HomeNewsCard,
     DocCard
+  },
+  data () {
+    return {
+      top: {
+        title: 'An auto biography',
+        img: '/docs/toplane.jpg',
+        slug: 'toplane',
+        short_desc:
+          'This is the descreption for the imagine & memoire movies.'
+      },
+      bottom: {
+        title: 'An auto biography',
+        img: '/docs/bottomlane.jpg',
+        slug: 'bottomlane',
+        short_desc:
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et augue mauris a vulputate.'
+      }
+    }
   },
   mounted () {
     $('#scroller').simplyScroll({
