@@ -257,7 +257,12 @@
         Members
       </h2>
       <div class="grid md:grid-row-3 lg:grid-rows-3 gap-20">
-        <div class="grid grid-flow-col gap-20 first-row">
+        <div
+          class="grid grid-flow-col gap-20 first-row"
+          data-scroll
+          data-scroll-speed="2"
+          data-scroll-direction="horizontal"
+        >
           <MemberCard />
           <MemberCard />
           <MemberCard />
@@ -268,13 +273,9 @@
         </div>
         <div
           class="grid grid-flow-col gap-20 second-row hello"
-          data-paroller-factor="1"
-          data-paroller-factor-lg="0.6"
-          data-paroller-factor-md="0.6"
-          data-paroller-factor-sm="-0.2"
-          data-paroller-factor-xs="-0.1"
-          data-paroller-type="foreground"
-          data-paroller-direction="horizontal"
+          data-scroll
+          data-scroll-speed="-1"
+          data-scroll-direction="horizontal"
         >
           <MemberCard />
           <MemberCard />
@@ -284,7 +285,12 @@
           <MemberCard />
           <MemberCard />
         </div>
-        <div class="grid grid-flow-col gap-20 third-row hello">
+        <div
+          class="grid grid-flow-col gap-20 third-row hello"
+          data-scroll
+          data-scroll-speed="3"
+          data-scroll-direction="horizontal"
+        >
           <MemberCard />
           <MemberCard />
           <MemberCard />
@@ -299,38 +305,13 @@
 </template>
 <script>
 import MemberCard from '@/components/card/MemberCard'
-import $ from 'jquery'
-if (typeof window !== 'undefined') {
-  require('paroller.js')
-}
+import locomotive from '~/mixins/locomotive.js'
 export default {
   mixins: [locomotive],
   components: {
     MemberCard
   },
-  mounted () {
-    $('.first-row').paroller({
-      factorXs: 0.6,
-      factorSm: 0.1,
-      factorMd: -0.4,
-      factorLg: -0.5,
-      factorXl: -0.6,
-      factor: -0.4,
-      type: 'foreground',
-      direction: 'horizontal'
-    })
-    $('.second-row').paroller()
-    $('.third-row').paroller({
-      factorXs: 0.3,
-      factorSm: 0.1,
-      factorMd: -0.2,
-      factorLg: -0.2,
-      factorXl: -0.2,
-      factor: -0.2,
-      type: 'foreground',
-      direction: 'horizontal'
-    })
-  }
+  mounted () {}
 }
 </script>
 <style>
@@ -430,6 +411,6 @@ export default {
   transform: translateX(-200px);
 }
 .hello {
-  transform: translateX(-20%);
+  transform: translateX(-40%);
 }
 </style>
