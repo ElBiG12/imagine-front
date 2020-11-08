@@ -7693,6 +7693,13 @@ parent-module@^2.0.0:
   dependencies:
     callsites "^3.1.0"
 
+paroller.js@^1.4.7:
+  version "1.4.7"
+  resolved "https://registry.yarnpkg.com/paroller.js/-/paroller.js-1.4.7.tgz#a99000fd1746b1854cc6d34814c40b2820f18a64"
+  integrity sha512-2CLG2nMOemB1TlgN8E2LBzGT8XgRlkkFk9MSp32kLRgxE1zOydpuLNfMwNdjENXEZPQcFKP3txzxoUPoGcuscQ==
+  dependencies:
+    jquery "^3.5.1"
+
 parse-asn1@^5.0.0, parse-asn1@^5.1.5:
   version "5.1.6"
   resolved "https://registry.yarnpkg.com/parse-asn1/-/parse-asn1-5.1.6.tgz#385080a3ec13cb62a62d39409cb3e88844cdaed4"

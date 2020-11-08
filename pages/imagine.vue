@@ -221,7 +221,7 @@
     <section
       class="ic-container section grid gap-20 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2"
     >
-      <div class="">
+      <div>
         <div class="picture-container">
           <img
             class="picture"
@@ -256,22 +256,37 @@
       <h2 class="ic-container text-3xl font-bold font-display mb-16">
         Members
       </h2>
-      <div class="grid md:grid-row-3 lg:grid-rows-3 gap-20 overflow-x-auto">
-        <div class="grid grid-flow-col gap-20">
+      <div class="grid md:grid-row-3 lg:grid-rows-3 gap-20">
+        <div class="grid grid-flow-col gap-20 first-row">
           <MemberCard />
           <MemberCard />
-          <MemberCard />
-          <MemberCard />
-          <MemberCard />
-        </div>
-        <div class="grid grid-flow-col gap-20">
           <MemberCard />
           <MemberCard />
           <MemberCard />
           <MemberCard />
           <MemberCard />
         </div>
-        <div class="grid grid-flow-col gap-20">
+        <div
+          class="grid grid-flow-col gap-20 second-row hello"
+          data-paroller-factor="1"
+          data-paroller-factor-lg="0.6"
+          data-paroller-factor-md="0.6"
+          data-paroller-factor-sm="-0.2"
+          data-paroller-factor-xs="-0.1"
+          data-paroller-type="foreground"
+          data-paroller-direction="horizontal"
+        >
+          <MemberCard />
+          <MemberCard />
+          <MemberCard />
+          <MemberCard />
+          <MemberCard />
+          <MemberCard />
+          <MemberCard />
+        </div>
+        <div class="grid grid-flow-col gap-20 third-row hello">
+          <MemberCard />
+          <MemberCard />
           <MemberCard />
           <MemberCard />
           <MemberCard />
@@ -284,14 +299,37 @@
 </template>
 <script>
 import MemberCard from '@/components/card/MemberCard'
-import PlayButton from '@/components/utilities/PlayButton'
-import locomotive from '~/mixins/locomotive.js'
-
+import $ from 'jquery'
+if (typeof window !== 'undefined') {
+  require('paroller.js')
+}
 export default {
   mixins: [locomotive],
   components: {
-    MemberCard,
-    PlayButton
+    MemberCard
+  },
+  mounted () {
+    $('.first-row').paroller({
+      factorXs: 0.6,
+      factorSm: 0.1,
+      factorMd: -0.4,
+      factorLg: -0.5,
+      factorXl: -0.6,
+      factor: -0.4,
+      type: 'foreground',
+      direction: 'horizontal'
+    })
+    $('.second-row').paroller()
+    $('.third-row').paroller({
+      factorXs: 0.3,
+      factorSm: 0.1,
+      factorMd: -0.2,
+      factorLg: -0.2,
+      factorXl: -0.2,
+      factor: -0.2,
+      type: 'foreground',
+      direction: 'horizontal'
+    })
   }
 }
 </script>
@@ -387,5 +425,11 @@ export default {
   position: absolute;
   object-fit: cover;
   object-position: center center;
+}
+.first-row {
+  transform: translateX(-200px);
+}
+.hello {
+  transform: translateX(-20%);
 }
 </style>
