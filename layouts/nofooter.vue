@@ -8,6 +8,7 @@
 </template>
 <script>
 import IcHeader from '@/components/partials/IcHeader'
+
 export default {
   components: {
     IcHeader

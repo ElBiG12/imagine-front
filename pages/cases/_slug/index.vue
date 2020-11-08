@@ -1,5 +1,5 @@
 <template>
-  <div data-scroll-section>
+  <div>
     <div class="top-section">
       <img
         :src="`/docs/${$route.params.slug.split('_')[0]}.jpg`"
@@ -106,10 +106,12 @@
 <script>
 import WorkshopDoc from '@/components/card/WorkshopDoc'
 import PlayButton from '@/components/utilities/PlayButton'
-import Rellax from 'rellax'
+// import Rellax from 'rellax'
 // import { TweenLite } from 'gsap'
+import locomotive from '~/mixins/locomotive.js'
 
 export default {
+  mixins: [locomotive],
   layout: 'nofooter',
   components: {
     WorkshopDoc,
@@ -176,16 +178,12 @@ export default {
   },
   mounted () {
     this.scroll()
-    const rellax = new Rellax('.next_case_img')
-    Rellax('.next_case_text')
-    console.log(rellax)
+    // Rellax('.next_case_img')
+    // Rellax('.next_case_text')
 
     // TweenLite.set(contentToScroll, {
     //   y: -window.pageYOffset
     // })
-
-    const locoScroll = new this.LocomotiveScroll()
-    console.log(locoScroll)
   }
 }
 </script>

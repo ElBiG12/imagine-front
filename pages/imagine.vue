@@ -285,8 +285,10 @@
 <script>
 import MemberCard from '@/components/card/MemberCard'
 import PlayButton from '@/components/utilities/PlayButton'
+import locomotive from '~/mixins/locomotive.js'
 
 export default {
+  mixins: [locomotive],
   components: {
     MemberCard,
     PlayButton

@@ -161,7 +161,11 @@
 </template>
 
 <script>
-export default {}
+import locomotive from '~/mixins/locomotive.js'
+
+export default {
+  mixins: [locomotive]
+}
 </script>
 
 <style>

@@ -24,7 +24,10 @@
 
 <script>
 import PostCard from '@/components/card/PostCard'
+import locomotive from '~/mixins/locomotive.js'
+
 export default {
+  mixins: [locomotive],
   components: {
     PostCard
   }

@@ -10,6 +10,7 @@
 <script>
 import IcHeader from '@/components/partials/IcHeader'
 import IcFooter from '@/components/partials/IcFooter'
+
 export default {
   components: {
     IcHeader,

@@ -1,5 +1,5 @@
 <template>
-  <div class="layout">
+  <div class="layout" data-scroll-container>
     <div class="content">
       <IcHeader closeMode/>
       <Nuxt />
@@ -8,6 +8,7 @@
 </template>
 <script>
 import IcHeader from '@/components/partials/IcHeader'
+
 export default {
   components: {
     IcHeader

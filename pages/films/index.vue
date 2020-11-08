@@ -87,7 +87,10 @@
 
 <script>
 import ThumbCard from '@/components/card/ThumbCard'
+import locomotive from '~/mixins/locomotive.js'
+
 export default {
+  mixins: [locomotive],
   layout: 'nofooter',
   components: {
     ThumbCard

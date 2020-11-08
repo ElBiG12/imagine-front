@@ -32,7 +32,10 @@
 
 <script>
 import HomeNewsCard from '@/components/card/HomeNewsCard'
+import locomotive from '~/mixins/locomotive.js'
+
 export default {
+  mixins: [locomotive],
   components: {
     HomeNewsCard
   }

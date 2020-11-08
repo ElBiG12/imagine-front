@@ -1,39 +1,40 @@
-@import "./variables";
+@import './variables';
 /**
 * For custom css implementation
 */
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
-@import "tailwindcss/screens";
-@import "locomotive-scroll/dist/locomotive-scroll.css";
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+@import 'tailwindcss/screens';
+@import 'locomotive-scroll/dist/locomotive-scroll.css';
 
 /** 
 * Custom
 */
-@import "./utilities/helpers";
-@import "./utilities/layouts";
-@import "./utilities/buttons";
-@import "./utilities/inputs";
-@import "./utilities/link";
+@import './utilities/helpers';
+@import './utilities/layouts';
+@import './utilities/buttons';
+@import './utilities/inputs';
+@import './utilities/link';
 
 /** 
 * Animations
 */
-@import "./animation/page-transitions";
+@import './animation/page-transitions';
 
 /**
 * Custom style
 */
 body {
-    @apply bg-extra-light;
+  @apply bg-extra-light;
+  overflow: hidden;
 }
 
 /**
 * Others
 */
 code {
-  font-family: Consolas,"courier new";
+  font-family: Consolas, 'courier new';
   color: crimson;
   background-color: #f1f1f1;
   padding-left: 2px;

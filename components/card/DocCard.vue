@@ -25,9 +25,7 @@ export default {
       required: true
     }
   },
-  mounted () {
-    console.log(this.index)
-  }
+  mounted () {}
 }
 </script>
 <style scoped>

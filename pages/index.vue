@@ -86,7 +86,7 @@
             class="simply-scroll-list grid grid-flow-col gap-10"
           >
             <li v-for="(doc, i) in 9" :key="i">
-              <DocCard :index="'toplane_' + i" :item="top"/>
+              <DocCard :index="'toplane_' + i" :item="top" />
             </li>
           </ul>
         </div>
@@ -96,7 +96,7 @@
             class="simply-scroll-list grid grid-flow-col gap-10"
           >
             <li v-for="(doc2, i2) in 9" :key="i2">
-              <DocCard :index="'bottomlane_' + i2" :item="bottom"/>
+              <DocCard :index="'bottomlane_' + i2" :item="bottom" />
             </li>
           </ul>
         </div>
@@ -110,6 +110,7 @@ import HomeCarousel from '@/components/sliders/carousel'
 import HomeNewsCard from '@/components/card/HomeNewsCard'
 import DocCard from '@/components/card/DocCard'
 import $ from 'jquery'
+import locomotive from '~/mixins/locomotive.js'
 
 if (typeof window !== 'undefined') {
   require('jquery-simplyscroll')
@@ -121,14 +122,14 @@ export default {
     HomeNewsCard,
     DocCard
   },
+  mixins: [locomotive],
   data () {
     return {
       top: {
         title: 'An auto biography',
         img: '/docs/toplane.jpg',
         slug: 'toplane',
-        short_desc:
-          'This is the descreption for the imagine & memoire movies.'
+        short_desc: 'This is the descreption for the imagine & memoire movies.'
       },
       bottom: {
         title: 'An auto biography',
