@@ -1,10 +1,12 @@
 <template>
-  <div>
+  <div :id="$route.params.slug" class="smooth-scroll">
     <div class="top-section">
       <img
         :src="`/docs/${$route.params.slug.split('_')[0]}.jpg`"
         alt="case study"
-        v-shared-element:[$route.params.slug]
+        v-shared-element:[$route.params.slug]="{
+          includeChildren: true
+        }"
         srcset=""
       />
       <div class="content ic-container">
@@ -12,15 +14,14 @@
           <PlayButton class="self-end" />
         </div>
         <h1
-          class="text-11xl font-bold font-display text-white leading-none w-4/6"
-          v-shared-element:[$route.params.slug]
+          class="text-11xl font-bold font-display top-title text-white leading-none w-4/6"
         >
           J’ai habité L’absence deux fois
         </h1>
       </div>
     </div>
-    <div class="ic-container text-center my-24 p-4">
-      <h1 class="text-11xl font-bold font-display leading-none">
+    <div class="ic-container text-center my-24 p-4 secondSection">
+      <h1 class="text-11xl font-bold font-display leading-none second-title">
         J’ai habité l’absence deux fois
       </h1>
     </div>
@@ -58,16 +59,13 @@
       <WorkshopDoc />
     </div>
 
-    <div
-      class="next-case-section"
-      ref="next_case"
-    >
+    <div class="next-case-section" ref="next_case">
       <div class="next_case_img">
         <img
-          :src="`/docs/${nextDoc}.jpg`"
+          :src="`/docs/${nextDoc.split('_')[0]}.jpg`"
           alt="case study"
           srcset=""
-          v-shared-element:[$route.params.slug]
+          v-shared-element:[`${nextDoc}`]
           data-scroll
           data-scroll-speed="-4"
         />
@@ -84,15 +82,10 @@
           <div
             class="flex flex-row items-center justify-between gap-6 md:gap-16"
           >
-            <hr
-              class="case-loader"
-              ref="case_loader"
-              :style="{ width: nextProgress + '%' }"
-            />
+            <hr class="case-loader" ref="case_loader" />
             <nuxt-link
               tag="p"
-              :to="`${nextDoc}_0`"
-              v-shared-element:[`${nextDoc}_99`]
+              :to="`${nextDoc}`"
               class="text-5xl font-bold text-white"
               >Next
             </nuxt-link>
@@ -106,8 +99,6 @@
 <script>
 import WorkshopDoc from '@/components/card/WorkshopDoc'
 import PlayButton from '@/components/utilities/PlayButton'
-// import Rellax from 'rellax'
-// import { TweenLite } from 'gsap'
 import locomotive from '~/mixins/locomotive.js'
 
 export default {
@@ -117,73 +108,97 @@ export default {
     WorkshopDoc,
     PlayButton
   },
-  data () {
+  data() {
     return {
-      nextProgress: 0
+      nextProgress: 0,
+      tween: null
     }
   },
   computed: {
-    nextDoc () {
+    nextDoc() {
       if (this.$route.params.slug.split('_')[0] === 'toplane') {
-        return 'bottomlane'
+        return 'bottomlane_' + this.$route.params.slug.split('_')[1] + 1
       } else {
-        return 'toplane'
+        return 'toplane_' + this.$route.params.slug.split('_')[1] + 1
       }
+    }
+  },
+  watch: {
+    $route() {
+      console.log('update from cases page')
     }
   },
   methods: {
-    scroll () {
-      const vm = this
-      window.onscroll = () => {
-        const bottomOfWindow =
-          Math.max(
-            window.pageYOffset,
-            document.documentElement.scrollTop,
-            document.body.scrollTop
-          ) +
-            window.innerHeight ===
-          document.documentElement.offsetHeight
-
-        if (bottomOfWindow) {
-          console.log('bottom')
-        }
-        console.log('scrolling')
-        console.log(vm.$refs.next_case.offsetTop - window.pageYOffset)
-        console.log(vm.$refs.next_case.offsetHeight)
-        console.log(window.pageYOffset)
-        console.log(document.documentElement.scrollTop)
-
-        if (
-          vm.$refs.next_case.offsetTop - window.pageYOffset <=
-          vm.$refs.next_case.offsetHeight
-        ) {
-          console.log(
-            '%' +
-              ((vm.$refs.next_case.offsetHeight -
-                (vm.$refs.next_case.offsetTop - window.pageYOffset)) *
-                100) /
-                vm.$refs.next_case.offsetHeight
-          )
-          vm.nextProgress = Math.round(
-            ((vm.$refs.next_case.offsetHeight -
-              (vm.$refs.next_case.offsetTop - window.pageYOffset)) *
-              100) /
-              vm.$refs.next_case.offsetHeight
-          )
-        } else {
-          vm.nextProgress = 0
-        }
+    startAnimation() {
+      if (!process.client) {
+        return
       }
+
+      this.tween = this.Gsap.from('.case-loader', {
+        scrollTrigger: {
+          trigger: '.next-case-section',
+          scroller: '.smooth-scroll',
+          scrub: true,
+          start: 'top bottom',
+          end: 'top top'
+        },
+        width: '0%',
+        transformOrigin: 'left center',
+        ease: 'none'
+      })
     }
   },
-  mounted () {
-    this.scroll()
-    // Rellax('.next_case_img')
-    // Rellax('.next_case_text')
+  mounted() {
+    this.$nextTick(function () {
+      console.log('nextTick from cases page')
+      this.initScrollerProxy()
 
-    // TweenLite.set(contentToScroll, {
-    //   y: -window.pageYOffset
-    // })
+      // const vm = this
+
+      this.gsapMix.from('.case-loader', {
+        scrollTrigger: {
+          trigger: '.next-case-section',
+          scroller: '.smooth-scroll',
+          scrub: true,
+          start: 'top bottom',
+          end: 'top top'
+        },
+        width: '0%',
+        transformOrigin: 'left center',
+        ease: 'none'
+      })
+
+      // this.gsapMix.from('.second-title', {
+      //   scrollTrigger: {
+      //     trigger: '.secondSection',
+      //     scroller: '.smooth-scroll',
+      //     scrub: true,
+      //     pin: true,
+      //     start: 'top top',
+      //     end: '+=100%'
+      //   },
+      //   onStart: () => {
+      //     vm.lmS.update()
+      //     console.log('on start')
+      //   },
+      //   transformOrigin: 'left center',
+      //   ease: 'none'
+      // })
+
+      this.gsapMix.from(
+        '.top-title',
+        {
+          opacity: 0,
+          y: 50,
+          duration: 1
+        }
+      )
+    })
+  },
+  destroyed() {
+    console.log('before destroy')
+    // this.Gsap.killTweensOf('.case-loader')
+    // this.tween.kill()
   }
 }
 </script>
@@ -198,6 +213,9 @@ export default {
 .top-section img {
   @apply w-full min-h-full overflow-x-hidden;
   object-fit: cover;
+  transform-origin: center center;
+  transform: scale(1);
+  /* transition: all 500ms ease; */
 }
 
 .top-section .content {
@@ -252,6 +270,8 @@ export default {
 
 .next-case-section .next_case_img {
   @apply absolute top-0 right-0 bottom-0 left-0;
+  transform-origin: center center;
+  transform: scale(1);
 }
 
 .next-case-section .next_case_img img {
@@ -268,7 +288,7 @@ export default {
 
 .next-case-section .content .case-loader {
   @apply block h-0 mr-auto bg-white;
-  width: 0%;
+  width: 100%;
   border: 2px solid #ffffff;
 }
 </style>

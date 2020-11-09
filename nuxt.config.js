@@ -7,21 +7,33 @@ export default {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: '' }
     ],
-    link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-    ],
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
     script: [
-      { src: "https://unpkg.com/ionicons@5.0.0/dist/ionicons.js", body: true }
+      { src: 'https://unpkg.com/ionicons@5.0.0/dist/ionicons.js', body: true }
     ]
   },
 
   // Global CSS (https://go.nuxtjs.dev/config-css)
-  css: [
-    '~/assets/css/tailwind.css'
-  ],
+  css: ['~/assets/css/tailwind.css'],
 
-  // layoutTransition: {
-  //   name: "page"
+  // pageTransition: {
+  //   name: 'page',
+  //   mode: '',
+  //   beforeLeave(el) {
+  //     const { top } = el.getBoundingClientRect()
+  //     el.style.position = 'fixed'
+  //     el.style.top = `${top}px`
+  //     el.style.left = 0
+  //     el.style.right = 0
+  //     el.style.zIndex = '-1'
+  //   },
+  //   afterLeave(el) {
+  //     el.style.position = ''
+  //     el.style.top = ''
+  //     el.style.left = ''
+  //     el.style.right = ''
+  //     el.style.zIndex = ''
+  //   }
   // },
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
@@ -32,13 +44,16 @@ export default {
     {
       src: '~/plugins/locomotiveScroll.js',
       mode: 'client'
+    },
+    {
+      src: '~/plugins/gsap.client.js'
     }
   ],
 
   // Defaults options
   tailwindcss: {
     cssPath: '~/assets/css/tailwind.css',
-    configPath: 'tailwind.config.js',
+    configPath: 'tailwind.config.js'
   },
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
@@ -62,10 +77,7 @@ export default {
 
   webfontloader: {
     custom: {
-      families: [
-        'Roboto:n1,n3,n4,n5,n7,n9',
-        'Roboto Condensed:n3,n4,n7',
-      ],
+      families: ['Roboto:n1,n3,n4,n5,n7,n9', 'Roboto Condensed:n3,n4,n7'],
       urls: [
         'https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap',
         'https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap'
@@ -75,7 +87,8 @@ export default {
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
-    purgeCSS: { mode: 'postcss' }
+    purgeCSS: { mode: 'postcss' },
+    transpile: ['gsap']
   },
 
   vue: {

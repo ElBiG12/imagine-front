@@ -1,5 +1,5 @@
 <template>
-  <div class="layout" data-scroll-container>
+  <div class="layout smooth-scroll" data-scroll-container>
     <div class="content">
       <IcHeader closeMode/>
       <Nuxt />
