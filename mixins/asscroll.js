@@ -1,4 +1,3 @@
-// import _ from 'lodash'
 import { ScrollTrigger } from 'gsap/ScrollTrigger.js'
 
 export default {
@@ -10,16 +9,14 @@ export default {
   mounted() {
     this.$nextTick(
       function () {
-        // console.log(this.ASScroll.default())
         this.asscroll = new this.ASScroll({
-          customScrollbar: true
-          // disableRaf: true
+          customScrollbar: true,
+          disableRaf: true
         })
 
-        // this.Gsap.ticker.add(this.asscroll.onRaf)
+        this.Gsap.ticker.add(this.asscroll.onRaf)
 
         this.asscroll.enable()
-        // window.addEventListener('scroll', ScrollTrigger.update)
       }.bind(this)
     )
   },
