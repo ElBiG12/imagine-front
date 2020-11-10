@@ -1,6 +1,6 @@
 <template>
   <div class="layout smooth-scroll" data-scroll-container>
-    <div class="content">
+    <div class="layout-content">
       <IcHeader closeMode/>
       <Nuxt />
     </div>
@@ -20,7 +20,7 @@ export default {
     display: grid;
     grid-template-rows: 1fr;
 }
-.content {
+.layout-content {
   @apply relative w-full h-auto;
 }
 </style>

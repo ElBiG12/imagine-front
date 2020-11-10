@@ -1,4 +1,5 @@
 export default {
+  mode: 'universal',
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
     title: 'imagine-front',
@@ -47,6 +48,9 @@ export default {
     },
     {
       src: '~/plugins/gsap.client.js'
+    },
+    {
+      src: '~/plugins/asscroll.client.js'
     }
   ],
 

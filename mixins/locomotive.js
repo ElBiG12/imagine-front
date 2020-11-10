@@ -6,8 +6,15 @@ export default {
     return {
       scrollPosition: 0,
       lmS: null,
-      ST: null,
-      gsapMix: null
+      STProxy: null
+    }
+  },
+  computed: {
+    scrollY() {
+      if (this.lmS == null) {
+        return 0
+      }
+      return this.lmS.scroll.instance.scroll.y
     }
   },
   watch: {
@@ -18,10 +25,9 @@ export default {
     }
   },
   mounted() {
-    console.log('mounted from loco mix')
     this.$nextTick(
       function () {
-        this.gsapMix = this.Gsap
+        console.log('mounted loco mix')
         this.lmS = new this.LocomotiveScroll({
           el: document.querySelector('[data-scroll-container]'),
           smooth: true /* if false disable overflow: hidden on html, body */,
@@ -32,33 +38,35 @@ export default {
           'resize',
           _.debounce(this.onLmsResize.bind(this), 100)
         )
+
+        window.addEventListener('scroll', ScrollTrigger.update)
       }.bind(this)
     )
   },
   destroyed() {
     this.lmS.destroy()
     window.removeEventListener('resize', this.onLmsResize)
-    this.gsapMix = null
-    console.log('destroyed loco mix')
-    // ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
+    window.removeEventListener('refresh', () => this.onLmsResize)
   },
   methods: {
+    scrollTo(value) {
+      if (this.lmS == null) {
+        this.lmS.scrollTo(0, 0, 0)
+      } else {
+        this.lmS.scrollTo(value, 0, 0)
+      }
+    },
     onLmsResize() {
       this.lmS.update()
     },
     initScrollerProxy() {
       const vm = this
 
-      vm.gsapMix.registerPlugin(ScrollTrigger)
-      console.log(this.gsapMix)
-
       ScrollTrigger.scrollerProxy(document.querySelector('.smooth-scroll'), {
         scrollTop(value) {
-          // console.log('argument', arguments.length)
-          return arguments.length
-            ? vm.lmS.scrollTo(value, 0, 0)
-            : vm.lmS.scroll.instance.scroll.y
-        }, // we don't have to define a scrollLeft because we're only scrolling vertically.
+          console.log(vm.scrollY)
+          return arguments.length ? vm.scrollTo(value) : vm.scrollY
+        },
         getBoundingClientRect() {
           return {
             top: 0,
@@ -67,7 +75,6 @@ export default {
             height: window.innerHeight
           }
         },
-        // LocomotiveScroll handles things completely differently on mobile devices - it doesn't even transform the container at all! So to get the correct behavior and avoid jitters, we should pin things with position: fixed on mobile. We sense it by checking to see if there's a transform applied to the container (the LocomotiveScroll-controlled element).
         pinType: document.querySelector('.smooth-scroll').style.transform
           ? 'transform'
           : 'fixed'
@@ -75,11 +82,13 @@ export default {
 
       vm.lmS.on('scroll', ScrollTrigger.update)
 
-      ScrollTrigger.addEventListener('scrollEnd', () =>
-        console.log('scrolling ended!')
-      )
+      // each time the window updates, we should refresh ScrollTrigger and then update LocomotiveScroll.
+      ScrollTrigger.addEventListener('refresh', () => vm.onLmsResize())
 
-      ScrollTrigger.addEventListener('refresh', () => vm.lmS.update())
+      // after everything is set up, refresh() ScrollTrigger and update LocomotiveScroll because padding may have been added for pinning, etc.
+      // ScrollTrigger.refresh()
+
+      this.lmS.update()
     }
   }
 }

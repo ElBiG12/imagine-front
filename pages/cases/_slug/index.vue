@@ -1,5 +1,5 @@
 <template>
-  <div :id="$route.params.slug" class="smooth-scroll">
+  <div :key="$route.params.slug + '_page'">
     <div class="top-section">
       <img
         :src="`/docs/${$route.params.slug.split('_')[0]}.jpg`"
@@ -20,7 +20,9 @@
         </h1>
       </div>
     </div>
-    <div class="ic-container text-center my-24 p-4 secondSection">
+    <div
+      class="ic-container text-center my-24 p-4 secondSection overflow-hidden"
+    >
       <h1 class="text-11xl font-bold font-display leading-none second-title">
         J’ai habité l’absence deux fois
       </h1>
@@ -62,21 +64,17 @@
     <div class="next-case-section" ref="next_case">
       <div class="next_case_img">
         <img
+          class="next_case_img_bg"
+          :key="$route.params.slug"
           :src="`/docs/${nextDoc.split('_')[0]}.jpg`"
           alt="case study"
           srcset=""
           v-shared-element:[`${nextDoc}`]
-          data-scroll
-          data-scroll-speed="-4"
         />
+        <div class="next_case_img_layer" />
       </div>
       <div class="content">
-        <div
-          class="flex flex-col next_case_text"
-          data-scroll
-          data-scroll-speed="-7"
-          data-scroll-offset="-50%, 50%"
-        >
+        <div class="flex flex-col next_case_text">
           <h2 class="text-7xl font-bold text-white">The lost Architecture</h2>
 
           <div
@@ -99,11 +97,13 @@
 <script>
 import WorkshopDoc from '@/components/card/WorkshopDoc'
 import PlayButton from '@/components/utilities/PlayButton'
-import locomotive from '~/mixins/locomotive.js'
+import { ScrollTrigger } from 'gsap/ScrollTrigger.js'
+// import _ from 'lodash'
+import asscroll from '~/mixins/asscroll.js'
 
 export default {
-  mixins: [locomotive],
-  layout: 'nofooter',
+  mixins: [asscroll],
+  layout: 'case',
   components: {
     WorkshopDoc,
     PlayButton
@@ -111,7 +111,8 @@ export default {
   data() {
     return {
       nextProgress: 0,
-      tween: null
+      tween: null,
+      lmS: null
     }
   },
   computed: {
@@ -124,81 +125,97 @@ export default {
     }
   },
   watch: {
-    $route() {
-      console.log('update from cases page')
+    '$route.params'() {
+      console.log('$route update from cases page')
     }
   },
-  methods: {
-    startAnimation() {
-      if (!process.client) {
-        return
-      }
-
-      this.tween = this.Gsap.from('.case-loader', {
-        scrollTrigger: {
-          trigger: '.next-case-section',
-          scroller: '.smooth-scroll',
-          scrub: true,
-          start: 'top bottom',
-          end: 'top top'
-        },
-        width: '0%',
-        transformOrigin: 'left center',
-        ease: 'none'
-      })
-    }
-  },
+  methods: {},
   mounted() {
+    ScrollTrigger.refresh(true)
     this.$nextTick(function () {
-      console.log('nextTick from cases page')
+      this.asscroll.onResize()
       this.initScrollerProxy()
 
-      // const vm = this
+      // const totalScroll =
+      //   document.querySelector('.asscroll-container').scrollHeight - innerHeight
 
-      this.gsapMix.from('.case-loader', {
+      console.log(innerHeight)
+
+      this.Gsap.from('.next_case_text', {
         scrollTrigger: {
-          trigger: '.next-case-section',
-          scroller: '.smooth-scroll',
+          // pin: true,
+          trigger: this.$refs.next_case,
           scrub: true,
           start: 'top bottom',
-          end: 'top top'
+          end: 'top top',
+          markers: true
         },
-        width: '0%',
-        transformOrigin: 'left center',
+        y: '-=' + innerHeight / 1.25,
+        opacity: 0,
         ease: 'none'
       })
 
-      // this.gsapMix.from('.second-title', {
-      //   scrollTrigger: {
-      //     trigger: '.secondSection',
-      //     scroller: '.smooth-scroll',
-      //     scrub: true,
-      //     pin: true,
-      //     start: 'top top',
-      //     end: '+=100%'
-      //   },
-      //   onStart: () => {
-      //     vm.lmS.update()
-      //     console.log('on start')
-      //   },
-      //   transformOrigin: 'left center',
-      //   ease: 'none'
-      // })
+      this.Gsap.from('.next_case_img', {
+        scrollTrigger: {
+          // pin: true,
+          trigger: this.$refs.next_case,
+          scrub: true,
+          start: 'top bottom',
+          end: 'top top',
+          markers: true
+        },
+        y: '-=' + innerHeight / 2,
+        ease: 'none'
+      })
 
-      this.gsapMix.from(
-        '.top-title',
-        {
-          opacity: 0,
-          y: 50,
-          duration: 1
+      this.Gsap.to('.next_case_img_layer', {
+        scrollTrigger: {
+          // pin: true,
+          trigger: this.$refs.next_case,
+          scrub: true,
+          start: 'top bottom',
+          end: 'top top',
+          markers: true
+        },
+        opacity: 0.2,
+        ease: 'none'
+      })
+
+      this.Gsap.from('.case-loader', {
+        id: 'case_loader',
+        scrollTrigger: {
+          id: 'case_loader',
+          trigger: this.$refs.next_case,
+          // scroller: document.querySelector('.smooth-scroll'),
+          scrub: true,
+          start: 'top bottom',
+          end: 'top top',
+          markers: false
+        },
+        width: '0%',
+        transformOrigin: 'left center',
+        ease: 'none',
+        onUpdate() {
+          console.log(this.progress())
         }
-      )
+      })
+
+      console.log(ScrollTrigger.getAll())
+
+      this.Gsap.from('.top-title', {
+        opacity: 0,
+        y: 50,
+        duration: 1
+      })
     })
   },
   destroyed() {
-    console.log('before destroy')
-    // this.Gsap.killTweensOf('.case-loader')
-    // this.tween.kill()
+    console.log('destroyed case page')
+    if (ScrollTrigger.getAll().length > 0) {
+      ScrollTrigger.getAll().forEach((element) => {
+        element.kill(false)
+      })
+    }
   }
 }
 </script>
@@ -269,13 +286,26 @@ export default {
 }
 
 .next-case-section .next_case_img {
-  @apply absolute top-0 right-0 bottom-0 left-0;
+  /* @apply absolute top-0 right-0 bottom-0 left-0; */
+  @apply w-full min-h-full overflow-x-hidden;
   transform-origin: center center;
   transform: scale(1);
 }
 
+.next-case-section .next_case_img .next_case_img_layer {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: black;
+  opacity: 0.8;
+}
+
 .next-case-section .next_case_img img {
-  @apply w-auto min-w-full min-h-full overflow-x-hidden;
+  /* @apply w-auto min-w-full min-h-full overflow-x-hidden; */
+  @apply w-full min-h-full overflow-x-hidden;
   object-fit: cover;
 }
 

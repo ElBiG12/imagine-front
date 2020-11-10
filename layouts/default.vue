@@ -1,6 +1,6 @@
 <template>
   <div class="ic-main-layout smooth-scroll" data-scroll-container>
-    <div class="content">
+    <div class="layout-content">
       <IcHeader />
       <Nuxt />
     </div>
@@ -23,7 +23,7 @@ export default {
   @apply mx-auto;
 }
 
-.content {
+.layout-content {
   @apply relative w-full h-auto;
 }
 </style>
