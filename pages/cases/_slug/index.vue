@@ -131,19 +131,12 @@ export default {
   },
   methods: {},
   mounted() {
-    ScrollTrigger.refresh(true)
     this.$nextTick(function () {
       this.asscroll.onResize()
       this.initScrollerProxy()
 
-      // const totalScroll =
-      //   document.querySelector('.asscroll-container').scrollHeight - innerHeight
-
-      console.log(innerHeight)
-
       this.Gsap.from('.next_case_text', {
         scrollTrigger: {
-          // pin: true,
           trigger: this.$refs.next_case,
           scrub: true,
           start: 'top bottom',
@@ -157,7 +150,6 @@ export default {
 
       this.Gsap.from('.next_case_img', {
         scrollTrigger: {
-          // pin: true,
           trigger: this.$refs.next_case,
           scrub: true,
           start: 'top bottom',
@@ -170,7 +162,6 @@ export default {
 
       this.Gsap.to('.next_case_img_layer', {
         scrollTrigger: {
-          // pin: true,
           trigger: this.$refs.next_case,
           scrub: true,
           start: 'top bottom',
@@ -199,8 +190,6 @@ export default {
           console.log(this.progress())
         }
       })
-
-      console.log(ScrollTrigger.getAll())
 
       this.Gsap.from('.top-title', {
         opacity: 0,
