@@ -1,10 +1,8 @@
 <template>
-  <div class="layout asscroll-container">
-    <div class="ic-smooth-scroll">
-      <div class="layout-content">
-        <IcHeader />
-        <Nuxt />
-      </div>
+  <div class="layout ic-smooth-scroll">
+    <div class="layout-content">
+      <IcHeader />
+      <Nuxt />
     </div>
   </div>
 </template>

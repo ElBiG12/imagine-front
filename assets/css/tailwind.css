@@ -20,7 +20,7 @@
 /** 
 * Animations
 */
-@import './animation/page-transitions';
+/* @import './animation/page-transitions'; */
 
 /**
 * Custom style
@@ -28,6 +28,27 @@
 body {
   @apply bg-extra-light;
   overflow: hidden;
+  /* overflow-x: hidden;
+  overflow-y: scroll; */
+}
+
+.viewport-container {
+  /* overflow: hidden;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0; */
+}
+
+.ic-smooth-scroll {
+  /* position: absolute;  
+  overflow: hidden;
+  z-index: 10;
+  backface-visibility: hidden;
+  transform-style: preserve-3d; */
 }
 
 /**
@@ -39,4 +60,8 @@ code {
   background-color: #f1f1f1;
   padding-left: 2px;
   padding-right: 2px;
+}
+
+.asscrollbar__handle {
+  transition: all ease 0.2s;
 }

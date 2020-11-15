@@ -9,14 +9,14 @@
         </h1>
 
         <p class="pages-head-subtitle">
-          Cinema imagine creates impactful Documentaries that help viewers ask the
-          right questiosn and engage in various important discutions.
+          Cinema imagine creates impactful Documentaries that help viewers ask
+          the right questiosn and engage in various important discutions.
         </p>
       </div>
     </div>
     <div class="ic-container flex flex-col gap-y-16">
       <PostCard />
-      <PostCard reversed/>
+      <PostCard reversed />
       <PostCard />
     </div>
   </div>
@@ -24,13 +24,13 @@
 
 <script>
 import PostCard from '@/components/card/PostCard'
-import locomotive from '~/mixins/locomotive.js'
+import SmoothScroll from '~/mixins/SmoothScroll.js'
 
 export default {
-  mixins: [locomotive],
   components: {
     PostCard
-  }
+  },
+  mixins: [SmoothScroll]
 }
 </script>
 

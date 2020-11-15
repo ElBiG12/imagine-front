@@ -1,7 +1,7 @@
 <template>
-  <div class="layout smooth-scroll" data-scroll-container>
+  <div class="layout ic-smooth-scroll">
     <div class="layout-content">
-      <IcHeader closeMode/>
+      <IcHeader closeMode />
       <Nuxt />
     </div>
   </div>
@@ -17,8 +17,8 @@ export default {
 </script>
 <style lang="postcss" scoped>
 .layout {
-    display: grid;
-    grid-template-rows: 1fr;
+  display: grid;
+  grid-template-rows: 1fr;
 }
 .layout-content {
   @apply relative w-full h-auto;

@@ -42,10 +42,10 @@
 
 <script>
 import ThumbCard from '@/components/card/ThumbCard'
-import locomotive from '~/mixins/locomotive.js'
+import SmoothScroll from '~/mixins/SmoothScroll.js'
 
 export default {
-  mixins: [locomotive],
+  mixins: [SmoothScroll],
   layout: 'nofooter',
   components: {
     ThumbCard

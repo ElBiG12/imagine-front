@@ -43,14 +43,11 @@ export default {
       src: '~/plugins/v-shared-element.client.js'
     },
     {
-      src: '~/plugins/locomotiveScroll.js',
-      mode: 'client'
-    },
-    {
       src: '~/plugins/gsap.client.js'
     },
     {
-      src: '~/plugins/asscroll.client.js'
+      src: '~/plugins/locomotiveScroll.js',
+      mode: 'client'
     }
   ],
 

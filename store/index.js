@@ -1,9 +1,9 @@
 export const state = () => ({
-  LMS: null
+  lmsScrollY: null
 })
 
 export const mutations = {
-  updateLMS(state, loco) {
-    state.LMS = loco
+  updateLMS(state, locoY) {
+    state.lmsScrollY = locoY
   }
 }

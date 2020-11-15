@@ -1,13 +1,20 @@
 import { TweenLite } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger.js'
 
 export default {
   data() {
     return {
       scroller: {},
-      requestId: null
+      requestId: null,
+      stRequestId: null,
+      proxyInited: false
     }
   },
+  updated() {
+    console.log('updated')
+  },
   mounted() {
+    console.log('mounted')
     this.$nextTick(
       function () {
         const vm = this
@@ -18,7 +25,8 @@ export default {
           endY: 0,
           y: 0,
           resizeRequest: 1,
-          scrollRequest: 0
+          scrollRequest: 0,
+          sTUpdateRequest: 0
         }
 
         TweenLite.set(vm.scroller.target, {
@@ -27,21 +35,33 @@ export default {
         })
 
         this.onLoad()
-        window.addEventListener('scroll', ScrollTrigger.update)
+        setTimeout(() => {
+          this.onResize()
+        }, 100)
       }.bind(this)
     )
   },
   destroyed() {
+    if (ScrollTrigger.getAll().length > 0) {
+      ScrollTrigger.getAll().forEach((element) => {
+        element.kill(false)
+      })
+    }
+
     window.removeEventListener('resize', this.onResize)
-    window.removeEventListener('scroll', ScrollTrigger.update)
     document.removeEventListener('scroll', this.onScroll)
+    window.removeEventListener('scroll', this.updateScrollTrigger)
   },
   methods: {
     onLoad() {
-      this.updateScroller()
-      window.focus()
       window.addEventListener('resize', this.onResize)
       document.addEventListener('scroll', this.onScroll)
+      document.addEventListener('scroll', this.updateScrollTrigger)
+      window.focus()
+      this.updateScroller()
+      this.initScrollerProxy()
+      this.updateScrollTrigger()
+      this.onResize()
     },
     updateScroller() {
       const html = document.documentElement
@@ -59,6 +79,7 @@ export default {
 
       this.scroller.endY = scrollY
       this.scroller.y += (scrollY - this.scroller.y) * this.scroller.ease
+      this.scrollAxies.y += (scrollY - this.scrollAxies.y) * this.scroller.ease
 
       if (Math.abs(scrollY - this.scroller.y) < 0.05 || resized) {
         this.scroller.y = scrollY
@@ -73,6 +94,11 @@ export default {
         this.scroller.scrollRequest > 0
           ? requestAnimationFrame(this.updateScroller)
           : null
+
+      this.sTUpdateRequest =
+        this.scroller.scrollRequest > 0
+          ? requestAnimationFrame(ScrollTrigger.update)
+          : null
     },
     onScroll() {
       this.scroller.scrollRequest++
@@ -84,18 +110,25 @@ export default {
       this.scroller.resizeRequest++
       if (!this.requestId) {
         this.requestId = requestAnimationFrame(this.updateScroller)
+        console.log('resized')
+      }
+    },
+    updateScrollTrigger() {
+      this.scroller.sTUpdateRequest++
+      if (!this.stRequestId) {
+        this.stRequestId = requestAnimationFrame(ScrollTrigger.update)
       }
     },
     initScrollerProxy() {
       const vm = this
-      // _.debounce(() => {
       ScrollTrigger.defaults({
-        scroller: '.ic-smooth-scroll'
+        scroller: '.ic-smooth-scroll',
+        markers: true
       })
       ScrollTrigger.scrollerProxy('.ic-smooth-scroll', {
         scrollTop(value) {
-          // console.log(vm.asscroll.smoothScrollPos)
-          return vm.scroller.y
+          // console.log(vm.scrollAxies.y)
+          return vm.scrollAxies.y
         },
         getBoundingClientRect() {
           return {
@@ -107,9 +140,9 @@ export default {
         }
       })
 
-      // this.asscroll.on('raf', ScrollTrigger.update)
       ScrollTrigger.addEventListener('refresh', () => this.onResize())
-      // }, 100)
+      ScrollTrigger.refresh()
+      // this.onResize()
     }
   }
 }

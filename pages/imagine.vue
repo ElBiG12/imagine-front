@@ -263,13 +263,7 @@
           data-scroll-speed="2"
           data-scroll-direction="horizontal"
         >
-          <MemberCard />
-          <MemberCard />
-          <MemberCard />
-          <MemberCard />
-          <MemberCard />
-          <MemberCard />
-          <MemberCard />
+          <MemberCard v-for="(doc, i) in 7" :key="i" />
         </div>
         <div
           class="grid grid-flow-col gap-20 second-row hello"
@@ -277,13 +271,7 @@
           data-scroll-speed="-1"
           data-scroll-direction="horizontal"
         >
-          <MemberCard />
-          <MemberCard />
-          <MemberCard />
-          <MemberCard />
-          <MemberCard />
-          <MemberCard />
-          <MemberCard />
+          <MemberCard v-for="(doc, i) in 7" :key="i" />
         </div>
         <div
           class="grid grid-flow-col gap-20 third-row hello"
@@ -291,13 +279,7 @@
           data-scroll-speed="3"
           data-scroll-direction="horizontal"
         >
-          <MemberCard />
-          <MemberCard />
-          <MemberCard />
-          <MemberCard />
-          <MemberCard />
-          <MemberCard />
-          <MemberCard />
+          <MemberCard v-for="(doc, i) in 7" :key="i" />
         </div>
       </div>
     </section>
@@ -305,13 +287,12 @@
 </template>
 <script>
 import MemberCard from '@/components/card/MemberCard'
-import locomotive from '~/mixins/locomotive.js'
+import SmoothScroll from '~/mixins/SmoothScroll.js'
 export default {
-  mixins: [locomotive],
+  mixins: [SmoothScroll],
   components: {
     MemberCard
-  },
-  mounted () {}
+  }
 }
 </script>
 <style>

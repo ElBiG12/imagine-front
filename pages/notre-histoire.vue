@@ -295,13 +295,13 @@
 </template>
 <script>
 import $ from 'jquery'
-import locomotive from '~/mixins/locomotive.js'
+import SmoothScroll from '~/mixins/SmoothScroll.js'
 if (typeof window !== 'undefined') {
   require('jquery-simplyscroll')
 }
 
 export default {
-  mixins: [locomotive],
+  mixins: [SmoothScroll],
   mounted () {
     $('#scroller').simplyScroll({
       auto: true,
