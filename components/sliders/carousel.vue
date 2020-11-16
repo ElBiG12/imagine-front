@@ -1,19 +1,25 @@
 <template>
   <div class="home-carousel">
     <div class="carousel-items">
-      <div class="items">
-        <img src="/carousel/car-1.jpg" alt="" srcset="" />
+      <div
+        v-for="(item, index) in items"
+        :key="index"
+        class="items"
+        :class="{ active: index == 0 }"
+        :ref="`slide_${index}`"
+      >
+        <img :src="item.cover" alt="" srcset="" />
         <div class="text">
-          <h2 class="c-headline">Nous créons des expériences percutantes.</h2>
+          <h2 class="c-headline" v-text="item.title"></h2>
         </div>
       </div>
     </div>
     <div class="c-nav-btns">
-      <div class="c-prev-btn c-btn">
+      <div class="c-prev-btn c-btn" @click="prevSlide">
         <ion-icon name="chevron-back-outline"></ion-icon>
       </div>
       <span class="separator" />
-      <div class="c-next-btn c-btn">
+      <div class="c-next-btn c-btn" @click="nextSlide">
         <ion-icon name="chevron-forward-outline"></ion-icon>
       </div>
     </div>
@@ -22,13 +28,122 @@
 
 <script>
 export default {
-  props: ['items']
+  // props: ['items'],
+
+  data() {
+    return {
+      items: [
+        {
+          title: 'Nous créons des expériences percutantes.',
+          cover: '/carousel/car-1.jpg'
+        },
+        {
+          title: "Nous Batissons l'avenir.",
+          cover: '/carousel/car-2.jpg'
+        }
+      ],
+      currentIndex: 0,
+      sliding: false
+    }
+  },
+
+  computed: {
+    nextIndex() {
+      return this.currentIndex + 1 === this.items.length
+        ? 0
+        : this.currentIndex + 1
+    },
+    prevIndex() {
+      return this.currentIndex === 0
+        ? this.items.length - 1
+        : this.currentIndex - 1
+    }
+  },
+
+  mounted() {
+    this.$nextTick(() => {
+      console.log(this.$refs[`slide_${1}`][0])
+    })
+  },
+
+  methods: {
+    nextSlide() {
+      if (this.sliding) {
+        return
+      }
+
+      const vm = this
+
+      const currentTarget = vm.$refs[`slide_${vm.currentIndex}`][0]
+      const nextTarget = vm.$refs[`slide_${vm.nextIndex}`][0]
+
+      vm.sliding = true
+      nextTarget.classList.add('active')
+
+      vm.Gsap.set(currentTarget, {
+        zIndex: 9
+      })
+
+      vm.Gsap.to(currentTarget, {
+        x: '100%',
+        zIndex: 9,
+        delay: 0.2,
+        onComplete() {
+          vm.sliding = false
+          currentTarget.classList.remove('active')
+          vm.currentIndex = vm.nextIndex
+        }
+      })
+
+      vm.Gsap.set(nextTarget, {
+        zIndex: 10,
+        x: '-100%'
+      })
+      vm.Gsap.to(nextTarget, {
+        x: 0
+      })
+    },
+    prevSlide() {
+      if (this.sliding) {
+        return
+      }
+
+      const vm = this
+
+      const currentTarget = vm.$refs[`slide_${vm.currentIndex}`][0]
+      const prevTarget = vm.$refs[`slide_${vm.prevIndex}`][0]
+
+      vm.sliding = true
+
+      vm.Gsap.set(currentTarget, { zIndex: 9 })
+      prevTarget.classList.add('active')
+
+      vm.Gsap.to(currentTarget, {
+        x: '-100%',
+        zIndex: 9,
+        delay: 0.2,
+        onComplete() {
+          vm.sliding = false
+          currentTarget.classList.remove('active')
+          vm.currentIndex = vm.prevIndex
+        }
+      })
+
+      vm.Gsap.set(prevTarget, {
+        zIndex: 10,
+        x: '100%'
+      })
+      vm.Gsap.to(prevTarget, {
+        x: 0
+      })
+    }
+  }
 }
 </script>
 
 <style lang="postcss" scoped>
 .home-carousel {
-  @apply w-full relative;
+  @apply w-full relative overflow-hidden;
   height: 60vh;
 }
 
@@ -46,11 +161,13 @@ export default {
   height: 50px;
   width: 1px;
   background-color: #DBDDE0;
+  z-index: 11;
 }
 .c-nav-btns .c-btn {
   @apply flex justify-center items-center bg-white text-danger cursor-pointer;
   height: 50px;
   width: 50px;
+  z-index: 11;
 }
 
 .items {
@@ -62,7 +179,12 @@ export default {
 
   padding: 2rem 2rem 7rem 2rem;
 
-  @apply flex flex-col justify-end items-start bg-light overflow-hidden;
+  @apply hidden flex-col justify-end items-start bg-light overflow-hidden;
+}
+
+.active {
+  @apply flex;
+  z-index: 10;
 }
 
 .items img {
@@ -78,6 +200,7 @@ export default {
 }
 
 .text {
+  position: relative;
   z-index: 1;
 }
 
