@@ -72,7 +72,9 @@ export default {
 
   destroyed() {
     const vm = this
-    vm.tiltEffect.kill()
+    if (vm.tiltEffect !== null) {
+      vm.tiltEffect.kill()
+    }
     document.removeEventListener('mousemouve', vm.tiltCarousel)
   },
 
@@ -87,8 +89,6 @@ export default {
       const currentTarget = vm.$refs[`slide_${vm.currentIndex}`][0]
       const nextTarget = vm.$refs[`slide_${vm.nextIndex}`][0]
       const nextTargetText = vm.$refs[`text_${vm.nextIndex}`][0]
-
-      console.log(nextTarget.text)
 
       vm.sliding = true
       nextTarget.classList.add('active')

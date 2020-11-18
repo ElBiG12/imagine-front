@@ -4,12 +4,10 @@
       class="doc-picture z-0"
       :src="item.img"
       alt=""
+      v-shared-element:[index]="{ restrictToViewport: true }"
     />
     <span class="text-white p-10 z-10">
-      <h2
-        class="text-2xl font-bold"
-        v-text="item.title"
-      ></h2>
+      <h2 class="text-2xl font-bold" v-text="item.title"></h2>
       <p class="font-light" v-text="item.short_desc"></p>
     </span>
   </nuxt-link>
@@ -25,7 +23,7 @@ export default {
       required: true
     }
   },
-  mounted () {}
+  mounted() {}
 }
 </script>
 <style scoped>
