@@ -1,5 +1,5 @@
 <template>
-  <div class="home-carousel">
+  <div class="home-carousel" ref="home_carousel">
     <div class="carousel-items">
       <div
         v-for="(item, index) in items"
@@ -9,7 +9,7 @@
         :ref="`slide_${index}`"
       >
         <img :src="item.cover" alt="" srcset="" />
-        <div class="text">
+        <div class="text" :ref="`text_${index}`">
           <h2 class="c-headline" v-text="item.title"></h2>
         </div>
       </div>
@@ -27,6 +27,8 @@
 </template>
 
 <script>
+import { TweenLite } from 'gsap'
+
 export default {
   // props: ['items'],
 
@@ -43,7 +45,8 @@ export default {
         }
       ],
       currentIndex: 0,
-      sliding: false
+      sliding: false,
+      tiltEffect: null
     }
   },
 
@@ -62,8 +65,15 @@ export default {
 
   mounted() {
     this.$nextTick(() => {
-      console.log(this.$refs[`slide_${1}`][0])
+      const vm = this
+      document.addEventListener('mousemove', vm.tiltCarousel)
     })
+  },
+
+  destroyed() {
+    const vm = this
+    vm.tiltEffect.kill()
+    document.removeEventListener('mousemouve', vm.tiltCarousel)
   },
 
   methods: {
@@ -76,6 +86,9 @@ export default {
 
       const currentTarget = vm.$refs[`slide_${vm.currentIndex}`][0]
       const nextTarget = vm.$refs[`slide_${vm.nextIndex}`][0]
+      const nextTargetText = vm.$refs[`text_${vm.nextIndex}`][0]
+
+      console.log(nextTarget.text)
 
       vm.sliding = true
       nextTarget.classList.add('active')
@@ -86,8 +99,9 @@ export default {
 
       vm.Gsap.to(currentTarget, {
         x: '100%',
-        zIndex: 9,
         delay: 0.2,
+        duration: 1,
+        ease: 'circ.in',
         onComplete() {
           vm.sliding = false
           currentTarget.classList.remove('active')
@@ -100,7 +114,21 @@ export default {
         x: '-100%'
       })
       vm.Gsap.to(nextTarget, {
-        x: 0
+        x: 0,
+        duration: 1,
+        ease: 'circ.out'
+      })
+
+      vm.Gsap.set(nextTargetText, {
+        opacity: 0,
+        x: '50%'
+      })
+
+      vm.Gsap.to(nextTargetText, {
+        x: 0,
+        opacity: 1,
+        duration: 1,
+        ease: 'sine.inOut'
       })
     },
     prevSlide() {
@@ -112,6 +140,7 @@ export default {
 
       const currentTarget = vm.$refs[`slide_${vm.currentIndex}`][0]
       const prevTarget = vm.$refs[`slide_${vm.prevIndex}`][0]
+      const prevTargetText = vm.$refs[`text_${vm.prevIndex}`][0]
 
       vm.sliding = true
 
@@ -122,6 +151,8 @@ export default {
         x: '-100%',
         zIndex: 9,
         delay: 0.2,
+        ease: 'circ.in',
+        duration: 1,
         onComplete() {
           vm.sliding = false
           currentTarget.classList.remove('active')
@@ -134,8 +165,36 @@ export default {
         x: '100%'
       })
       vm.Gsap.to(prevTarget, {
-        x: 0
+        x: 0,
+        duration: 1,
+        ease: 'circ.out'
       })
+
+      vm.Gsap.set(prevTargetText, {
+        opacity: 0,
+        x: '-50%'
+      })
+
+      vm.Gsap.to(prevTargetText, {
+        x: 0,
+        opacity: 1,
+        duration: 1,
+        ease: 'sine.inOut'
+      })
+    },
+    tiltCarousel(e) {
+      if (document.querySelector('.home-carousel')) {
+        const xPos = event.clientX / innerWidth - 0.5
+        const yPos = event.clientY / innerHeight - 0.5
+
+        this.tiltEffect = TweenLite.to('.home-carousel', 0.6, {
+          rotationY: 5 * xPos,
+          rotationX: 5 * yPos,
+          ease: 'power1.out',
+          transformPerspective: 900,
+          transformOrigin: 'center'
+        })
+      }
     }
   }
 }
@@ -160,7 +219,7 @@ export default {
 .c-nav-btns .separator {
   height: 50px;
   width: 1px;
-  background-color: #DBDDE0;
+  background-color: #dbdde0;
   z-index: 11;
 }
 .c-nav-btns .c-btn {
