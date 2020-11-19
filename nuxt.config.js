@@ -1,8 +1,12 @@
 export default {
-  mode: 'universal',
+  mode: 'static',
 
   router: {
     linkActiveClass: 'ic-menu-active-link'
+  },
+
+  generate: {
+    fallback: true
   },
 
   // Global page headers (https://go.nuxtjs.dev/config-head)
@@ -101,9 +105,5 @@ export default {
     config: {
       ignoredElements: ['ion-icon']
     }
-  },
-
-  generate: {
-    fallback: true
   }
 }
