@@ -6,25 +6,25 @@
       <div class="footer-links">
         <p class="links-title">Projet Imagine</p>
         <ul class="links space-y-10">
-          <nuxt-link to="imagine" tag="li"> Imagine </nuxt-link>
+          <nuxt-link to="/imagine" tag="li"> Imagine </nuxt-link>
           <nuxt-link to="" tag="li"> Atelier </nuxt-link>
-          <nuxt-link to="collection-thematique" tag="li"> Collection Thémathique </nuxt-link>
+          <nuxt-link to="/collection-thematique" tag="li"> Collection Thémathique </nuxt-link>
           <nuxt-link to="" tag="li"> Masterclass </nuxt-link>
         </ul>
       </div>
       <div class="footer-links">
         <p class="links-title">Qui nous Sommes</p>
         <ul class="links space-y-10">
-          <nuxt-link to="actualites" tag="li"> Actualités </nuxt-link>
-          <nuxt-link to="notre-histoire" tag="li"> Notre Histoire </nuxt-link>
-          <nuxt-link to="films" tag="li"> Les films </nuxt-link>
-          <nuxt-link to="contact" tag="li"> Contact </nuxt-link>
+          <nuxt-link to="/actualites" tag="li"> Actualités </nuxt-link>
+          <nuxt-link to="/notre-histoire" tag="li"> Notre Histoire </nuxt-link>
+          <nuxt-link to="/films" tag="li"> Les films </nuxt-link>
+          <nuxt-link to="/contact" tag="li"> Contact </nuxt-link>
         </ul>
       </div>
       <div class="footer-links">
         <p class="links-title">Éductation a l’image</p>
         <ul class="links space-y-10">
-          <nuxt-link to="education-a-l-image" tag="li"> Education a l’image </nuxt-link>
+          <nuxt-link to="/education-a-l-image" tag="li"> Education a l’image </nuxt-link>
         </ul>
       </div>
       <div class="footer-links md:col-span-3 xl:col-span-2">

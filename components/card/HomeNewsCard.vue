@@ -1,5 +1,5 @@
 <template>
-  <a href="" class="news-card" :class="{tall: tall}">
+  <nuxt-link :to="{ name: 'actualites-slug', params: { slug: 'demo-act' }}" class="news-card" :class="{ tall: tall }">
     <div v-if="isReadMore" class="readmore-img-wrapper">
       <img src="/img/home-news-readmore.png" alt="" />
     </div>
@@ -7,15 +7,15 @@
       <img src="/img/home-news.png" alt="" />
     </div>
     <span v-if="isReadMore">
-      <p class="link link-primary mt-4">
-        Read more
-      </p>
+      <p class="link link-primary mt-4">Read more</p>
     </span>
     <span v-else>
       <h2 class="title">A sound form you can see, not just hear.</h2>
-      <p class="subtitle" v-if="!tall">A sound form you can see, not just hear.</p>
+      <p class="subtitle" v-if="!tall">
+        A sound form you can see, not just hear.
+      </p>
     </span>
-  </a>
+  </nuxt-link>
 </template>
 
 <script>

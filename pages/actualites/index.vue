@@ -15,29 +15,18 @@
         </p>
       </div>
     </div>
-    <div class="ic-container my-48">
-      <div class="more-news-block">
-        <div class="card-col-container">
-          <HomeNewsCard tall />
-          <HomeNewsCard tall />
-        </div>
-        <div class="card-col-container mt-16 sm:mt-32">
-          <HomeNewsCard tall />
-          <HomeNewsCard tall />
-        </div>
-      </div>
-    </div>
+    <MorePost class="ic-container my-48" withMoreButton />
   </div>
 </template>
 
 <script>
-import HomeNewsCard from '@/components/card/HomeNewsCard'
+import MorePost from '@/components/partials/MorePost'
 import SmoothScroll from '~/mixins/SmoothScroll.js'
 
 export default {
   mixins: [SmoothScroll],
   components: {
-    HomeNewsCard
+    MorePost
   }
 }
 </script>
