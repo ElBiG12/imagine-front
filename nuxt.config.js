@@ -1,12 +1,6 @@
 export default {
-  mode: 'static',
-
   router: {
     linkActiveClass: 'ic-menu-active-link'
-  },
-
-  generate: {
-    fallback: true
   },
 
   // Global page headers (https://go.nuxtjs.dev/config-head)
