@@ -1,5 +1,10 @@
 export default {
   mode: 'universal',
+
+  router: {
+    linkActiveClass: 'ic-menu-active-link'
+  },
+
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
     title: 'imagine-front',

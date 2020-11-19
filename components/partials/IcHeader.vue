@@ -12,29 +12,29 @@
         <div class="dropdown">
           <button class="dropbtn">Imagine</button>
           <div class="dropdown-content">
-            <a href="#">A Propos</a>
-            <a href="#">Notre Histoire</a>
+            <NuxtLink to="/">A Propos</NuxtLink>
+            <NuxtLink to="/notre-histoire">Notre Histoire</NuxtLink>
           </div>
         </div>
         <div class="dropdown">
           <button class="dropbtn">Education a l'image</button>
           <div class="dropdown-content">
-            <a href="#">Education a l'image</a>
-            <a href="#">Atelier</a>
-            <a href="#">Collection Thematique</a>
+            <NuxtLink to="/education-a-l-image">Education a l'image</NuxtLink>
+            <NuxtLink to="/">Atelier</NuxtLink>
+            <NuxtLink to="/collection-thematique">Collection Thematique</NuxtLink>
           </div>
         </div>
         <div class="dropdown">
-          <button class="dropbtn">MasterClass</button>
+          <NuxtLink tag="button" to="/" class="dropbtn" exact>MasterClass</NuxtLink>
         </div>
         <div class="dropdown">
-          <button class="dropbtn">Les Films</button>
+          <NuxtLink tag="button" to="/films" class="dropbtn" exact>Les Films</NuxtLink>
         </div>
         <div class="dropdown">
-          <button class="dropbtn">Actualité</button>
+          <NuxtLink tag="button" to="/actualites" class="dropbtn" exact>Actualité</NuxtLink>
         </div>
         <div class="dropdown">
-          <button class="dropbtn">Contact</button>
+          <NuxtLink tag="button" to="/contact" class="dropbtn" exact>Contact</NuxtLink>
         </div>
       </div>
       <div v-if="closeMode">
@@ -118,6 +118,10 @@ export default {
 </script>
 
 <style lang="postcss" scoped>
+.ic-menu-active-link {
+  @apply text-secondary !important;
+}
+
 .main-header {
   @apply flex justify-between mt-12 mb-24;
   height: 60px !important;
