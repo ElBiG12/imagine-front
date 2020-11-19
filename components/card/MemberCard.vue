@@ -6,8 +6,8 @@
       alt=""
     />
     <span class="text-white p-6 z-10">
-      <h2 class="text-xl font-bold">Ali Benabbes</h2>
-      <h3 class="font-regular text-sm pb-5">Cinéaste et producteur</h3>
+      <h2 class="text-xl font-bold">Alilouche Mahdi</h2>
+      <h3 class="font-regular text-sm pb-5">Cinéaste et super khchine</h3>
       <p class="text-sm font-light">Membre du comité de pilotage et monteur</p>
     </span>
   </div>
