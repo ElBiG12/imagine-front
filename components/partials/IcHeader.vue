@@ -50,10 +50,12 @@
         <ion-icon name="menu-outline" class="menu-icon" />
       </div>
     </div>
+    <!-- <MobileMenu :links="links" /> -->
   </nav>
 </template>
 
 <script>
+// import { MobileMenu } from '@/components/partials/MobileMenu'
 export default {
   props: {
     closeMode: {
@@ -64,11 +66,58 @@ export default {
       type: Boolean,
       default: false
     }
+  },
+
+  components: {
+    // MobileMenu
+  },
+
+  data() {
+    return {
+      links: [
+        {
+          title: 'Imagine',
+          path: '/imagine'
+        },
+        {
+          title: 'Ateliers',
+          path: '/'
+        },
+        {
+          title: 'Collection thématique',
+          path: '/collection-thematique'
+        },
+        {
+          title: 'MasterClass',
+          path: '/'
+        },
+        {
+          title: 'Les Films',
+          path: '/films'
+        },
+        {
+          title: 'Actualités',
+          path: '/actualites'
+        },
+        {
+          title: "Éducation à l'image",
+          path: '/education-a-l-image'
+        },
+        {
+          title: 'Notre Histoire',
+          path: '/notre-histoire'
+        },
+        {
+          title: 'Contact',
+          path: '/contact'
+        }
+      ]
+    }
   }
 }
 </script>
 
-<style lang="postcss">
+<style lang="postcss" scoped>
 .main-header {
   @apply flex justify-between mt-12 mb-24;
   height: 60px !important;
