@@ -47,6 +47,25 @@
           </p>
         </div>
       </div>
+      <div class="pt-24 pb-24">
+        <div class="vid-container mt-10">
+          <iframe
+            width="100%"
+            height="100%"
+            style="
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+            "
+            src="https://www.youtube-nocookie.com/embed/kAphgHhlteM?controls=0&autoplay=1&mute=1&loop=1"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
       <div class="grid sm:grid-cols-1 md:grid-cols-5 lg:grid-cols-5 mt-20">
         <div class="col-span-1">
           <h1 class="text-base font-bold font-display mb-4">Depuis 2007</h1>
@@ -186,103 +205,43 @@
         <div class="simply-scroll simply-scroll-container">
           <ul id="scroller" class="simply-scroll-list">
             <li>
-              <img
-                src="http://logicbox.net/jquery/simplyscroll/assets/20080514_JYW68XPT_tb.jpg"
-              />
+              <img src="/img/bejaiaDoc2.jpg" />
             </li>
             <li>
-              <img
-                src="http://logicbox.net/jquery/simplyscroll/assets/20080608_38CG51J2_tb.jpg"
-              />
+              <img src="/img/Cinema-de-passages.jpeg" />
             </li>
             <li>
-              <img
-                src="http://logicbox.net/jquery/simplyscroll/assets/20080513_4D3SD1BQ_tb.jpg"
-              />
+              <img src="/img/Film-documentaires.png" />
             </li>
             <li>
-              <img
-                src="http://logicbox.net/jquery/simplyscroll/assets/20080513_4D3SD1BQ_tb.jpg"
-              />
+              <img src="/img/bejaiaDoc2.jpg" />
             </li>
             <li>
-              <img
-                src="http://logicbox.net/jquery/simplyscroll/assets/20080513_4D3SD1BQ_tb.jpg"
-              />
-            </li>
-            <li>
-              <img
-                src="http://logicbox.net/jquery/simplyscroll/assets/20080513_4D3SD1BQ_tb.jpg"
-              />
-            </li>
-            <li>
-              <img
-                src="http://logicbox.net/jquery/simplyscroll/assets/20080513_4D3SD1BQ_tb.jpg"
-              />
-            </li>
-            <li>
-              <img
-                src="http://logicbox.net/jquery/simplyscroll/assets/20080513_4D3SD1BQ_tb.jpg"
-              />
-            </li>
-            <li>
-              <img
-                src="http://logicbox.net/jquery/simplyscroll/assets/20080513_4D3SD1BQ_tb.jpg"
-              />
+              <img src="/img/Cinema-de-passages.jpeg" />
             </li>
           </ul>
         </div>
-         <div class="simply-scroll simply-scroll-container">
+        <div class="simply-scroll simply-scroll-container">
           <ul id="scroller2" class="simply-scroll-list">
             <li>
-              <img
-                src="http://logicbox.net/jquery/simplyscroll/assets/20080514_JYW68XPT_tb.jpg"
-              />
+              <img src="/img/bejaiaDoc2.jpg" />
             </li>
             <li>
-              <img
-                src="http://logicbox.net/jquery/simplyscroll/assets/20080608_38CG51J2_tb.jpg"
-              />
+              <img src="/img/Cinema-de-passages.jpeg" />
             </li>
             <li>
-              <img
-                src="http://logicbox.net/jquery/simplyscroll/assets/20080513_4D3SD1BQ_tb.jpg"
-              />
+              <img src="/img/Film-documentaires.png" />
             </li>
             <li>
-              <img
-                src="http://logicbox.net/jquery/simplyscroll/assets/20080513_4D3SD1BQ_tb.jpg"
-              />
+              <img src="/img/bejaiaDoc2.jpg" />
             </li>
             <li>
-              <img
-                src="http://logicbox.net/jquery/simplyscroll/assets/20080513_4D3SD1BQ_tb.jpg"
-              />
-            </li>
-            <li>
-              <img
-                src="http://logicbox.net/jquery/simplyscroll/assets/20080513_4D3SD1BQ_tb.jpg"
-              />
-            </li>
-            <li>
-              <img
-                src="http://logicbox.net/jquery/simplyscroll/assets/20080513_4D3SD1BQ_tb.jpg"
-              />
-            </li>
-            <li>
-              <img
-                src="http://logicbox.net/jquery/simplyscroll/assets/20080513_4D3SD1BQ_tb.jpg"
-              />
-            </li>
-            <li>
-              <img
-                src="http://logicbox.net/jquery/simplyscroll/assets/20080513_4D3SD1BQ_tb.jpg"
-              />
+              <img src="/img/Cinema-de-passages.jpeg" />
             </li>
           </ul>
         </div>
-        <span class="">
-          <h1 class="text-5xl font-light font-display text-white">
+        <span class="p-24">
+          <h1 class="text-6xl font-light font-display text-white">
             Want to work together ?
           </h1>
           <a class="text-5xl font-bold font-display text-white" href="#">
@@ -302,7 +261,7 @@ if (typeof window !== 'undefined') {
 
 export default {
   mixins: [SmoothScroll],
-  mounted () {
+  mounted() {
     $('#scroller').simplyScroll({
       auto: true,
       autoMode: 'loop',
@@ -400,5 +359,9 @@ Class name automatically added to element */
   width: 328px;
   height: 470px;
   padding: 20px;
+}
+.vid-container {
+  position: relative;
+  padding-top: 56.25%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
 }
 </style>

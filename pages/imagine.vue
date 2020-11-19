@@ -4,15 +4,16 @@
       <div class="big-title">
         <h1>Imagine un projet de Cinéma et Mémoire.</h1>
       </div>
-      <div class="video-frame">
-        <div class="video-bg">
-          <img
-            class=""
-            src="https://images.unsplash.com/photo-1582230587856-7fec01506148?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
-            alt="altstuff"
-          />
-        </div>
-        <PlayButton class="play-btn" />
+      <div class="vid-container mt-10">
+        <iframe
+          width="100%"
+          height="100%"
+          style="position: absolute; top: 0; left: 0; width: 100%; height: 100%"
+          src="https://www.youtube-nocookie.com/embed/kAphgHhlteM?controls=0&autoplay=1&mute=1&loop=1"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
       </div>
     </section>
     <section class="ic-container section">
@@ -213,7 +214,10 @@
           </div>
           <a href="#" class="card-wrapper">
             <div class="card-cover">
-              <img src="https://images.unsplash.com/photo-1505620391902-46b120671eb6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60" alt="" />
+              <img
+                src="https://images.unsplash.com/photo-1505620391902-46b120671eb6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
+                alt=""
+              />
             </div>
             <span>
               <h2 class="text-3xl font-bold font-display mt-5">
@@ -227,7 +231,10 @@
           </a>
           <a href="#" class="card-wrapper">
             <div class="card-cover">
-              <img src="https://images.unsplash.com/photo-1569620977730-70b5eba01e9f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60" alt="" />
+              <img
+                src="https://images.unsplash.com/photo-1569620977730-70b5eba01e9f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
+                alt=""
+              />
             </div>
             <span>
               <h2 class="text-3xl font-bold font-display mt-5">
@@ -412,5 +419,9 @@ export default {
 }
 .hello {
   transform: translateX(-40%);
+}
+.vid-container {
+  position: relative;
+  padding-top: 56.25%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
 }
 </style>
