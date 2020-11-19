@@ -1,10 +1,10 @@
 <template>
   <nav class="absolute-header">
-    <div class="main-header ic-container">
+    <div class="main-header ic-container" :class="{'text-white': white}">
       <nuxt-link
         tag="img"
         to="/"
-        src="/Logo-Imagine-Orange.png"
+        :src="!white ? '/Logo-Imagine-Orange.png' : '/logo-imagine-white.png'"
         alt="Imagine Cinema Logo"
         class="imagine-cinema-logo cursor-pointer"
       />
@@ -23,6 +23,10 @@
 export default {
   props: {
     closeMode: {
+      type: Boolean,
+      default: false
+    },
+    white: {
       type: Boolean,
       default: false
     }
