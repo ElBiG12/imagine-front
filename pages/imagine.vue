@@ -12,7 +12,7 @@
             alt="altstuff"
           />
         </div>
-        <PlayButton />
+        <PlayButton class="play-btn" />
       </div>
     </section>
     <section class="ic-container section">
@@ -344,20 +344,15 @@ export default {
   display: grid;
   place-items: center;
 }
-.video-bg {
+.video-frame .video-bg {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center center;
   background-color: #000000;
 }
-.play-button {
-  position: absolute;
-  width: 150px;
-  height: 150px;
-  background: rgba(255, 255, 255, 0.5);
-  backdrop-filter: blur(5px);
-  border-radius: 50%;
+.play-btn {
+  position: absolute !important;
 }
 .context {
   display: grid;

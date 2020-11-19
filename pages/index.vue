@@ -1,6 +1,6 @@
 <template>
   <div class="push-from-header">
-    <div class="ic-container bg-dark">
+    <div class="ic-container">
       <HomeCarousel />
     </div>
     <div class="ic-container grid grid-cols-1 lg:grid-cols-9 gap-x-20 mt-64">

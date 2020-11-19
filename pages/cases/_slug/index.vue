@@ -260,8 +260,7 @@ export default {
           trigger: this.$refs.next_case,
           scrub: true,
           start: 'top bottom',
-          end: 'top top',
-          markers: false
+          end: 'top top'
         },
         y: -innerHeight * 0.5,
         ease: 'none'
@@ -272,8 +271,7 @@ export default {
           trigger: this.$refs.next_case,
           scrub: true,
           start: 'top bottom',
-          end: 'top top',
-          markers: true
+          end: 'top top'
         },
         opacity: 0.2,
         ease: 'none'
