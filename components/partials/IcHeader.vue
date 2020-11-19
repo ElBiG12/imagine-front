@@ -12,7 +12,7 @@
         <div class="dropdown">
           <button class="dropbtn">Imagine</button>
           <div class="dropdown-content">
-            <NuxtLink to="/">A Propos</NuxtLink>
+            <NuxtLink to="/imagine">A Propos</NuxtLink>
             <NuxtLink to="/notre-histoire">Notre Histoire</NuxtLink>
           </div>
         </div>
