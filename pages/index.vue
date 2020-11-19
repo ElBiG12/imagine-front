@@ -40,12 +40,30 @@
         class="flex flex-row items-center justify-center gap-10 lg:col-span-5 mt-24 lg:mt-0"
       >
         <div class="flex flex-col justify-start gap-10">
-          <img src="/img/home-rect-1.png" alt="" />
-          <img src="/img/home-rect-3.png" class="pr-10" alt="" />
+          <img
+            class="w-full"
+            src="https://images.unsplash.com/photo-1540317580384-e5d43616b9aa?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
+            data-scroll
+            data-scroll-speed="1"
+            alt=""
+          />
+          <img
+            src="https://images.unsplash.com/photo-1582499519937-2a37d225f9bd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
+            class="pr-10"
+            data-scroll
+            data-scroll-speed="3"
+            alt=""
+          />
         </div>
         <div class="flex flex-col justify-end gap-10">
-          <img src="/img/home-rect-2.png" alt="" />
-          <img src="/img/home-rect-1.png" alt="" />
+          <img src="/img/test.png" data-scroll data-scroll-speed="2" alt="" />
+          <img
+            class="w-full"
+            src="https://images.unsplash.com/photo-1533577344265-69c4873b22aa?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
+            data-scroll
+            data-scroll-speed="4"
+            alt=""
+          />
         </div>
       </div>
     </div>
@@ -78,7 +96,7 @@
         </a>
       </div>
     </div>
-    <div class="poster-cn">
+    <div class="article-cn">
       <div class="grid grid-cols-1 place-items-center">
         <client-only placeholder="Loading...">
           <div class="simply-scroll simply-scroll-container" ref="simplyScroll">
@@ -188,8 +206,8 @@ export default {
 }
 </script>
 
-<style>
-.poster-cn {
+<style scoped>
+.article-cn {
   position: relative;
   overflow: hidden;
   width: 100%;
@@ -220,7 +238,6 @@ Class name automatically added to element */
 /* Container DIV */
 .simply-scroll {
   width: 100%;
-  margin-bottom: 1em;
 }
 
 /* Clip DIV */

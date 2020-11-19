@@ -4,7 +4,7 @@
       <img src="/img/home-news-readmore.png" alt="" />
     </div>
     <div v-else class="img-wrapper">
-      <img src="/img/home-news.png" alt="" />
+      <img src="https://images.unsplash.com/photo-1532264523420-881a47db012d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60" alt="" />
     </div>
     <span v-if="isReadMore">
       <p class="link link-primary mt-4">

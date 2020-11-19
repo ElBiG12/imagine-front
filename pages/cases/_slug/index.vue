@@ -59,10 +59,85 @@
             est parti vivre en angleterre juste avant que n’eclate la querre
             civil.
           </h2>
-          <p class="sub-text">
+          <p class="sub-text leading-7">
             Drifa est interpréte et graphiste de formation. Aujourd’hui elle
             aime la platforme web professionelle “ Tahya cinéma”.
           </p>
+          <div class="pic-container mt-12">
+            <img
+              src="https://images.unsplash.com/photo-1532877590696-69a157b92b78?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2734&q=80"
+              alt=""
+              data-scroll
+              data-scroll-speed="-7"
+            />
+          </div>
+          <p class="text-base pt-10 leading-7">
+            Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+            accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
+            quae ab illo inventore veritatis et quasi architecto beatae vitae
+            dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
+            aspernatur aut odit aut fugit, sed quia consequuntur magni dolores
+            eos qui ratione voluptatem sequi nesciunt.
+            <br />
+            <br />
+            Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet,
+            consectetur, adipisci velit, sed quia non numquam eius modi tempora
+            incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut
+            enim ad minima veniam, quis nostrum exercitationem ullam corporis
+            suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis
+            autem vel eum iure reprehenderit qui in ea voluptate velit esse quam
+            nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo
+            voluptas nulla pariatur?
+          </p>
+          <div class="pic-container mt-12">
+            <img
+              class="-translate-y-64"
+              src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2734&q=80"
+              alt=""
+              data-scroll
+              data-scroll-speed="-7"
+            />
+          </div>
+          <p class="text-base pt-10 leading-7">
+            Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+            accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
+            quae ab illo inventore veritatis et quasi architecto beatae vitae
+            dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
+            aspernatur aut odit aut fugit, sed quia consequuntur magni dolores
+            eos qui ratione voluptatem sequi nesciunt.
+            <br />
+            <br />
+            Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet,
+            consectetur, adipisci velit, sed quia non numquam eius modi tempora
+            incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut
+            enim ad minima veniam, quis nostrum exercitationem ullam corporis
+            suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis
+            autem vel eum iure reprehenderit qui in ea voluptate velit esse quam
+            nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo
+            voluptas nulla pariatur?
+          </p>
+          <div class="vid-container mt-10">
+            <iframe
+              width="100%"
+              height="100%"
+              style="position:absolute;top:0;left:0;width:100%;height:100%;"
+              src="https://www.youtube-nocookie.com/embed/kAphgHhlteM?controls=0&autoplay=1&mute=1"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="vid-container mt-10">
+            <iframe
+              width="100%"
+              height="100%"
+              style="position:absolute;top:0;left:0;width:100%;height:100%;"
+              src="https://www.youtube-nocookie.com/embed/kAphgHhlteM?controls=0&autoplay=1&mute=1"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
         </div>
       </div>
     </div>
@@ -467,5 +542,18 @@ export default {
   .next-case-section .content .next-text {
     @apply text-5xl inline-block;
   }
+}
+.pic-container {
+  width: 100%;
+  height: 540px;
+  position: relative;
+  overflow: hidden;
+}
+.pic-container img {
+  width: 100%;
+}
+.vid-container {
+  position: relative;
+  padding-top: 56.25%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
 }
 </style>

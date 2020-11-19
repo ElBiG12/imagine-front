@@ -154,12 +154,36 @@
           class="flex flex-row items-center justify-center gap-10 lg:col-span-5 mt-24 lg:mt-0"
         >
           <div class="flex flex-col justify-start gap-10">
-            <img src="/img/home-rect-1.png" alt="" />
-            <img src="/img/home-rect-3.png" class="pr-10" alt="" />
+            <img
+              class="w-64"
+              src="https://images.unsplash.com/photo-1511376979163-f804dff7ad7b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
+              data-scroll
+              data-scroll-speed="1"
+              alt=""
+            />
+            <img
+              class="w-64 pr-10"
+              src="https://images.unsplash.com/photo-1472289065668-ce650ac443d2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
+              data-scroll
+              data-scroll-speed="3"
+              alt=""
+            />
           </div>
           <div class="flex flex-col justify-end gap-10">
-            <img src="/img/home-rect-2.png" alt="" />
-            <img src="/img/home-rect-1.png" alt="" />
+            <img
+              class="w-56"
+              src="https://images.unsplash.com/photo-1587614203976-365c74645e83?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
+              data-scroll
+              data-scroll-speed="2"
+              alt=""
+            />
+            <img
+              class="w-64"
+              src="https://images.unsplash.com/photo-1525896544042-354764aa27e6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
+              data-scroll
+              data-scroll-speed="4"
+              alt=""
+            />
           </div>
         </div>
       </div>
@@ -189,11 +213,11 @@
           </div>
           <a href="#" class="card-wrapper">
             <div class="card-cover">
-              <img src="" alt="" />
+              <img src="https://images.unsplash.com/photo-1505620391902-46b120671eb6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60" alt="" />
             </div>
             <span>
               <h2 class="text-3xl font-bold font-display mt-5">
-                Capture the moment
+                "Empty yet FULL" the workshop about sound design.
               </h2>
               <p class="text-sm mt-1">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Diam
@@ -203,11 +227,11 @@
           </a>
           <a href="#" class="card-wrapper">
             <div class="card-cover">
-              <img src="" alt="" />
+              <img src="https://images.unsplash.com/photo-1569620977730-70b5eba01e9f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60" alt="" />
             </div>
             <span>
               <h2 class="text-3xl font-bold font-display mt-5">
-                Capture the moment
+                A night shoot
               </h2>
               <p class="text-sm mt-1">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Diam
