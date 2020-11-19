@@ -101,5 +101,9 @@ export default {
     config: {
       ignoredElements: ['ion-icon']
     }
+  },
+
+  generate: {
+    fallback: true
   }
 }
