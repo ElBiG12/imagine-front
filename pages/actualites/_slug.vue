@@ -96,14 +96,15 @@ export default {
 
 <style lang="postcss" scoped>
 .actu-header {
-  @apply w-full h-auto;
+  @apply w-full;
+  height: 60vh;
 }
 .actu-header img {
-  @apply w-full;
+  @apply min-w-full h-full object-cover;
 }
 
 .act-title {
-  @apply text-9xl font-bold mt-24 mb-16 w-full leading-none font-display;
+  @apply text-4xl font-bold mt-24 mb-16 w-full leading-none font-display;
 }
 
 .content-block {
@@ -123,12 +124,18 @@ export default {
 }
 
 @screen sm {
+  .act-title {
+    @apply text-5xl;
+  }
   .more-news-block {
     @apply grid-cols-2 gap-x-16;
   }
 }
 
 @screen md {
+  .act-title {
+    @apply text-7xl;
+  }
   .more-news-block {
     @apply grid-cols-2 gap-x-24;
   }
@@ -136,7 +143,7 @@ export default {
 
 @screen lg {
   .act-title {
-    @apply w-8/12;
+    @apply text-9xl w-8/12;
   }
 
   .content-block {
