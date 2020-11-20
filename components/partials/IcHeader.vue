@@ -12,29 +12,52 @@
         <div class="dropdown">
           <button class="dropbtn">Imagine</button>
           <div class="dropdown-content">
-            <NuxtLink to="/imagine">A Propos</NuxtLink>
-            <NuxtLink to="/notre-histoire">Notre Histoire</NuxtLink>
+             <NuxtLink
+            to="/imagine"
+              >A Propos</NuxtLink
+            >
+            <NuxtLink
+            to="/collection-thematique">Ateliers</NuxtLink>
+            <NuxtLink
+            to="/collection-thematique"
+              >Collection Thematique</NuxtLink
+            >
+            <NuxtLink
+            to="/collection-thematique">MasterClass</NuxtLink>
           </div>
         </div>
         <div class="dropdown">
-          <button class="dropbtn">Education a l'image</button>
+          <button class="dropbtn">Notre Histoire</button>
           <div class="dropdown-content">
-            <NuxtLink to="/education-a-l-image">Education a l'image</NuxtLink>
-            <NuxtLink to="/">Atelier</NuxtLink>
-            <NuxtLink to="/collection-thematique">Collection Thematique</NuxtLink>
+             <NuxtLink
+            to="/notre-histoire"
+              >Notre Histoire</NuxtLink
+            >
+            <NuxtLink
+            to="/films"
+              >Les Films</NuxtLink
+            >
+            <NuxtLink
+            to="/education-a-l-image">Edducation a l'image</NuxtLink>
           </div>
         </div>
         <div class="dropdown">
-          <NuxtLink tag="button" to="/" class="dropbtn" exact>MasterClass</NuxtLink>
+          <NuxtLink
+          tag="button"
+          to="/actualites"
+          class="dropbtn"
+           exact
+            >Actualité</NuxtLink
+          >
         </div>
         <div class="dropdown">
-          <NuxtLink tag="button" to="/films" class="dropbtn" exact>Les Films</NuxtLink>
-        </div>
-        <div class="dropdown">
-          <NuxtLink tag="button" to="/actualites" class="dropbtn" exact>Actualité</NuxtLink>
-        </div>
-        <div class="dropdown">
-          <NuxtLink tag="button" to="/contact" class="dropbtn" exact>Contact</NuxtLink>
+          <NuxtLink
+           tag="button"
+            to="/contact"
+             class="dropbtn"
+             exact
+            >Contact</NuxtLink
+          >
         </div>
       </div>
       <div v-if="closeMode">
@@ -72,7 +95,7 @@ export default {
     // MobileMenu
   },
 
-  data() {
+  data () {
     return {
       links: [
         {
