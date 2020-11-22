@@ -81,7 +81,7 @@ export default {
       const totalOffset = document.body.scrollHeight
       try {
         if (totalOffset !== this.totalOffset) {
-          _.debounce(this.onLmsResize.bind(this), 100)
+          this.lmS.update()
           this.totalOffset = totalOffset
         }
       } catch {}
