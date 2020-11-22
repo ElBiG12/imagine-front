@@ -1,8 +1,8 @@
 <template>
   <div class="layout ic-smooth-scroll">
     <div class="layout-content">
-      <IcHeader />
-      <Nuxt />
+      <IcHeader data-scroll-section />
+      <Nuxt data-scroll-section />
     </div>
   </div>
 </template>

@@ -4,51 +4,58 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger.js'
 export default {
   data() {
     return {
-      lmS: null
+      lmS: null,
+      totalOffset: 0
     }
   },
   mounted() {
     this.$nextTick(
       function () {
-        this.lmS = new this.LocomotiveScroll({
+        const vm = this
+
+        vm.totalOffset = document.body.scrollHeight
+
+        vm.lmS = new vm.LocomotiveScroll({
           el: document.querySelector('.ic-smooth-scroll'),
           smooth: true,
           smoothMobile: true
         })
-        this.initScrollerProxy()
+        vm.initScrollerProxy()
 
-        window.addEventListener(
-          'resize',
-          _.debounce(this.onLmsResize.bind(this), 100)
-        )
-        document
-          .querySelector('.ic-smooth-scroll')
-          .addEventListener(
-            'resize',
-            _.debounce(this.onLmsResize.bind(this), 100),
-            true
-          )
-        setTimeout(() => {
-          ScrollTrigger.refresh()
-        }, 150)
-        setTimeout(() => {
-          this.onLmsResize()
-        }, 200)
+        // window.addEventListener(
+        //   'resize',
+        //   _.debounce(vm.onLmsResize.bind(vm), 100)
+        // )
+        // document
+        //   .querySelector('.ic-smooth-scroll')
+        //   .addEventListener(
+        //     'resize',
+        //     _.debounce(vm.onLmsResize.bind(vm), 100),
+        //     true
+        //   )
+        // setTimeout(() => {
+        //   ScrollTrigger.refresh()
+        // }, 150)
+        // setTimeout(() => {
+        //   vm.onLmsResize()
+        // }, 200)
+
+        vm.Gsap.ticker.add(vm.doubleRsizeCheck)
       }.bind(this)
     )
   },
-  destroyed() {
+  beforeDestroy() {
     this.lmS.destroy()
-    window.removeEventListener(
-      'resize',
-      _.debounce(this.onLmsResize.bind(this), 100)
-    )
-    document
-      .querySelector('.ic-smooth-scroll')
-      .removeEventListener(
-        'resize',
-        _.debounce(this.onLmsResize.bind(this), 100)
-      )
+    // window.removeEventListener(
+    //   'resize',
+    //   _.debounce(this.onLmsResize.bind(this), 100)
+    // )
+    // document
+    //   .querySelector('.ic-smooth-scroll')
+    //   .removeEventListener(
+    //     'resize',
+    //     _.debounce(this.onLmsResize.bind(this), 100)
+    //   )
     ScrollTrigger.removeEventListener(
       'refresh',
       _.debounce(this.onLmsResize.bind(this), 100)
@@ -59,6 +66,8 @@ export default {
         element.kill(false)
       })
     }
+
+    this.Gsap.ticker.remove(this.doubleRsizeCheck)
   },
   methods: {
     scrollTo(value) {
@@ -68,9 +77,17 @@ export default {
         this.lmS.scrollTo(value, 0, 0)
       }
     },
+    doubleRsizeCheck() {
+      const totalOffset = document.body.scrollHeight
+      try {
+        if (totalOffset !== this.totalOffset) {
+          _.debounce(this.onLmsResize.bind(this), 100)
+          this.totalOffset = totalOffset
+        }
+      } catch {}
+    },
     onLmsResize() {
       this.lmS.update()
-      console.log('resized')
     },
     scrollerProxy() {
       this.$smoothScrollAxies.y = this.lmS.scroll.instance.scroll.y
