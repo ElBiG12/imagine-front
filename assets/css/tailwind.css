@@ -61,7 +61,3 @@ code {
   padding-left: 2px;
   padding-right: 2px;
 }
-
-.asscrollbar__handle {
-  transition: all ease 0.2s;
-}

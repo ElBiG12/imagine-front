@@ -202,44 +202,40 @@
     </div>
     <div class="poster-cn">
       <div class="grid grid-cols-1 place-items-center">
-        <div class="simply-scroll-nh simply-scroll-container">
-          <ul id="scroller-nh" class="simply-scroll-list">
-            <li>
-              <img src="/img/bejaiaDoc2.jpg" />
-            </li>
-            <li>
-              <img src="/img/Cinema-de-passages.jpeg" />
-            </li>
-            <li>
-              <img src="/img/Film-documentaires.png" />
-            </li>
-            <li>
-              <img src="/img/bejaiaDoc2.jpg" />
-            </li>
-            <li>
-              <img src="/img/Cinema-de-passages.jpeg" />
-            </li>
-          </ul>
-        </div>
-        <div class="simply-scroll-nh simply-scroll-container">
-          <ul id="scroller-nh2" class="simply-scroll-list">
-            <li>
-              <img src="/img/bejaiaDoc2.jpg" />
-            </li>
-            <li>
-              <img src="/img/Cinema-de-passages.jpeg" />
-            </li>
-            <li>
-              <img src="/img/Film-documentaires.png" />
-            </li>
-            <li>
-              <img src="/img/bejaiaDoc2.jpg" />
-            </li>
-            <li>
-              <img src="/img/Cinema-de-passages.jpeg" />
-            </li>
-          </ul>
-        </div>
+        <ul id="scroller-nh" class="simply-scroll-list">
+          <li>
+            <img src="/img/bejaiaDoc2.jpg" />
+          </li>
+          <li>
+            <img src="/img/Cinema-de-passages.jpeg" />
+          </li>
+          <li>
+            <img src="/img/Film-documentaires.png" />
+          </li>
+          <li>
+            <img src="/img/bejaiaDoc2.jpg" />
+          </li>
+          <li>
+            <img src="/img/Cinema-de-passages.jpeg" />
+          </li>
+        </ul>
+        <ul id="scroller-nh2" class="simply-scroll-list">
+          <li>
+            <img src="/img/bejaiaDoc2.jpg" />
+          </li>
+          <li>
+            <img src="/img/Cinema-de-passages.jpeg" />
+          </li>
+          <li>
+            <img src="/img/Film-documentaires.png" />
+          </li>
+          <li>
+            <img src="/img/bejaiaDoc2.jpg" />
+          </li>
+          <li>
+            <img src="/img/Cinema-de-passages.jpeg" />
+          </li>
+        </ul>
         <span class="p-24">
           <h1 class="text-6xl font-light font-display text-white">
             Want to work together ?
@@ -253,46 +249,48 @@
   </div>
 </template>
 <script>
+import $ from 'jquery'
 import SmoothScroll from '~/mixins/SmoothScroll.js'
+
+if (process.client) {
+  require('jquery-simplyscroll')
+}
 
 export default {
   mixins: [SmoothScroll],
   mounted() {
-    ;(function ($) {
-      $(function () {
-        $('#scroller-nh').simplyScroll({
-          auto: true,
-          autoMode: 'loop',
-          customClass: 'simply-scroll-nh',
-          direction: 'backward',
-          frameRate: 60,
-          initialOffset: 0,
-          manualMode: 'end',
-          orientation: 'horizontal',
-          pauseButton: false,
-          pauseOnHover: false,
-          pauseOnTouch: false,
-          speed: 4,
-          startOnLoad: false
-        })
-        $('#scroller-nh2').simplyScroll({
-          auto: true,
-          autoMode: 'loop',
-          customClass: 'simply-scroll-nh',
-          direction: 'forwards',
-          frameRate: 60,
-          initialOffset: 0,
-          manualMode: 'end',
-          orientation: 'horizontal',
-          pauseButton: false,
-          pauseOnHover: false,
-          pauseOnTouch: false,
-          speed: 8,
-          startOnLoad: false
-        })
+    this.$nextTick(function () {
+      $('#scroller-nh').simplyScroll({
+        auto: true,
+        autoMode: 'loop',
+        customClass: 'simply-scroll-nh',
+        direction: 'backward',
+        frameRate: 60,
+        initialOffset: 0,
+        manualMode: 'end',
+        orientation: 'horizontal',
+        pauseButton: false,
+        pauseOnHover: false,
+        pauseOnTouch: false,
+        speed: 4,
+        startOnLoad: false
       })
-    })(this.jQuery)
-    this.$nextTick(function () {})
+      $('#scroller-nh2').simplyScroll({
+        auto: true,
+        autoMode: 'loop',
+        customClass: 'simply-scroll-nh',
+        direction: 'forwards',
+        frameRate: 60,
+        initialOffset: 0,
+        manualMode: 'end',
+        orientation: 'horizontal',
+        pauseButton: false,
+        pauseOnHover: false,
+        pauseOnTouch: false,
+        speed: 8,
+        startOnLoad: false
+      })
+    })
   }
 }
 </script>

@@ -51,11 +51,11 @@ export default {
     {
       src: '~/plugins/locomotiveScroll.js',
       mode: 'client'
-    },
-    {
-      src: '~/plugins/jquery.js',
-      mode: 'client'
     }
+    // {
+    //   src: '~/plugins/jquery.js',
+    //   mode: 'client'
+    // }
   ],
 
   // Defaults options
@@ -96,7 +96,8 @@ export default {
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
     purgeCSS: { mode: 'postcss' },
-    transpile: ['gsap']
+    transpile: ['gsap'],
+    vendor: ['locomotive-scroll', 'jquery-simplyscroll']
   },
 
   vue: {

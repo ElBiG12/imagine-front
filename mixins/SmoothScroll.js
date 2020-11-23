@@ -18,7 +18,13 @@ export default {
         vm.lmS = new vm.LocomotiveScroll({
           el: document.querySelector('.ic-smooth-scroll'),
           smooth: true,
-          smoothMobile: true
+          tablet: {
+            smooth: true
+          },
+          smartphone: {
+            smooth: true
+          }
+          // smoothMobile: true
         })
         vm.initScrollerProxy()
 
@@ -83,6 +89,7 @@ export default {
         if (totalOffset !== this.totalOffset) {
           this.lmS.update()
           this.totalOffset = totalOffset
+          console.log('double check resize')
         }
       } catch {}
     },
