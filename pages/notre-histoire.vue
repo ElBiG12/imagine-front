@@ -202,8 +202,8 @@
     </div>
     <div class="poster-cn">
       <div class="grid grid-cols-1 place-items-center">
-        <div class="simply-scroll simply-scroll-container">
-          <ul id="scroller" class="simply-scroll-list">
+        <div class="simply-scroll-nh simply-scroll-container">
+          <ul id="scroller-nh" class="simply-scroll-list">
             <li>
               <img src="/img/bejaiaDoc2.jpg" />
             </li>
@@ -221,8 +221,8 @@
             </li>
           </ul>
         </div>
-        <div class="simply-scroll simply-scroll-container">
-          <ul id="scroller2" class="simply-scroll-list">
+        <div class="simply-scroll-nh simply-scroll-container">
+          <ul id="scroller-nh2" class="simply-scroll-list">
             <li>
               <img src="/img/bejaiaDoc2.jpg" />
             </li>
@@ -253,49 +253,50 @@
   </div>
 </template>
 <script>
-import $ from 'jquery'
 import SmoothScroll from '~/mixins/SmoothScroll.js'
-if (typeof window !== 'undefined') {
-  require('jquery-simplyscroll')
-}
 
 export default {
   mixins: [SmoothScroll],
   mounted() {
-    $('#scroller').simplyScroll({
-      auto: true,
-      autoMode: 'loop',
-      customClass: 'simply-scroll',
-      direction: 'backward',
-      frameRate: 60,
-      initialOffset: 0,
-      manualMode: 'end',
-      orientation: 'horizontal',
-      pauseButton: false,
-      pauseOnHover: false,
-      pauseOnTouch: false,
-      speed: 4,
-      startOnLoad: false
-    })
-    $('#scroller2').simplyScroll({
-      auto: true,
-      autoMode: 'loop',
-      customClass: 'simply-scroll',
-      direction: 'forwards',
-      frameRate: 60,
-      initialOffset: 0,
-      manualMode: 'end',
-      orientation: 'horizontal',
-      pauseButton: false,
-      pauseOnHover: false,
-      pauseOnTouch: false,
-      speed: 8,
-      startOnLoad: false
-    })
+    ;(function ($) {
+      $(function () {
+        $('#scroller-nh').simplyScroll({
+          auto: true,
+          autoMode: 'loop',
+          customClass: 'simply-scroll-nh',
+          direction: 'backward',
+          frameRate: 60,
+          initialOffset: 0,
+          manualMode: 'end',
+          orientation: 'horizontal',
+          pauseButton: false,
+          pauseOnHover: false,
+          pauseOnTouch: false,
+          speed: 4,
+          startOnLoad: false
+        })
+        $('#scroller-nh2').simplyScroll({
+          auto: true,
+          autoMode: 'loop',
+          customClass: 'simply-scroll-nh',
+          direction: 'forwards',
+          frameRate: 60,
+          initialOffset: 0,
+          manualMode: 'end',
+          orientation: 'horizontal',
+          pauseButton: false,
+          pauseOnHover: false,
+          pauseOnTouch: false,
+          speed: 8,
+          startOnLoad: false
+        })
+      })
+    })(this.jQuery)
+    this.$nextTick(function () {})
   }
 }
 </script>
-<style >
+<style lang="postcss">
 .poster-cn {
   position: relative;
   overflow: hidden;
@@ -321,6 +322,7 @@ Class name automatically added to element */
   margin: 0;
   padding: 0;
   list-style: none;
+  @apply grid grid-flow-col;
 }
 
 .simply-scroll-list li {
@@ -343,18 +345,18 @@ Class name automatically added to element */
 .simply-scroll is default base class */
 
 /* Container DIV */
-.simply-scroll {
+.simply-scroll-nh {
   width: 100%;
   margin-bottom: 1em;
 }
 
 /* Clip DIV */
-.simply-scroll .simply-scroll-clip {
+.simply-scroll-nh .simply-scroll-clip {
   width: 100%;
 }
 
 /* Explicitly set height/width of each list item */
-.simply-scroll .simply-scroll-list li {
+.simply-scroll-nh .simply-scroll-list li {
   float: left; /* Horizontal scroll only */
   width: 328px;
   height: 470px;

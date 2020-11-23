@@ -97,29 +97,27 @@
       </div>
     </div>
     <div class="article-cn">
-      <div class="grid grid-cols-1 place-items-center">
-        <client-only placeholder="Loading...">
-          <div class="simply-scroll simply-scroll-container" ref="simplyScroll">
-            <ul
-              id="simply-scroller"
-              class="simply-scroll-list grid grid-flow-col gap-10"
-            >
-              <li v-for="(doc, i) in 9" :key="i">
-                <DocCard :index="'toplane_' + i" :item="top" />
-              </li>
-            </ul>
-          </div>
-          <div class="simply-scroll simply-scroll-container">
-            <ul
-              id="simply-scroller2"
-              class="simply-scroll-list grid grid-flow-col gap-10"
-            >
-              <li v-for="(doc2, i2) in 9" :key="i2">
-                <DocCard :index="'bottomlane_' + i2" :item="bottom" />
-              </li>
-            </ul>
-          </div>
-        </client-only>
+      <div class="grid grid-cols-1 place-items-center gap-y-10">
+        <div class="simply-scroll simply-scroll-container">
+          <ul
+            id="simply-scroller"
+            class="grid grid-flow-col gap-10"
+          >
+            <li v-for="(doc, i) in 9" :key="i">
+              <DocCard :index="'toplane_' + i" :item="top" />
+            </li>
+          </ul>
+        </div>
+        <div class="simply-scroll simply-scroll-container">
+          <ul
+            id="simply-scroller2"
+            class="grid grid-flow-col gap-10"
+          >
+            <li v-for="(doc2, i2) in 9" :key="i2">
+              <DocCard :index="'bottomlane_' + i2" :item="bottom" />
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
@@ -129,12 +127,7 @@
 import HomeCarousel from '@/components/sliders/carousel'
 import HomeNewsCard from '@/components/card/HomeNewsCard'
 import DocCard from '@/components/card/DocCard'
-import $ from 'jquery'
 import SmoothScroll from '~/mixins/SmoothScroll.js'
-
-if (typeof window !== 'undefined') {
-  require('jquery-simplyscroll')
-}
 
 export default {
   components: {
@@ -161,52 +154,51 @@ export default {
     }
   },
   mounted() {
-    this.initClientOnlyComp()
-  },
-  methods: {
-    initClientOnlyComp(count = 10) {
-      this.$nextTick(() => {
-        if (this.$refs.simplyScroll) {
-          $('#simply-scroller').simplyScroll({
-            auto: true,
-            autoMode: 'loop',
-            customClass: 'simply-scroll',
-            direction: 'backward',
-            frameRate: 60,
-            initialOffset: 0,
-            manualMode: 'end',
-            orientation: 'horizontal',
-            pauseButton: false,
-            pauseOnHover: false,
-            pauseOnTouch: false,
-            speed: 4,
-            startOnLoad: false
-          })
-          $('#simply-scroller2').simplyScroll({
-            auto: true,
-            autoMode: 'loop',
-            customClass: 'simply-scroll',
-            direction: 'forwards',
-            frameRate: 60,
-            initialOffset: 0,
-            manualMode: 'end',
-            orientation: 'horizontal',
-            pauseButton: false,
-            pauseOnHover: false,
-            pauseOnTouch: false,
-            speed: 8,
-            startOnLoad: false
-          })
-        } else if (count > 0) {
-          this.initClientOnlyComp(count - 1)
-        }
+    ;(function ($) {
+      $(function () {
+        $('#simply-scroller').simplyScroll({
+          auto: true,
+          autoMode: 'loop',
+          customClass: 'simply-scroll',
+          direction: 'backward',
+          frameRate: 60,
+          initialOffset: 0,
+          manualMode: 'end',
+          orientation: 'horizontal',
+          pauseButton: false,
+          pauseOnHover: false,
+          pauseOnTouch: false,
+          speed: 4,
+          startOnLoad: false
+        })
+
+        $('#simply-scroller2').simplyScroll({
+          auto: true,
+          autoMode: 'loop',
+          customClass: 'simply-scroll',
+          direction: 'forwards',
+          frameRate: 60,
+          initialOffset: 0,
+          manualMode: 'end',
+          orientation: 'horizontal',
+          pauseButton: false,
+          pauseOnHover: false,
+          pauseOnTouch: false,
+          speed: 8,
+          startOnLoad: false
+        })
       })
-    }
+    })(this.jQuery)
+    this.$nextTick(() => {
+      // const vm = this
+      // vm.jQuery(window).on('load', function () {
+      // })
+    })
   }
 }
 </script>
 
-<style scoped>
+<style lang="postcss">
 .article-cn {
   position: relative;
   overflow: hidden;
@@ -229,7 +221,6 @@ Class name automatically added to element */
 .simply-scroll-list {
   overflow: hidden;
   margin: 0;
-  padding: 0;
   list-style: none;
 }
 /* Custom class modifications - adds to / overrides above

@@ -51,6 +51,10 @@ export default {
     {
       src: '~/plugins/locomotiveScroll.js',
       mode: 'client'
+    },
+    {
+      src: '~/plugins/jquery.js',
+      mode: 'client'
     }
   ],
 

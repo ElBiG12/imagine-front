@@ -166,13 +166,13 @@
             <div class="loader-wrapper">
               <div class="case-loader" ref="case_loader" />
             </div>
-            <!-- <nuxt-link
+            <nuxt-link
               tag="p"
               :to="`${nextDoc}`"
-              class="text-5xl font-bold text-white"
+              class="next-text"
+              prefetch
               >Next
-            </nuxt-link> -->
-            <p @click="nextCase" class="next-text">Next</p>
+            </nuxt-link>
           </div>
         </div>
       </div>
@@ -524,7 +524,7 @@ export default {
 }
 
 .next-case-section .content .next-text {
-  @apply text-3xl font-bold text-white hidden;
+  @apply text-3xl font-bold text-white hidden cursor-pointer;
 }
 
 @screen md {
