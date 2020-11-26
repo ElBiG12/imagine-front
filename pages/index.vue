@@ -97,20 +97,28 @@
       </div>
     </div>
     <div class="article-cn">
-      <div class="grid grid-cols-1 place-items-center gap-y-10">
+      <div class="grid grid-cols-1 gap-y-10">
         <!-- <div class="simply-scroll simply-scroll-container"> -->
-          <ul id="simply-scroller" class="grid grid-flow-col gap-10">
-            <li v-for="(doc, i) in 9" :key="i">
-              <DocCard :index="'toplane_' + i" :item="top" />
-            </li>
-          </ul>
+        <ul
+          ref="gsaplyScroller"
+          id="simply-scroller"
+          class="flex flex-col flex-no-wrap gap-10"
+        >
+          <li v-for="(doc, i) in 9" :key="i">
+            <DocCard :index="'toplane_' + i" :item="top" />
+          </li>
+        </ul>
         <!-- </div> -->
         <!-- <div class="simply-scroll simply-scroll-container"> -->
-          <ul id="simply-scroller2" class="grid grid-flow-col gap-10">
-            <li v-for="(doc2, i2) in 9" :key="i2">
-              <DocCard :index="'bottomlane_' + i2" :item="bottom" />
-            </li>
-          </ul>
+        <ul
+          ref="gsaplyScrollerTwo"
+          id="simply-scroller2"
+          class="grid grid-flow-col gap-10"
+        >
+          <li v-for="(doc2, i2) in 9" :key="i2">
+            <DocCard :index="'bottomlane_' + i2" :item="bottom" />
+          </li>
+        </ul>
         <!-- </div> -->
       </div>
     </div>
@@ -123,6 +131,7 @@ import HomeNewsCard from '@/components/card/HomeNewsCard'
 import DocCard from '@/components/card/DocCard'
 import $ from 'jquery'
 import SmoothScroll from '~/mixins/SmoothScroll.js'
+import GsaplyScroll from '~/mixins/GsaplyScroll.js'
 
 if (process.client) {
   require('jquery-simplyscroll')
@@ -134,7 +143,7 @@ export default {
     HomeNewsCard,
     DocCard
   },
-  mixins: [SmoothScroll],
+  mixins: [SmoothScroll, GsaplyScroll],
   data() {
     return {
       top: {
@@ -154,6 +163,8 @@ export default {
   },
   mounted() {
     this.$nextTick(() => {
+      // this.gsaplyScroll(this.$refs.gsaplyScroller, 4)
+      // this.gsaplyScroll(this.$refs.gsaplyScrollerTwo, 0.25)
       $('#simply-scroller').simplyScroll({
         auto: true,
         autoMode: 'loop',
@@ -182,7 +193,7 @@ export default {
         pauseButton: false,
         pauseOnHover: false,
         pauseOnTouch: false,
-        speed: 8,
+        speed: 20,
         startOnLoad: false
       })
     })

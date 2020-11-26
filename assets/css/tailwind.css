@@ -28,6 +28,7 @@
 body {
   @apply bg-extra-light;
   overflow: hidden;
+  /* overflow-x: scroll; */
   /* overflow-x: hidden;
   overflow-y: scroll; */
 }
