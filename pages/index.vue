@@ -102,7 +102,7 @@
         <ul
           ref="gsaplyScroller"
           id="simply-scroller"
-          class="flex flex-col flex-no-wrap gap-10"
+          class="grid grid-flow-col gap-10"
         >
           <li v-for="(doc, i) in 9" :key="i">
             <DocCard :index="'toplane_' + i" :item="top" />
@@ -193,7 +193,7 @@ export default {
         pauseButton: false,
         pauseOnHover: false,
         pauseOnTouch: false,
-        speed: 20,
+        speed: 8,
         startOnLoad: false
       })
     })
