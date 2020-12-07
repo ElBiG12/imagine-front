@@ -96,32 +96,34 @@
         </a>
       </div>
     </div>
-    <div class="article-cn">
-      <div class="grid grid-cols-1 gap-y-10">
-        <!-- <div class="simply-scroll simply-scroll-container"> -->
-        <ul
-          ref="gsaplyScroller"
-          id="simply-scroller"
-          class="grid grid-flow-col gap-10"
-        >
-          <li v-for="(doc, i) in 9" :key="i">
-            <DocCard :index="'toplane_' + i" :item="top" />
-          </li>
-        </ul>
-        <!-- </div> -->
-        <!-- <div class="simply-scroll simply-scroll-container"> -->
-        <ul
-          ref="gsaplyScrollerTwo"
-          id="simply-scroller2"
-          class="grid grid-flow-col gap-10"
-        >
-          <li v-for="(doc2, i2) in 9" :key="i2">
-            <DocCard :index="'bottomlane_' + i2" :item="bottom" />
-          </li>
-        </ul>
-        <!-- </div> -->
+    <!-- <ClientOnly> -->
+      <div class="article-cn">
+        <div class="grid grid-cols-1 gap-y-10">
+          <div class="simply-scroll simply-scroll-container">
+            <ul
+              id="simply-scroller"
+              ref="gsaplyScroller"
+              class="grid grid-flow-col gap-10"
+            >
+              <li v-for="(doc, i) in 1" :key="i">
+                <DocCard :index="'toplane_' + i" :item="top" />
+              </li>
+            </ul>
+          </div>
+          <div class="simply-scroll simply-scroll-container">
+            <ul
+              id="simply-scroller2"
+              ref="gsaplyScrollerTwo"
+              class="grid grid-flow-col gap-10"
+            >
+              <li v-for="(doc2, i2) in 9" :key="i2">
+                <DocCard :index="'bottomlane_' + i2" :item="bottom" />
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
-    </div>
+    <!-- </ClientOnly> -->
   </div>
 </template>
 
@@ -158,11 +160,12 @@ export default {
         slug: 'bottomlane',
         short_desc:
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et augue mauris a vulputate.'
-      }
+      },
+      simplyStart: false
     }
   },
   mounted() {
-    this.$nextTick(() => {
+    this.$nextTick(function () {
       // this.gsaplyScroll(this.$refs.gsaplyScroller, 4)
       // this.gsaplyScroll(this.$refs.gsaplyScrollerTwo, 0.25)
       $('#simply-scroller').simplyScroll({

@@ -8,7 +8,9 @@
         <ul class="links space-y-10">
           <nuxt-link to="/imagine" tag="li"> Imagine </nuxt-link>
           <nuxt-link to="" tag="li"> Atelier </nuxt-link>
-          <nuxt-link to="/collection-thematique" tag="li"> Collection Thémathique </nuxt-link>
+          <nuxt-link to="/collection-thematique" tag="li">
+            Collection Thémathique
+          </nuxt-link>
           <nuxt-link to="" tag="li"> Masterclass </nuxt-link>
         </ul>
       </div>
@@ -24,7 +26,9 @@
       <div class="footer-links">
         <p class="links-title">Éductation a l’image</p>
         <ul class="links space-y-10">
-          <nuxt-link to="/education-a-l-image" tag="li"> Education a l’image </nuxt-link>
+          <nuxt-link to="/education-a-l-image" tag="li">
+            Education a l’image
+          </nuxt-link>
         </ul>
       </div>
       <div class="footer-links md:col-span-3 xl:col-span-2">
@@ -32,11 +36,11 @@
         <div class="grid grid-cols-5 gap-y-8 gap-x-8">
           <div class="col-span-5 md:col-span-3 flex items-end">
             <input
-              id="default"
+              id="newsletter"
               type="text"
-              name="default"
+              name="newsletter"
               class="w-full"
-              placeholder="Enter your name"
+              placeholder="Enter your email"
             />
           </div>
           <div class="col-span-5 md:col-span-2 flex items-end">
