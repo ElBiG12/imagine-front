@@ -13,7 +13,10 @@ export default {
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
     script: [
-      { src: 'https://unpkg.com/ionicons@5.0.0/dist/ionicons.js', body: true }
+      {
+        src: 'https://unpkg.com/ionicons@5.0.0/dist/ionicons/ionicons.esm.js',
+        type: 'module'
+      }
     ]
   },
 
@@ -102,7 +105,7 @@ export default {
 
   vue: {
     config: {
-      ignoredElements: ['ion-icon']
+      ignoredElements: ['/^ion-/']
     }
   }
 }

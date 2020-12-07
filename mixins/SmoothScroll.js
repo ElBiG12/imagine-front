@@ -98,7 +98,6 @@ export default {
         if (totalOffset !== this.totalOffset) {
           this.lmS.update()
           this.totalOffset = totalOffset
-          console.log('double check resize')
         }
       } catch {}
     },
