@@ -94,7 +94,7 @@
       </div> -->
     </div>
     <div class="ic-container">
-       <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-24 mt-24">
+      <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-24 mt-24">
         <div class="">
           <h1 class="sm:text-3xl md:text-3xl font-bold font-display mb-8">
             Nos objectifs a long termes
@@ -172,10 +172,14 @@ export default {
       ease: 'power1.inOut'
     })
 
-    card.addEventListener('mouseenter', () => tl.play(), hover.play())
-    card.addEventListener('mouseleave', () => tl.reverse(), hover.reverse())
-    // card.addEventListener('mouseenter', () => hover.play())
-    // card.addEventListener('mouseleave', () => hover.reverse())
+    card.addEventListener('mouseenter', () => {
+      tl.play()
+      hover.play()
+    })
+    card.addEventListener('mouseleave', () => {
+      tl.reverse()
+      hover.reverse()
+    })
   }
 }
 </script>
