@@ -19,14 +19,15 @@
     <section class="ic-container section">
       <h1 class="big-title">Context</h1>
       <div
-        class="grid gap-10 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2"
+        class="grid sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 gap-40"
       >
         <div>
-          <p class="text-base leading-7">
+          <p class="text-sm leading-7">
             Depuis sa création en 2007, le collectif Cinéma Mémoire filme,
             documente et agit sur le terrain de la création artistique ;
             accompagne par ses actions les changements de la société Algérienne
             par le biais du cinéma documentaire.
+            <br />
             <br />
             Au fond de cet engagement se pose continuellement la question de
             notre relation par les images avec le passé. Le cinéma est le miroir
@@ -34,6 +35,7 @@
             à construire une mémoire, à prendre conscience de ses identités, à
             développer un esprit critique et à porter et construire un regard
             sur soi.
+            <br />
             <br />
             Dans un contexte d’absence d’industrie cinématographique en Algérie,
             le collectif s’est donné pour mission d’accompagner par la formation
@@ -43,6 +45,11 @@
             création de ciné-clubs en milieu associatif et scolaire à travers
             tout le territoire.
           </p>
+          <div class="pt-16">
+            <NuxtLink to="/imagine">
+              <MoreButton />
+            </NuxtLink>
+          </div>
         </div>
         <div>
           <div class="picture-container">
@@ -59,7 +66,7 @@
       <h1 class="big-title">L’idée</h1>
       <div class="grid grid-cols-3">
         <div class="col-span-3">
-          <p class="mb-24 leading-7 text-base">
+          <p class="mb-24 leading-7 text-sm">
             Imagine est un projet qui permettra au collectif de revenir sur ce
             fonds pour le rendre accessible et utilisable pour des nouvelles
             créations. Archive qui reflète à la fois l’histoire de Cinéma
@@ -82,7 +89,7 @@
       >
         <div>
           <h1 class="text-3xl font-bold font-display mb-10">Accès</h1>
-          <p class="mb-12 text-base">
+          <p class="mb-12 text-sm leading-7">
             La force du projet Imagine réside dans l’accès aux voies
             professionnelles et à un environnement de travail d’innovation et
             d’échange. Ceci implique l’encouragement à s’approprier ces archives
@@ -92,7 +99,7 @@
         </div>
         <div>
           <h1 class="text-3xl font-bold font-display mb-10">Transmission</h1>
-          <p class="mb-12 text-base">
+          <p class="mb-12 text-sm leading-7">
             Ce fonds constituera une base pour la transmission des compétences
             professionnelles dans le domaine du cinéma documentaire par des
             ateliers de formation dans les métiers du cinéma et des master
@@ -101,7 +108,7 @@
         </div>
         <div>
           <h1 class="text-3xl font-bold font-display mb-10">Réflexion</h1>
-          <p class="mb-12 text-base">
+          <p class="mb-12 text-sm leading-7">
             Il sera un point de départ pour des questionnements et croisements
             de regards multiples entre chercheurs/chercheuses et
             professionnel.le.s de cinéma sur le statut de l’image dans la
@@ -112,7 +119,7 @@
           <h1 class="text-3xl font-bold font-display mb-10">
             Création / Partage
           </h1>
-          <p class="mb-12 text-base">
+          <p class="mb-12 text-sm leading-7">
             Collectivement et en alternance entre travail en commun et travail
             autonome, Imagine va créer et développer des nouvelles images et
             imaginations.
@@ -135,7 +142,7 @@
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
             nec elementum tellus egestas aliquam.
           </p>
-          <p class="mb-12 font-regular leading-8 text-base">
+          <p class="mb-12 font-regular leading-7 text-sm">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eleifend
             eleifend erat sed tincidunt velit tortor ut. In egestas cras integer
             neque, ornare volutpat et ut cursus. Diam nisl id est, cras non
@@ -144,12 +151,11 @@
             dictumst facilisis. Gravida habitasse sagittis ultrices sagittis
             montes natoque turpis.
           </p>
-          <a href="#" class="link link-primary">
-            En savoir plus
-            <client-only placeholder=">">
-              <ion-icon name="chevron-forward-outline" class="link-icon" />
-            </client-only>
-          </a>
+          <div class="pt-10">
+            <NuxtLink to="/imagine">
+              <MoreButton />
+            </NuxtLink>
+          </div>
         </div>
         <div
           class="flex flex-row items-center justify-center gap-10 lg:col-span-5 mt-24 lg:mt-0"
@@ -269,18 +275,17 @@
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec
           elementum tellus egestas aliquam.
         </p>
-        <p class="mb-12 font-regular leading-8 text-base">
+        <p class="mb-12 font-regular leading-7 text-sm">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eleifend
           eleifend erat sed tincidunt velit tortor ut. In egestas cras integer
           neque, ornare volutpat et ut cursus. Diam nisl id est, cras non
           placerat ac vitae.
         </p>
-        <a href="#" class="link link-primary">
-          En savoir plus
-          <client-only placeholder=">">
-            <ion-icon name="chevron-forward-outline" class="link-icon" />
-          </client-only>
-        </a>
+        <div class="pt-10">
+          <NuxtLink to="/imagine">
+            <MoreButton />
+          </NuxtLink>
+        </div>
       </div>
     </section>
     <section class="section">
@@ -376,11 +381,30 @@ export default {
 .card-wrapper {
   height: auto;
   width: 450px;
+  filter: gray; /* IE5+ */
+  -webkit-filter: grayscale(30%); /* Webkit Nightlies & Chrome Canary */
+  -webkit-transition: all 0.3s ease-in-out;
+}
+.card-wrapper:hover {
+  filter: none;
+  -webkit-filter: grayscale(0);
+  text-decoration: underline;
 }
 .card-cover {
   width: 100%;
   height: 290px;
   background-color: violet;
+}
+@media only screen and (max-width: 800px) {
+  .card-wrapper {
+    height: auto;
+    width: 350px;
+  }
+  .card-cover {
+    width: 100%;
+    height: 190px;
+    background-color: violet;
+  }
 }
 .card-cover > img {
   width: 100%;

@@ -5,12 +5,12 @@
     </div>
     <div class="ic-container grid grid-cols-1 lg:grid-cols-9 gap-x-20 mt-64">
       <div class="flex flex-col lg:col-span-4">
-        <h1 class="text-3xl font-bold font-display mb-16">Le projet Imagine</h1>
+        <h1 class="sm:text-3xl md:text-5xl font-bold font-display mb-16">Le projet Imagine</h1>
         <p class="text-lg font-bold mb-12">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec
           elementum tellus egestas aliquam.
         </p>
-        <p class="mb-12 text-lg">
+        <p class="mb-12 text-sm">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eleifend
           eleifend erat sed tincidunt velit tortor ut. In egestas cras integer
           neque, ornare volutpat et ut cursus. Diam nisl id est, cras non
@@ -19,7 +19,7 @@
           facilisis. Gravida habitasse sagittis ultrices sagittis montes natoque
           turpis.
         </p>
-        <p class="mb-24 text-lg">
+        <p class="mb-24 text-sm">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eleifend
           eleifend erat sed tincidunt velit tortor ut. In egestas cras integer
           neque, ornare volutpat et ut cursus. Diam nisl id est, cras non
@@ -29,12 +29,9 @@
           turpis.
         </p>
 
-        <a href="#" class="link link-primary">
-          En savoir plus
-          <client-only placeholder=">">
-            <ion-icon name="chevron-forward-outline" class="link-icon" />
-          </client-only>
-        </a>
+        <NuxtLink to="/imagine">
+          <MoreButton />
+        </NuxtLink>
       </div>
       <div
         class="flex flex-row items-center justify-center gap-10 lg:col-span-5 mt-24 lg:mt-0"
@@ -68,13 +65,13 @@
       </div>
     </div>
     <div
-      class="w-full lg:w-11/12 ml-auto px-4 lg:px-0 grid grid-row-2 mt-64 overflow-x-hidden"
+      class="ic-container mt-64 overflow-x-hidden"
     >
       <div>
-        <h1 class="text-3xl font-bold font-display mb-16">Actualités</h1>
+        <h1 class="sm:text-3xl md:text-5xl font-bold font-display mb-8">Actualités</h1>
       </div>
       <div
-        class="flex flex-col flex-no-wrap overflow-x-hidden md:flex-row gap-12 sm:gap-10 lg:gap-20 relative md:-mr-20"
+        class="flex flex-col flex-no-wrap overflow-x-hidden md:flex-row gap-12 sm:gap-10 lg:gap-20 relative"
       >
         <HomeNewsCard />
         <HomeNewsCard />
@@ -85,32 +82,37 @@
       </div>
     </div>
 
-    <div class="ic-container-fluid grid grid-row-2 mt-64">
+    <div class="ic-container mt-64 mb-8">
       <div
-        class="ic-container flex flex-row justify-between mb-12 items-center"
+        class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-5 gap-4 align-middle"
       >
-        <h1 class="text-3xl font-bold font-display">Films Documentaires</h1>
-        <a href="#" class="link link-primary">
-          Voir tous les films
-          <ion-icon name="chevron-forward-outline" class="link-icon" />
-        </a>
+        <div class="sm:col-span-5 md:col-span-4">
+          <h1 class="sm:text-3xl md:text-5xl font-bold font-display">
+            Nos films documentaires
+          </h1>
+        </div>
+        <div class="sm:col-span-5 md:col-span-1">
+          <NuxtLink to="/imagine">
+          <MoreButton />
+          </NuxtLink>
+        </div>
       </div>
     </div>
     <div class="article-cn">
       <div class="grid grid-cols-1 place-items-center gap-y-10">
         <!-- <div class="simply-scroll simply-scroll-container"> -->
-          <ul id="simply-scroller" class="grid grid-flow-col gap-10">
-            <li v-for="(doc, i) in 9" :key="i">
-              <DocCard :index="'toplane_' + i" :item="top" />
-            </li>
-          </ul>
+        <ul id="simply-scroller" class="grid grid-flow-col gap-10">
+          <li v-for="(doc, i) in 9" :key="i">
+            <DocCard :index="'toplane_' + i" :item="top" />
+          </li>
+        </ul>
         <!-- </div> -->
         <!-- <div class="simply-scroll simply-scroll-container"> -->
-          <ul id="simply-scroller2" class="grid grid-flow-col gap-10">
-            <li v-for="(doc2, i2) in 9" :key="i2">
-              <DocCard :index="'bottomlane_' + i2" :item="bottom" />
-            </li>
-          </ul>
+        <ul id="simply-scroller2" class="grid grid-flow-col gap-10">
+          <li v-for="(doc2, i2) in 9" :key="i2">
+            <DocCard :index="'bottomlane_' + i2" :item="bottom" />
+          </li>
+        </ul>
         <!-- </div> -->
       </div>
     </div>
@@ -121,6 +123,7 @@
 import HomeCarousel from '@/components/sliders/carousel'
 import HomeNewsCard from '@/components/card/HomeNewsCard'
 import DocCard from '@/components/card/DocCard'
+import MoreButton from '@/components/card/MoreButton'
 import $ from 'jquery'
 import SmoothScroll from '~/mixins/SmoothScroll.js'
 
@@ -132,7 +135,8 @@ export default {
   components: {
     HomeCarousel,
     HomeNewsCard,
-    DocCard
+    DocCard,
+    MoreButton
   },
   mixins: [SmoothScroll],
   data() {

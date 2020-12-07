@@ -3,8 +3,8 @@
     <div class="img-wrapper">
       <img src="/img/home-news.png" alt="" />
     </div>
-    <h2 class="title">The first Documentary</h2>
-    <p class="subtitle">24 hours ago</p>
+    <h2 class="title">A documentary search result</h2>
+    <p class="subtitle">2018</p>
   </a>
 </template>
 

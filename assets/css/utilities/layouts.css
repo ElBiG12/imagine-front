@@ -5,8 +5,8 @@
 
   .ic-container {
     @apply w-full max-w-full;
-    padding-left: 2vmax;
-    padding-right: 2vmax;
+    padding-left: 6vmax;
+    padding-right: 6vmax;
   }
 
   .ic-container-fluid {

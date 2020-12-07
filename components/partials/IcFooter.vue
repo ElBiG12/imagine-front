@@ -1,46 +1,50 @@
 <template>
   <footer class="main-footer ic-container">
     <div
-      class="grid grid-cols-1 gap-y-16 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5"
+      class="grid grid-cols-1 gap-10 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5"
     >
       <div class="footer-links">
-        <p class="links-title">Projet Imagine</p>
-        <ul class="links space-y-10">
+        <p class="links-title">Le projet</p>
+        <ul class="links space-y-8">
           <nuxt-link to="/imagine" tag="li"> Imagine </nuxt-link>
-          <nuxt-link to="" tag="li"> Atelier </nuxt-link>
-          <nuxt-link to="/collection-thematique" tag="li"> Collection Thémathique </nuxt-link>
+          <nuxt-link to="" tag="li"> Ateliers </nuxt-link>
+          <nuxt-link to="/collection-thematique" tag="li">
+            Collections Thémathiques
+          </nuxt-link>
           <nuxt-link to="" tag="li"> Masterclass </nuxt-link>
         </ul>
       </div>
       <div class="footer-links">
-        <p class="links-title">Qui nous Sommes</p>
-        <ul class="links space-y-10">
-          <nuxt-link to="/actualites" tag="li"> Actualités </nuxt-link>
+        <p class="links-title">Cinéma & mémoire</p>
+        <ul class="links space-y-8">
           <nuxt-link to="/notre-histoire" tag="li"> Notre Histoire </nuxt-link>
           <nuxt-link to="/films" tag="li"> Les films </nuxt-link>
-          <nuxt-link to="/contact" tag="li"> Contact </nuxt-link>
+          <nuxt-link to="/education-a-l-image" tag="li">
+            Education a l’image
+          </nuxt-link>
         </ul>
       </div>
       <div class="footer-links">
-        <p class="links-title">Éductation a l’image</p>
-        <ul class="links space-y-10">
-          <nuxt-link to="/education-a-l-image" tag="li"> Education a l’image </nuxt-link>
+        <p class="links-title">Support</p>
+        <ul class="links space-y-8">
+          <nuxt-link to="/actualites" tag="li"> Actualités </nuxt-link>
+          <nuxt-link to="/contact" tag="li"> Contact </nuxt-link>
         </ul>
       </div>
       <div class="footer-links md:col-span-3 xl:col-span-2">
-        <p class="links-title">Stay updated</p>
+        <p class="links-title">Rester a jours</p>
         <div class="grid grid-cols-5 gap-y-8 gap-x-8">
-          <div class="col-span-5 md:col-span-3 flex items-end">
+          <div class="col-span-5 md:col-span-3">
             <input
               id="default"
               type="text"
               name="default"
               class="w-full"
-              placeholder="Enter your name"
+              placeholder="Enter votre adresse email"
             />
           </div>
-          <div class="col-span-5 md:col-span-2 flex items-end">
-            <button class="btn">Susbscribe now</button>
+          <div class="col-span-5 md:col-span-3">
+            <button class="btn">s'abonner</button>
           </div>
         </div>
       </div>
@@ -67,6 +71,9 @@ export default {}
   @apply grid grid-rows-2 mt-32 pt-24;
   border-top: 1px solid var(--color-light-grey);
   grid-template-rows: 1fr auto;
+}
+.btn {
+  width: 100%;
 }
 
 .corporate {
@@ -100,7 +107,7 @@ export default {}
 }
 
 .footer-links .links li {
-  @apply font-medium text-base leading-3;
+  @apply font-medium text-sm leading-3;
   @apply transition-colors duration-200;
   @apply cursor-pointer;
 }

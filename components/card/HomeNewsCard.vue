@@ -1,19 +1,25 @@
 <template>
-  <nuxt-link :to="{ name: 'actualites-slug', params: { slug: 'demo-act' }}" class="news-card" :class="{ tall: tall }">
+  <nuxt-link
+    :to="{ name: 'actualites-slug', params: { slug: 'demo-act' } }"
+    class="news-card"
+    :class="{ tall: tall }"
+  >
     <div v-if="isReadMore" class="readmore-img-wrapper">
       <img src="/img/home-news-readmore.png" alt="" />
     </div>
     <div v-else class="img-wrapper">
-      <img src="https://images.unsplash.com/photo-1532264523420-881a47db012d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60" alt="" />
+      <img
+        src="https://images.unsplash.com/photo-1532264523420-881a47db012d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
+        alt=""
+      />
     </div>
     <span v-if="isReadMore">
-      <p class="link link-primary mt-4">Read more</p>
+      <p class="link link-primary">Read more</p>
     </span>
     <span v-else>
-      <h2 class="title">A sound form you can see, not just hear.</h2>
-      <p class="subtitle" v-if="!tall">
+      <h2 class="text-2xl font-bold font-display">
         A sound form you can see, not just hear.
-      </p>
+      </h2>
     </span>
   </nuxt-link>
 </template>
@@ -38,6 +44,9 @@ export default {
   @apply flex flex-col w-full;
   @apply cursor-pointer no-underline;
   @apply transition-all duration-150 ease-linear;
+  filter: gray; /* IE5+ */
+  -webkit-filter: grayscale(30%); /* Webkit Nightlies & Chrome Canary */
+  -webkit-transition: all 0.3s ease-in-out;
 }
 
 .img-wrapper {
@@ -46,6 +55,11 @@ export default {
   @apply mb-4;
 }
 
+.news-card:hover {
+  filter: none;
+  -webkit-filter: grayscale(0);
+  text-decoration: underline;
+}
 .tall .img-wrapper {
   position: relative;
   padding-top: calc(632 / 418 * 100%);
