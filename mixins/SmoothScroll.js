@@ -61,10 +61,13 @@ export default {
         smartphone: {
           smooth: true
         },
+        touchMultiplier: 4,
         scrollbarClass: 'page-scrollbar'
       })
 
-      document.querySelector('.page-scrollbar').style.opacity = 1
+      if (document.querySelector('.page-scrollbar')) {
+        document.querySelector('.page-scrollbar').style.opacity = 1
+      }
 
       vm.initScrollerProxy()
 
