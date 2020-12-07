@@ -120,7 +120,13 @@
             <iframe
               width="100%"
               height="100%"
-              style="position:absolute;top:0;left:0;width:100%;height:100%;"
+              style="
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+              "
               src="https://www.youtube-nocookie.com/embed/kAphgHhlteM?controls=0&autoplay=1&mute=1"
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -131,7 +137,13 @@
             <iframe
               width="100%"
               height="100%"
-              style="position:absolute;top:0;left:0;width:100%;height:100%;"
+              style="
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+              "
               src="https://www.youtube-nocookie.com/embed/kAphgHhlteM?controls=0&autoplay=1&mute=1"
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -166,12 +178,8 @@
             <div class="loader-wrapper">
               <div class="case-loader" ref="case_loader" />
             </div>
-            <nuxt-link
-              tag="p"
-              :to="`${nextDoc}`"
-              class="next-text"
-              prefetch
-              >Next
+            <nuxt-link tag="p" :to="`${nextDoc}`" class="next-text" prefetch>
+              Next
             </nuxt-link>
           </div>
         </div>
@@ -237,11 +245,18 @@ export default {
     initAnimations() {
       const vm = this
 
-      this.Gsap.from('.top-case-title, .top-play-btn', {
-        opacity: 0,
-        y: 50,
-        duration: 1
-      })
+      this.Gsap.fromTo(
+        '.top-case-title, .top-play-btn',
+        {
+          opacity: 0,
+          y: 50
+        },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1
+        }
+      )
 
       this.Gsap.from('.next_case_text', {
         scrollTrigger: {
@@ -326,10 +341,12 @@ export default {
 
 .top-section .content .top-play-btn {
   @apply px-12 w-full flex flex-col items-center;
+  opacity: 0;
 }
 
 .top-section .content .top-case-title {
   @apply text-4xl font-bold font-display text-white leading-none w-full text-center mt-24;
+  opacity: 0;
 }
 
 @screen sm {

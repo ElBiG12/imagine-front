@@ -5,18 +5,32 @@ export default {
   data() {
     return {
       lmS: null,
+      lmSMobile: null,
       totalOffset: 0
     }
+  },
+  watch: {
+    '$LmsState.isMobileNavOpen': 'handleMobileNavState'
   },
   mounted() {
     this.$nextTick(
       function () {
         const vm = this
-
-        vm.totalOffset = document.body.scrollHeight
-
-        vm.lmS = new vm.LocomotiveScroll({
-          el: document.querySelector('.ic-smooth-scroll'),
+        vm.$LmsState.isMobileNavOpen = false
+        vm.initPageSmoothScroll()
+      }.bind(this)
+    )
+  },
+  beforeDestroy() {
+    this.destroyPagesSmoothScroll()
+  },
+  methods: {
+    handleMobileNavState(nVal) {
+      if (nVal) {
+        this.lmS.stop()
+        document.querySelector('.page-scrollbar').style.opacity = 0
+        this.lmSMobile = new this.LocomotiveScroll({
+          el: document.querySelector('#mobile_nav'),
           smooth: true,
           tablet: {
             smooth: true
@@ -24,58 +38,53 @@ export default {
           smartphone: {
             smooth: true
           }
-          // smoothMobile: true
         })
-        vm.initScrollerProxy()
+      } else {
+        this.lmS.start()
+        document.querySelector('.page-scrollbar').style.opacity = 1
+        if (this.lmSMobile) {
+          this.lmSMobile.destroy()
+        }
+      }
+    },
+    initPageSmoothScroll() {
+      const vm = this
 
-        // window.addEventListener(
-        //   'resize',
-        //   _.debounce(vm.onLmsResize.bind(vm), 100)
-        // )
-        // document
-        //   .querySelector('.ic-smooth-scroll')
-        //   .addEventListener(
-        //     'resize',
-        //     _.debounce(vm.onLmsResize.bind(vm), 100),
-        //     true
-        //   )
-        // setTimeout(() => {
-        //   ScrollTrigger.refresh()
-        // }, 150)
-        // setTimeout(() => {
-        //   vm.onLmsResize()
-        // }, 200)
+      vm.totalOffset = document.body.scrollHeight
 
-        vm.Gsap.ticker.add(vm.doubleRsizeCheck)
-      }.bind(this)
-    )
-  },
-  beforeDestroy() {
-    this.lmS.destroy()
-    // window.removeEventListener(
-    //   'resize',
-    //   _.debounce(this.onLmsResize.bind(this), 100)
-    // )
-    // document
-    //   .querySelector('.ic-smooth-scroll')
-    //   .removeEventListener(
-    //     'resize',
-    //     _.debounce(this.onLmsResize.bind(this), 100)
-    //   )
-    ScrollTrigger.removeEventListener(
-      'refresh',
-      _.debounce(this.onLmsResize.bind(this), 100)
-    )
-
-    if (ScrollTrigger.getAll().length > 0) {
-      ScrollTrigger.getAll().forEach((element) => {
-        element.kill(false)
+      vm.lmS = new vm.LocomotiveScroll({
+        el: document.querySelector('.ic-smooth-scroll'),
+        smooth: true,
+        tablet: {
+          smooth: true
+        },
+        smartphone: {
+          smooth: true
+        },
+        scrollbarClass: 'page-scrollbar'
       })
-    }
 
-    this.Gsap.ticker.remove(this.doubleRsizeCheck)
-  },
-  methods: {
+      document.querySelector('.page-scrollbar').style.opacity = 1
+
+      vm.initScrollerProxy()
+
+      vm.Gsap.ticker.add(vm.doubleRsizeCheck)
+    },
+    destroyPagesSmoothScroll() {
+      this.lmS.destroy()
+      ScrollTrigger.removeEventListener(
+        'refresh',
+        _.debounce(this.onLmsResize.bind(this), 100)
+      )
+
+      if (ScrollTrigger.getAll().length > 0) {
+        ScrollTrigger.getAll().forEach((element) => {
+          element.kill(false)
+        })
+      }
+
+      this.Gsap.ticker.remove(this.doubleRsizeCheck)
+    },
     scrollTo(value) {
       if (this.lmS == null) {
         this.lmS.scrollTo(0, 0, 0)

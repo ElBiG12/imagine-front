@@ -37,6 +37,12 @@ import locomotiveScroll from 'locomotive-scroll'
 //     : 'fixed'
 // })
 
+const state = Vue.observable({ isMobileNavOpen: false })
+
 Object.defineProperty(Vue.prototype, 'LocomotiveScroll', {
   value: locomotiveScroll
+})
+
+Object.defineProperty(Vue.prototype, '$LmsState', {
+  value: state
 })

@@ -13,9 +13,11 @@
           <button class="dropbtn">Imagine</button>
           <div class="dropdown-content">
             <NuxtLink to="/imagine">A Propos</NuxtLink>
-            <NuxtLink to="/collection-thematique">Ateliers</NuxtLink>
-            <NuxtLink to="/collection-thematique">Collection Thematique</NuxtLink>
-            <NuxtLink to="/collection-thematique">MasterClass</NuxtLink>
+            <NuxtLink to="/collection-thematique">Ateliers </NuxtLink>
+            <NuxtLink to="/collection-thematique">
+              Collection Thematique
+            </NuxtLink>
+            <NuxtLink to="/collection-thematique">MasterClass </NuxtLink>
           </div>
         </div>
         <div class="dropdown">
@@ -47,15 +49,19 @@
           name="search-outline"
           class="menu-icon"
         />
-        <ion-icon name="menu-outline" class="menu-icon" />
+        <ion-icon
+          @click="openMobileNav"
+          name="menu-outline"
+          class="menu-icon cursor-pointer md:hidden inline-block visible"
+        />
       </div>
     </div>
-    <!-- <MobileMenu :links="links" /> -->
+    <MobileMenu :links="links" />
   </nav>
 </template>
 
 <script>
-// import { MobileMenu } from '@/components/partials/MobileMenu'
+import { MobileMenu } from '@/components/partials/MobileMenu'
 export default {
   props: {
     closeMode: {
@@ -69,7 +75,7 @@ export default {
   },
 
   components: {
-    // MobileMenu
+    MobileMenu
   },
 
   data() {
@@ -77,41 +83,70 @@ export default {
       links: [
         {
           title: 'Imagine',
-          path: '/imagine'
+          path: '/',
+          cat: true,
+          child: [
+            {
+              title: 'Apropos',
+              path: '/imagine'
+            },
+            {
+              title: 'Ateliers',
+              path: '/'
+            },
+            {
+              title: 'Collection Thematique',
+              path: '/collection-thematique'
+            },
+            {
+              title: 'MasterClass',
+              path: '/'
+            }
+          ]
         },
         {
-          title: 'Ateliers',
-          path: '/'
-        },
-        {
-          title: 'Collection thématique',
-          path: '/collection-thematique'
-        },
-        {
-          title: 'MasterClass',
-          path: '/'
-        },
-        {
-          title: 'Les Films',
-          path: '/films'
+          title: 'Notre histoire',
+          path: '/notre-histoire',
+          cat: true,
+          child: [
+            {
+              title: 'Notre histoire',
+              path: '/notre-histoire'
+            },
+            {
+              title: 'Les Films',
+              path: '/films'
+            },
+            {
+              title: 'L’education a l’image',
+              path: '/education-a-l-image'
+            }
+          ]
         },
         {
           title: 'Actualités',
-          path: '/actualites'
-        },
-        {
-          title: "Éducation à l'image",
-          path: '/education-a-l-image'
-        },
-        {
-          title: 'Notre Histoire',
-          path: '/notre-histoire'
+          path: '/actualites',
+          cat: false
         },
         {
           title: 'Contact',
-          path: '/contact'
+          path: '/contact',
+          cat: false
         }
       ]
+    }
+  },
+
+  methods: {
+    openMobileNav() {
+      const vm = this
+      this.Gsap.to('#mobile_nav', {
+        x: '0',
+        ease: 'expo.out',
+        onComplete: () => {
+          vm.$LmsState.isMobileNavOpen = true
+        }
+      })
     }
   }
 }
@@ -211,5 +246,16 @@ export default {
   color: #f39913;
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.05);
   border-radius: 6px;
+}
+/* Fixed mobile menu */
+
+.fixed_target {
+  /* height: auto;
+  display: block;
+  min-height: 100vh;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0; */
 }
 </style>
