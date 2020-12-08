@@ -63,14 +63,14 @@ export default {
       const vm = this
       vm.$LmsState.isMobileNavOpen = false
       vm.Gsap.to('#mobile_nav', {
-        x: '-100%',
+        x: '100%',
         ease: 'expo.out'
       })
     },
     goTo(path) {
       const vm = this
       this.Gsap.to('#mobile_nav', {
-        x: '-100%',
+        x: '100%',
         ease: 'expo.out',
         onComplete: () => {
           vm.$LmsState.isMobileNavOpen = false
@@ -87,7 +87,7 @@ export default {
   @apply fixed top-0 left-0 right-0 w-full p-6 overflow-hidden min-h-screen;
   @apply flex flex-col gap-y-32 bg-dark text-white;
   opacity: 1;
-  transform: translate(-100%, 0);
+  transform: translate(100%, 0);
 }
 
 .link-items {

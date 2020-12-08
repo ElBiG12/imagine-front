@@ -26,15 +26,6 @@ export default class InfiniteHorzScroll {
       this.itemsBlockToAdd = Math.ceil(bodyWidth / totalChildWidth)
     }
 
-    console.log(
-      'itemsBlockToAdd',
-      bodyWidth,
-      totalChildWidth,
-      this.myElement.children[0].offsetWidth * this.itemsBlockToAdd,
-      this.myElement.children[0].offsetLeft,
-      this.itemsBlockToAdd
-    )
-
     this.feedWithChilds()
 
     this.speed < 0
