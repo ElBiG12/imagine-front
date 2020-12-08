@@ -5,7 +5,9 @@
     </div>
     <div class="ic-container grid grid-cols-1 lg:grid-cols-9 gap-x-20 mt-64">
       <div class="flex flex-col lg:col-span-4">
-        <h1 class="sm:text-3xl md:text-5xl font-bold font-display mb-16">Le projet Imagine</h1>
+        <h1 class="sm:text-3xl md:text-5xl font-bold font-display mb-16">
+          Le projet Imagine
+        </h1>
         <p class="text-lg font-bold mb-12">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec
           elementum tellus egestas aliquam.
@@ -64,11 +66,11 @@
         </div>
       </div>
     </div>
-    <div
-      class="ic-container mt-64 overflow-x-hidden"
-    >
+    <div class="ic-container mt-64 overflow-x-hidden">
       <div>
-        <h1 class="sm:text-3xl md:text-5xl font-bold font-display mb-8">Actualités</h1>
+        <h1 class="sm:text-3xl md:text-5xl font-bold font-display mb-8">
+          Actualités
+        </h1>
       </div>
       <div
         class="flex flex-col flex-no-wrap overflow-x-hidden md:flex-row gap-12 sm:gap-10 lg:gap-20 relative"
@@ -93,39 +95,25 @@
         </div>
         <div class="sm:col-span-5 md:col-span-1">
           <NuxtLink to="/imagine">
-          <MoreButton />
+            <MoreButton />
           </NuxtLink>
         </div>
       </div>
     </div>
-    <!-- <ClientOnly> -->
-      <div class="article-cn">
-        <div class="grid grid-cols-1 gap-y-10">
-          <div class="simply-scroll simply-scroll-container">
-            <ul
-              id="simply-scroller"
-              ref="gsaplyScroller"
-              class="grid grid-flow-col gap-10"
-            >
-              <li v-for="(doc, i) in 1" :key="i">
-                <DocCard :index="'toplane_' + i" :item="top" />
-              </li>
-            </ul>
-          </div>
-          <div class="simply-scroll simply-scroll-container">
-            <ul
-              id="simply-scroller2"
-              ref="gsaplyScrollerTwo"
-              class="grid grid-flow-col gap-10"
-            >
-              <li v-for="(doc2, i2) in 9" :key="i2">
-                <DocCard :index="'bottomlane_' + i2" :item="bottom" />
-              </li>
-            </ul>
-          </div>
-        </div>
+    <div class="article-cn">
+      <div class="grid grid-cols-1 gap-y-10">
+        <ul ref="gsaplyScroller" class="grid grid-flow-col gap-10">
+          <li v-for="(doc, i) in 2" :key="i">
+            <DocCard :index="'toplane_' + i" :item="top" />
+          </li>
+        </ul>
+        <ul ref="gsaplyScrollerTwo" class="grid grid-flow-col gap-10">
+          <li v-for="(doc2, i2) in 9" :key="i2">
+            <DocCard :index="'bottomlane_' + i2" :item="bottom" />
+          </li>
+        </ul>
       </div>
-    <!-- </ClientOnly> -->
+    </div>
   </div>
 </template>
 
@@ -134,13 +122,8 @@ import HomeCarousel from '@/components/sliders/carousel'
 import HomeNewsCard from '@/components/card/HomeNewsCard'
 import DocCard from '@/components/card/DocCard'
 import MoreButton from '@/components/card/MoreButton'
-import $ from 'jquery'
 import SmoothScroll from '~/mixins/SmoothScroll.js'
-import GsaplyScroll from '~/mixins/GsaplyScroll.js'
-
-if (process.client) {
-  require('jquery-simplyscroll')
-}
+import InfiniteHorzScroll from '~/utils/infiniteHorzScroll'
 
 export default {
   components: {
@@ -149,7 +132,7 @@ export default {
     DocCard,
     MoreButton
   },
-  mixins: [SmoothScroll, GsaplyScroll],
+  mixins: [SmoothScroll],
   data() {
     return {
       top: {
@@ -165,91 +148,36 @@ export default {
         short_desc:
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et augue mauris a vulputate.'
       },
-      simplyStart: false
+      infinitScrollOne: null,
+      infinitScrollTwo: null
     }
+  },
+  destroyed() {
+    this.infinitScrollOne.kill()
+    this.infinitScrollTwo.kill()
   },
   mounted() {
     this.$nextTick(function () {
-      // this.gsaplyScroll(this.$refs.gsaplyScroller, 4)
-      // this.gsaplyScroll(this.$refs.gsaplyScrollerTwo, 0.25)
-      $('#simply-scroller').simplyScroll({
-        auto: true,
-        autoMode: 'loop',
-        customClass: 'simply-scroll',
-        direction: 'backward',
-        frameRate: 60,
-        initialOffset: 0,
-        manualMode: 'end',
-        orientation: 'horizontal',
-        pauseButton: false,
-        pauseOnHover: false,
-        pauseOnTouch: false,
-        speed: 4,
-        startOnLoad: false
-      })
-
-      $('#simply-scroller2').simplyScroll({
-        auto: true,
-        autoMode: 'loop',
-        customClass: 'simply-scroll',
-        direction: 'forwards',
-        frameRate: 60,
-        initialOffset: 0,
-        manualMode: 'end',
-        orientation: 'horizontal',
-        pauseButton: false,
-        pauseOnHover: false,
-        pauseOnTouch: false,
-        speed: 8,
-        startOnLoad: false
-      })
+      this.infinitScrollOne = new InfiniteHorzScroll(
+        this.$refs.gsaplyScroller,
+        4
+      )
+      this.infinitScrollOne.init()
+      this.infinitScrollTwo = new InfiniteHorzScroll(
+        this.$refs.gsaplyScrollerTwo,
+        -8
+      )
+      this.infinitScrollTwo.init()
     })
   }
 }
 </script>
 
-<style lang="postcss">
+<style lang="postcss" scoped>
 .article-cn {
   position: relative;
   overflow: hidden;
   width: 100%;
   height: auto;
-}
-/* Container DIV - automatically generated */
-.simply-scroll-container {
-  position: relative;
-}
-
-/* Clip DIV - automatically generated */
-.simply-scroll-clip {
-  position: relative;
-  overflow: hidden;
-}
-
-/* UL/OL/DIV - the element that simplyScroll is inited on
-Class name automatically added to element */
-.simply-scroll-list {
-  overflow: hidden;
-  margin: 0;
-  list-style: none;
-}
-/* Custom class modifications - adds to / overrides above
-.simply-scroll is default base class */
-
-/* Container DIV */
-.simply-scroll {
-  width: 100%;
-}
-
-/* Clip DIV */
-.simply-scroll .simply-scroll-clip {
-  width: 100%;
-}
-
-/* Explicitly set height/width of each list item */
-.simply-scroll .simply-scroll-list li {
-  float: left; /* Horizontal scroll only */
-  width: 435px;
-  height: 260px;
 }
 </style>
