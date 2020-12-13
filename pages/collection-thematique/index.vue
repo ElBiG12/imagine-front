@@ -1,12 +1,11 @@
 <template>
-  <div class="ic-container push-from-header">
+  <div class="push-from-header">
     <div class="ic-container">
       <div class="grid grid-cols-1">
         <div class="">
-          <h1 class="text-6xl font-bold font-display mb-5">
-            Nous créons des
-            <span class="text-secondary">Collection thématique </span>
-            percutantes qui se démarquent...
+          <h1 class="sm:text-2xl md:text-6xl font-bold font-display mb-5">
+            <span class="text-secondary">Collections Thématiques,</span>
+            Le resumé.
           </h1>
           <p class="text-2xl font-light font-display">
             Dans le cadre du projet Imagine nous nous proposons de réfléchir à
@@ -17,84 +16,56 @@
         </div>
       </div>
     </div>
+    <section class="section pt-24 ic-container">
+      <div
+        class="grid sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 gap-40"
+      >
+        <div class="">
+          <p class="text-base font-regular font-display leading-7">
+            Riche en termes de contenant, car il y a divers supports, les films
+            documentaires réalisés dans le cadre de l’atelier de formation, des
+            rushes de films inachevés, des débats filmés, des séances de
+            ciné-clubs filmées, des contributions de différents experts dans
+            différentes disciplines en rapport avec le cinéma du réel, qui se
+            sont soldés par des écrits sous différentes formes.
+          </p>
+          <p class="text-base font-regular font-display leading-7 pt-6">
+            Riche en termes de contenu, par les divers sujets, thématiques,
+            formes et problématiques abordées à partir de l’accumulation d’un
+            travail de création mené par des cinéastes débutants, accompagnés
+            par des formateurs/formatrices et intervenant.e.s spécialisé.e.s.
+          </p>
+        </div>
+        <div>
+          <div>
+            <p class="text-base font-regular font-display leading-7">
+              Afin de rendre le contenu d'une matière encore plus lisible pour
+              les uns et les autres, nous proposons de le mettre en valeur en
+              créant des collections thématiques. Cette mission, qui va être
+              menée de façon collaborative par des spécialistes, chacun dans son
+              domaine, va permettre la création d’objets nouveaux à partir d’une
+              matière déjà existante.
+            </p>
+            <div class="pt-16">
+              <NuxtLink to="/imagine">
+                <MoreButton />
+              </NuxtLink>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
     <div class="ic-container mt-24">
-      <h1 class="sm:text-3xl md:text-5xl font-bold font-display">
+      <!-- <h1 class="sm:text-3xl md:text-5xl font-bold font-display">
         Nos collections thématiques
-      </h1>
+      </h1> -->
     </div>
     <div class="ic-container flex flex-col gap-y-64 mt-24">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-16 card-item">
-        <div data-scroll data-scroll-speed="1">
-          <img
-            class="img-wrapper"
-            src="https://images.unsplash.com/photo-1499720843949-d9e6f318dca0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
-            alt="title"
-          />
-        </div>
-        <div class="marge">
-          <div data-scroll data-scroll-speed="3">
-            <h2 class="card-title p-4 bg-white">This is just a title</h2>
-          </div>
-          <div class="pt-24" data-scroll data-scroll-speed="4">
-            <p class="discreption" id="desc">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-              Excepturi inventore vitae hic earum provident.
-            </p>
-            <span> En savoir plus </span>
-          </div>
-        </div>
-      </div>
-      <!-- <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
-        <div class="title-cn marge">
-          <div class="text-right pb-10" data-scroll data-scroll-speed="3">
-            <h2 class="card-title-rev sm:text-left md:text-right p-4 bg-white">
-              This is just a title
-            </h2>
-          </div>
-          <p class="pt-24 text-right" data-scroll data-scroll-speed="4">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi
-            inventore vitae hic earum provident. Quae adipisci repellat
-            assumenda minus debitis, iusto veritatis! Suscipit blanditiis,
-            facilis ea vel animi exercitationem itaque.
-          </p>
-        </div>
-        <div class="" data-scroll data-scroll-speed="1">
-          <img
-            src="https://images.unsplash.com/photo-1506259091721-347e791bab0f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
-            alt="title"
-          />
-        </div>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
-        <div class="" data-scroll data-scroll-speed="1">
-          <img
-            src="https://images.unsplash.com/photo-1550684848-fac1c5b4e853?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
-            alt="title"
-          />
-        </div>
-        <div class="marge">
-          <div data-scroll data-scroll-speed="4">
-            <h2 class="card-title p-4 bg-white">
-              An Encouter with Colors to be seen
-            </h2>
-          </div>
-
-          <p
-            class="pt-24"
-            data-scroll
-            data-scroll-speed="3"
-            data-scroll-offset-bottom="25%, 15%"
-          >
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi
-            inventore vitae hic earum provident. Quae adipisci repellat
-            assumenda minus debitis, iusto veritatis! Suscipit blanditiis,
-            facilis ea vel animi exercitationem itaque.
-          </p>
-        </div>
-      </div> -->
+      <Collectioncard />
+      <Collectioncard />
     </div>
-    <div class="ic-container">
-       <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-24 mt-24">
+    <div class="ic-container mt-24">
+      <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-24 mt-64">
         <div class="">
           <h1 class="sm:text-3xl md:text-3xl font-bold font-display mb-8">
             Nos objectifs a long termes
@@ -129,7 +100,7 @@
           <h1 class="sm:text-3xl md:text-3xl font-bold font-display mb-8">
             Nos objectifs a court terme
           </h1>
-          <p class="text-base font-regular font-display leading-7">
+          <p class="text-base font-regular font-display leading-7 mb-8">
             L’objectif à court terme, consiste à créer une collection thématique
             sous forme d’un objet image et texte. Cet objet sera mis en ligne
             sur la plate-forme numérique IMAGINE de Cinéma &amp; Mémoire.
@@ -148,39 +119,32 @@
 </template>
 
 <script>
-import gsap from 'gsap'
+// import gsap from 'gsap'
 import SmoothScroll from '~/mixins/SmoothScroll.js'
-
 export default {
   mixins: [SmoothScroll],
   mounted() {
-    const card = document.querySelector('.card-item')
-    const img = document.querySelector('.img-wrapper')
-    const desc = document.querySelector('.discreption')
-
-    const tl = gsap.to(img, {
-      scale: 0.98,
-      duration: 0.5,
-      paused: true,
-      ease: 'power1.inOut'
-    })
-    const hover = gsap.to(desc, {
-      scale: 1.5,
-      color: 'blue',
-      duration: 0.5,
-      paused: true,
-      ease: 'power1.inOut'
-    })
-
-    card.addEventListener('mouseenter', () => tl.play(), hover.play())
-    card.addEventListener('mouseleave', () => tl.reverse(), hover.reverse())
-    // card.addEventListener('mouseenter', () => hover.play())
-    // card.addEventListener('mouseleave', () => hover.reverse())
   }
 }
 </script>
 
 <style lang="postcss" scoped>
+.esp {
+  @apply text-xl font-medium leading-none;
+  padding-left: 10px;
+  color: #f39200;
+}
+.parent-rect {
+  width: 100%;
+  display: flex;
+}
+.child-rect {
+  opacity: 0%;
+  width: 0%;
+  height: 2px;
+  background-color: #f39200;
+  align-self: center;
+}
 .discreption {
   overflow: hidden;
   color: black;
@@ -197,7 +161,7 @@ export default {
 
 .card-title {
   position: absolute;
-  @apply text-4xl font-extrabold leading-none mt-4;
+  @apply text-3xl font-extrabold leading-none mt-4;
   transform: translateX(-10vw);
   color: black;
   text-shadow: 0px 4px 10px rgba(238, 238, 238, 0.25);
@@ -205,7 +169,7 @@ export default {
 
 .card-title-rev {
   position: absolute;
-  @apply text-4xl font-extrabold leading-none mt-4;
+  @apply text-3xl font-extrabold leading-none mt-4;
   transform: translateX(200px);
   z-index: 10;
   text-shadow: 0px 4px 10px rgba(238, 238, 238, 0.25);
@@ -221,13 +185,13 @@ export default {
 @media only screen and (max-width: 600px) {
   .card-title {
     position: absolute;
-    @apply text-4xl font-extrabold leading-none mt-4;
+    @apply text-2xl font-extrabold leading-none mt-4;
     transform: translateX(0);
     color: black;
   }
   .card-title-rev {
     position: absolute;
-    @apply text-5xl font-extrabold leading-none mt-4;
+    @apply text-3xl font-extrabold leading-none mt-4;
     transform: translateX(0);
     text-align: left;
     z-index: 10;

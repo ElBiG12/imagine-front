@@ -17,7 +17,7 @@
             <NuxtLink to="/collection-thematique">
               Collection Thematique
             </NuxtLink>
-            <NuxtLink to="/collection-thematique">MasterClass </NuxtLink>
+            <NuxtLink to="/masterclass">MasterClass </NuxtLink>
           </div>
         </div>
         <div class="dropdown">
