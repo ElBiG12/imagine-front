@@ -24,28 +24,28 @@
         <div class="flex flex-wrap flex-row gap-y-8">
           <div class="w-full md:w-1/2 pr-8">
             <input
-              id="default"
+              id="name"
               type="text"
-              name="default"
+              name="name"
               placeholder="Enter your name"
               class="w-full"
             />
           </div>
           <div class="w-full md:w-1/2 pr-8">
             <input
-              id="default"
-              type="text"
-              name="default"
-              placeholder="Enter your name"
+              id="email"
+              type="email"
+              name="email"
+              placeholder="Enter your email"
               class="w-full"
             />
           </div>
           <div class="w-full pr-8">
             <input
-              id="default"
+              id="message"
               type="text"
-              name="default"
-              placeholder="Enter your name"
+              name="message"
+              placeholder="Enter your message"
               class="w-full"
             />
           </div>

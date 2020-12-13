@@ -61,10 +61,13 @@ export default {
         smartphone: {
           smooth: true
         },
+        touchMultiplier: 4,
         scrollbarClass: 'page-scrollbar'
       })
 
-      document.querySelector('.page-scrollbar').style.opacity = 1
+      if (document.querySelector('.page-scrollbar')) {
+        document.querySelector('.page-scrollbar').style.opacity = 1
+      }
 
       vm.initScrollerProxy()
 
@@ -98,7 +101,6 @@ export default {
         if (totalOffset !== this.totalOffset) {
           this.lmS.update()
           this.totalOffset = totalOffset
-          console.log('double check resize')
         }
       } catch {}
     },

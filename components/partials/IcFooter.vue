@@ -7,9 +7,9 @@
         <p class="links-title">Le projet</p>
         <ul class="links space-y-8">
           <nuxt-link to="/imagine" tag="li"> Imagine </nuxt-link>
-          <nuxt-link to="" tag="li"> Ateliers </nuxt-link>
+          <nuxt-link to="" tag="li"> Atelier </nuxt-link>
           <nuxt-link to="/collection-thematique" tag="li">
-            Collections Thémathiques
+            Collection Thémathique
           </nuxt-link>
           <nuxt-link to="" tag="li"> Masterclass </nuxt-link>
         </ul>
@@ -36,11 +36,11 @@
         <div class="grid grid-cols-5 gap-y-8 gap-x-8">
           <div class="col-span-5 md:col-span-3">
             <input
-              id="default"
+              id="newsletter"
               type="text"
-              name="default"
+              name="newsletter"
               class="w-full"
-              placeholder="Enter votre adresse email"
+              placeholder="Enter your email"
             />
           </div>
           <div class="col-span-5 md:col-span-3">

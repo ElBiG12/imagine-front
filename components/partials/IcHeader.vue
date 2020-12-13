@@ -61,7 +61,7 @@
 </template>
 
 <script>
-import { MobileMenu } from '@/components/partials/MobileMenu'
+import MobileMenu from '@/components/partials/MobileMenu'
 export default {
   props: {
     closeMode: {

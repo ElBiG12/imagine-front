@@ -200,9 +200,9 @@
         </div>
       </div>
     </div>
-    <div class="poster-cn">
-      <div class="grid grid-cols-1 place-items-center">
-        <ul id="scroller-nh" class="simply-scroll-list">
+    <div class="poster-cn pt-10">
+      <div class="grid grid-cols-1 gap-y-10">
+        <ul ref="gsaplyScroller" class="ic-scroll-list">
           <li>
             <img src="/img/bejaiaDoc2.jpg" />
           </li>
@@ -219,7 +219,7 @@
             <img src="/img/Cinema-de-passages.jpeg" />
           </li>
         </ul>
-        <ul id="scroller-nh2" class="simply-scroll-list">
+        <ul ref="gsaplyScrollerTwo" class="ic-scroll-list">
           <li>
             <img src="/img/bejaiaDoc2.jpg" />
           </li>
@@ -249,47 +249,34 @@
   </div>
 </template>
 <script>
-import $ from 'jquery'
+import InfiniteHorzScroll from '~/utils/infiniteHorzScroll'
 import SmoothScroll from '~/mixins/SmoothScroll.js'
-
-if (process.client) {
-  require('jquery-simplyscroll')
-}
 
 export default {
   mixins: [SmoothScroll],
+  data() {
+    return {
+      infinitScrollOne: null,
+      infinitScrollTwo: null
+    }
+  },
+  destroyed() {
+    this.infinitScrollOne.kill()
+    // this.infinitScrollTwo.kill()
+  },
   mounted() {
     this.$nextTick(function () {
-      $('#scroller-nh').simplyScroll({
-        auto: true,
-        autoMode: 'loop',
-        customClass: 'simply-scroll-nh',
-        direction: 'backward',
-        frameRate: 60,
-        initialOffset: 0,
-        manualMode: 'end',
-        orientation: 'horizontal',
-        pauseButton: false,
-        pauseOnHover: false,
-        pauseOnTouch: false,
-        speed: 4,
-        startOnLoad: false
-      })
-      $('#scroller-nh2').simplyScroll({
-        auto: true,
-        autoMode: 'loop',
-        customClass: 'simply-scroll-nh',
-        direction: 'forwards',
-        frameRate: 60,
-        initialOffset: 0,
-        manualMode: 'end',
-        orientation: 'horizontal',
-        pauseButton: false,
-        pauseOnHover: false,
-        pauseOnTouch: false,
-        speed: 8,
-        startOnLoad: false
-      })
+      this.infinitScrollOne = new InfiniteHorzScroll(
+        this.$refs.gsaplyScroller,
+        4
+      )
+      this.infinitScrollOne.init()
+
+      this.infinitScrollTwo = new InfiniteHorzScroll(
+        this.$refs.gsaplyScrollerTwo,
+        -8
+      )
+      this.infinitScrollTwo.init()
     })
   }
 }
@@ -302,34 +289,24 @@ export default {
   width: 100%;
   background-color: #0a0e0d;
 }
-/* Container DIV - automatically generated */
-.simply-scroll-container {
-  position: relative;
-}
 
-/* Clip DIV - automatically generated */
-.simply-scroll-clip {
-  position: relative;
-  overflow: hidden;
-}
-
-/* UL/OL/DIV - the element that simplyScroll is inited on
-Class name automatically added to element */
-.simply-scroll-list {
-  overflow: hidden;
+.ic-scroll-list {
   margin: 0;
   padding: 0;
   list-style: none;
-  @apply grid grid-flow-col;
+  @apply grid grid-flow-col gap-10;
 }
 
-.simply-scroll-list li {
+/* li fixed width and height needed for InfiniteHorizontalScroll */
+.ic-scroll-list li {
   padding: 0;
   margin: 0;
   list-style: none;
+  width: 328px;
+  height: 470px;
 }
 
-.simply-scroll-list li img {
+.ic-scroll-list li img {
   border: none;
   display: block;
   position: relative;
@@ -339,27 +316,6 @@ Class name automatically added to element */
   height: 470px;
 }
 
-/* Custom class modifications - adds to / overrides above
-.simply-scroll is default base class */
-
-/* Container DIV */
-.simply-scroll-nh {
-  width: 100%;
-  margin-bottom: 1em;
-}
-
-/* Clip DIV */
-.simply-scroll-nh .simply-scroll-clip {
-  width: 100%;
-}
-
-/* Explicitly set height/width of each list item */
-.simply-scroll-nh .simply-scroll-list li {
-  float: left; /* Horizontal scroll only */
-  width: 328px;
-  height: 470px;
-  padding: 20px;
-}
 .vid-container {
   position: relative;
   padding-top: 56.25%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
